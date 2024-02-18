@@ -1,12 +1,8 @@
-@font-face {
-font-family: 'jetbrainsmono';
-src: url('./font/jetbrains-mono.ttf')
-}
+@import "colors.css";
 
 body {
-background-color: #282828; 
-color: #ebdbb2; 
-font-family: "jetbrainsmono";
+background-color: var(--bg); 
+color: var(--fg); 
 } 
 
 h1 {
@@ -14,20 +10,31 @@ text-align: center;
 }
 
 h2 {
-color:#98971a;
-}
-
-hr {
-color:#98971a;
+color: var(--fg2);
 }
 
 a,b {
 text-decoration: none; 
-color: #458588;
+color: var(--a);
 }
 
 a:hover {
-color:#83a598;
+color: var(--a-hover);
+}
+
+hr {
+color: var(--fg2)
+}
+
+th {
+background-color: var(--fg2);
+color: var(--bg);
+}
+
+table{
+background-color: var(--bg2);
+color: var(--fg2);
+border-color: var(--bg);
 }
 
 img {

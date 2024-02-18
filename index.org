@@ -3,20 +3,15 @@
 #+OPTIONS: toc:nil num:nil html-postamble:nil
 
 #+HTML_HEAD:<style> 
-#+HTML_HEAD: @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap'); 
-#+HTML_HEAD: body {background-color: #282828; color: #ebdbb2; font-family: "JetBrains Mono";} 
-#+HTML_HEAD: h1,h2,h3{text-align: center;}
-#+HTML_HEAD: hr{color:#98971a;}
-#+HTML_HEAD: h2{color:#98971a;}
-#+HTML_HEAD: a,b{text-decoration: none; color: #458588;}
-#+HTML_HEAD: a:hover{color:#83a598;}
 #+HTML_HEAD: table{margin: auto; padding: 20px;}
+#+HTML_HEAD: h1,h2,h3{text-align: center; !important}
 #+HTML_HEAD:</style>
+#+HTML_HEAD: <link rel="stylesheet" href="./src/styles.css">
 
 ** Bem vindo ao meu blog!
 
 *** Posts:
-|                             |            |
+
 | [[./posts/vivendo-no-emacs.html][Vivendo no Emacs]]            | 09/02/2024 |
 | [[./posts/qutebrowser.html][Qutebrowser]]                 | 05/02/2024 |
 | [[./posts/dracula.html][Dracula]]                     | 27/01/2024 |
@@ -31,4 +26,4 @@
 | [[./posts/fedora-sericea.html][Fedora Sericea]]              | 11/06/2023 |
 | [[./posts/sway.html][Sway]]                        | 10/06/2023 |
 | [[./posts/minha-tv.html][Minha nova TV]]               | 08/06/2023 |
-|                             |            |
+

@@ -1,0 +1,48 @@
+@font-face {
+font-family: 'jetbrainsmono';
+src: url('./font/jetbrains-mono.ttf');
+}
+
+/* Gruvbox */
+:root {
+--bg:           #282828;
+--bg2:          #3c3836; 
+--fg:           #ebdbb2; 
+--fg2:          #98971a;
+--a:            #458588;
+--a-hover:      #83a598;
+font-family:	"jetbrainsmono";
+}
+
+/* Dracula
+:root {
+--bg:           #282A36;
+--bg2:          #44475A;
+--fg:           #F8F8F2;
+--fg2:          #50FA7B;
+--a:            #BD93F9;
+--a-hover:      #8BE9FD;
+font-family:	"jetbrainsmono";
+} */
+
+/* Nord
+:root {
+--bg:           #2E3440;
+--bg2:          #3B4252;
+--fg:           #D8DEE9;
+--fg2:          #A3BE8C;
+--a:            #8FBCBB;
+--a-hover:      #81A1C1;
+font-family:	"jetbrainsmono";
+} */
+
+/* Catppuccin 
+:root {
+--bg:           #1e1e2e;
+--bg2:          #313244;
+--fg:           #cdd6f4;
+--fg2:          #a6e3a1;
+--a:            #89b4fa;
+--a-hover:      #74c7ec;
+font-family:	"jetbrainsmono";
+} */
