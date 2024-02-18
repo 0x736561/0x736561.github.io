@@ -1,5 +1,4 @@
 #+TITLE: [[../index.html][Sway]]
------
 
 ** Não me pergunte o porquê de eu querer fazer um artigo sobre uma interface gráfica.
 Eu só tô entediado e sem nada melhor para fazer.

@@ -1,5 +1,5 @@
 #+TITLE: [[../index.html][Qutebrowser]]
------
+
 ** Meu navegador web favorito
 
 Lá vamos nós de novo, mais um artigo sobre navegador web. Faz um tempo que não falo sobre esse assunto, e sinceramente não sei porquê me veio essa vontade de comentar sobre isso. Me soa muito como algo trivial, não sei muito bem como descrever esse sentimento.

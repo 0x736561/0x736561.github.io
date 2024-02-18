@@ -22,10 +22,6 @@ a:hover {
 color: var(--a-hover);
 }
 
-hr {
-color: var(--fg2)
-}
-
 th {
 background-color: var(--fg2);
 color: var(--bg);

@@ -1,5 +1,4 @@
 #+TITLE: [[../index.html][Codeberg]]
------
 
 ** Tchau, tchau, Github!
 Pois é, passou-se apenas alguns dias desde o meu último post e eu

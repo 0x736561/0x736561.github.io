@@ -1,5 +1,5 @@
 #+TITLE: [[../index.html][Vivendo no Emacs]]
------
+
 Sim. Eu enlouqueci.
 
 ** Como assim?
