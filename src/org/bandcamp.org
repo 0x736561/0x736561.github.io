@@ -1,9 +1,4 @@
 #+TITLE: [[../index.html][Bandcamp]]
-#+OPTIONS:  num:nil html-postamble:nil
-
-#+HTML_HEAD:<style> 
-#+HTML_HEAD: @import "../src/styles.css"
-#+HTML_HEAD:</style>
 -----
 ** Mais outro serviço de música que eu estou usando ._.
 Já faz mais de 1 mês desde a última vez que eu postei alguma coisa no blog, e justamente quando eu volto eu já estou com outro serviço de música para comentar.

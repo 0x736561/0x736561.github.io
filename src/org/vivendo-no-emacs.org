@@ -1,11 +1,4 @@
-
 #+TITLE: [[../index.html][Vivendo no Emacs]]
-#+OPTIONS:  num:nil html-postamble:nil
-
-#+HTML_HEAD:<style> 
-#+HTML_HEAD: @import "../src/styles.css"
-#+HTML_HEAD:</style>
-
 -----
 Sim. Eu enlouqueci.
 

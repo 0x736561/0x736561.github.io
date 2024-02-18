@@ -1,9 +1,4 @@
 #+TITLE: [[../index.html][Atualizações]]
-#+OPTIONS:  num:nil html-postamble:nil
-
-#+HTML_HEAD:<style> 
-#+HTML_HEAD: @import "../src/styles.css"
-#+HTML_HEAD:</style>
 -----
 
 Quanto tempo, caro leitor! Espero que esteja tudo bem com você. Bom, perdoe a falta de artigos nos últimos tempos, os meses finais de 2023 foram muito agitados pra mim, fim da escola e etc.

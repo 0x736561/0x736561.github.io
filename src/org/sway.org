@@ -1,9 +1,4 @@
 #+TITLE: [[../index.html][Sway]]
-#+OPTIONS:  num:nil html-postamble:nil
-
-#+HTML_HEAD:<style> 
-#+HTML_HEAD: @import "../src/styles.css"
-#+HTML_HEAD:</style>
 -----
 
 ** Não me pergunte o porquê de eu querer fazer um artigo sobre uma interface gráfica.

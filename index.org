@@ -13,10 +13,6 @@
 #+HTML_HEAD: table{margin: auto; padding: 20px;}
 #+HTML_HEAD:</style>
 
-
-** [[https://github.com/0x736561/sway][Amante de Window Managers]] / [[./index.html][Blogger]]
------
-
 ** Bem vindo ao meu blog!
 
 *** Posts:

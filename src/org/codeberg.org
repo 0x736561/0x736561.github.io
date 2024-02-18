@@ -1,9 +1,4 @@
 #+TITLE: [[../index.html][Codeberg]]
-#+OPTIONS:  num:nil html-postamble:nil
-
-#+HTML_HEAD:<style> 
-#+HTML_HEAD: @import "../src/styles.css"
-#+HTML_HEAD:</style>
 -----
 
 ** Tchau, tchau, Github!

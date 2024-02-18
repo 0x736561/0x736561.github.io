@@ -1,9 +1,4 @@
 #+TITLE: [[../index.html][Google Domains vai de Vasco]]
-#+OPTIONS:  num:nil html-postamble:nil
-
-#+HTML_HEAD:<style> 
-#+HTML_HEAD: @import "../src/styles.css"
-#+HTML_HEAD:</style>
 -----
 Hoje eu vi um vídeo do Fireship no Youtube falando sobre o assunto, o que me deixou extremamente decepcionado com o Google.
 
