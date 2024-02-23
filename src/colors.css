@@ -14,7 +14,7 @@ src: url('./font/jetbrains-mono.ttf');
 font-family:	"jetbrainsmono";
 }
 
-/* Dracula
+/* Dracula 
 :root {
 --bg:           #282A36;
 --bg2:          #44475A;
@@ -36,7 +36,7 @@ font-family:	"jetbrainsmono";
 font-family:	"jetbrainsmono";
 } */
 
-/* Catppuccin 
+/* Catppuccin
 :root {
 --bg:           #1e1e2e;
 --bg2:          #313244;

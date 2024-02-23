@@ -1,17 +1,18 @@
 
-#+TITLE: Sea
+#+TITLE: Bem-vindo ao meu blog!
 #+OPTIONS: toc:nil num:nil html-postamble:nil
 
+#+HTML_HEAD: <link rel="stylesheet" href="./src/styles.css">
 #+HTML_HEAD:<style> 
 #+HTML_HEAD: table{margin: auto; padding: 20px;}
 #+HTML_HEAD: h1,h2,h3{text-align: center; !important}
+#+HTML_HEAD: tbody{background-color: var(--bg); !important}
 #+HTML_HEAD:</style>
-#+HTML_HEAD: <link rel="stylesheet" href="./src/styles.css">
 
-** Bem vindo ao meu blog!
 
 *** Posts:
 
+| [[./posts/gemini.html][Gemini]]                      | 23/02/2024 |
 | [[./posts/vivendo-no-emacs.html][Vivendo no Emacs]]            | 09/02/2024 |
 | [[./posts/qutebrowser.html][Qutebrowser]]                 | 05/02/2024 |
 | [[./posts/dracula.html][Dracula]]                     | 27/01/2024 |
