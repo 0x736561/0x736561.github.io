@@ -1,0 +1,30 @@
+
+#+TITLE: Bem-vindo ao meu blog!
+#+OPTIONS: toc:nil num:nil html-postamble:nil
+
+#+HTML_HEAD: <link rel="stylesheet" href="./src/styles.css">
+#+HTML_HEAD:<style> 
+#+HTML_HEAD: table{margin: auto; padding: 20px;}
+#+HTML_HEAD: h1,h2,h3{text-align: center; !important}
+#+HTML_HEAD: tbody{background-color: var(--bg); !important}
+#+HTML_HEAD:</style>
+
+
+*** Posts:
+
+| [[./posts/gemini.html][Gemini]]                      | 23/02/2024 |
+| [[./posts/vivendo-no-emacs.html][Vivendo no Emacs]]            | 09/02/2024 |
+| [[./posts/qutebrowser.html][Qutebrowser]]                 | 05/02/2024 |
+| [[./posts/dracula.html][Dracula]]                     | 27/01/2024 |
+| [[./posts/codeberg.html][Codeberg]]                    | 23/01/2024 |
+| [[./posts/atualizações.html][Atualizações]]                | 02/01/2024 |
+| [[./posts/bandcamp.html][Bandcamp]]                    | 27/10/2023 |
+| [[./posts/spotify-vs-youtube.html][Spotify vs Youtube]]          | 23/09/2023 |
+| [[./posts/assinei-o-spotify.html][Assinei o Spotify]]           | 17/07/2023 |
+| [[./posts/proton-pass.html][Proton Pass]]                 | 02/07/2023 |
+| [[./posts/workflow-web.html][Workflow Web]]                | 28/06/2023 |
+| [[./posts/google-domains.html][Google Domains vai de Vasco]] | 17/06/2023 |
+| [[./posts/fedora-sericea.html][Fedora Sericea]]              | 11/06/2023 |
+| [[./posts/sway.html][Sway]]                        | 10/06/2023 |
+| [[./posts/minha-tv.html][Minha nova TV]]               | 08/06/2023 |
+

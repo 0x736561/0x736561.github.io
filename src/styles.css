@@ -1,12 +1,8 @@
 @import "colors.css";
-:root {
-background-color: var(--bg)
-}
+
 body {
 background-color: var(--bg); 
 color: var(--fg); 
-margin: auto;
-padding: 20px;
 } 
 
 h1 {
@@ -23,9 +19,6 @@ color: var(--a);
 }
 
 a:hover {
-color: var(--a-hover);
-}
-a:visited {
 color: var(--a-hover);
 }
 
