@@ -1,6 +1,6 @@
 @font-face {
 font-family: 'jetbrainsmono';
-src: url('./font/jetbrains-mono.ttf');
+src: url('./jetbrains-mono.ttf');
 }
 
 /* Gruvbox */
@@ -14,8 +14,8 @@ src: url('./font/jetbrains-mono.ttf');
 font-family:	"jetbrainsmono";
 }
 
-/* Dracula 
-:root {
+/* Dracula */
+/*:root {
 --bg:           #282A36;
 --bg2:          #44475A;
 --fg:           #F8F8F2;
@@ -23,7 +23,7 @@ font-family:	"jetbrainsmono";
 --a:            #BD93F9;
 --a-hover:      #8BE9FD;
 font-family:	"jetbrainsmono";
-} */
+}*/
 
 /* Nord
 :root {
