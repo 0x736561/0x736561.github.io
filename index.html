@@ -1,300 +1,459 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-<!-- 2024-02-23 Fri 00:34 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Bem-vindo ao meu blog!</title>
-<meta name="author" content="john" />
-<meta name="generator" content="Org Mode" />
-<style>
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
-<link rel="stylesheet" href="./src/styles.css">
-<style>
-table{margin: auto; padding: 20px;}
-h1,h2,h3{text-align: center; !important}
-tbody{background-color: var(--bg); !important}
-</style>
+  <meta charset="utf-8">
+  <meta name="generator" content="gendoc 1.0.0: https://gitlab.com/bztsrc/gendoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sea</title>
+  <style rel="logic">*{box-sizing:border-box;font-family:inherit;}body {background:rgba(0,0,0,0.05);font-weight:400;font-size:16px;}hr{display:block;height:1px;border:0;border-top:1px solid #e1e4e5;margin:26px 0;padding:0;border-top:1px solid;}br:after,br:before{display:table;content:""}br{clear:both;}h1,h2,h3,h4,h5,h6{clear:both;margin:0px 0px 20px 0px;padding-top:4px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}p{margin:0 0 24px}a{cursor:pointer;}h1{font-size:175%}h2{font-size:150%}h3{font-size:125%}h4{font-size:115%}h5{font-size:110%}h6{font-size:100%}pre,samp,code,var,kbd{font-family:Monaco,Consolas,Liberation Mono,Courier,monospace;font-variant-ligatures:none;}pre,code{display:block;overflow:auto;white-space:pre;font-size:14px;line-height:16px!important;}pre{padding:12px;margin:0px;}code{padding:0 0 12px 0;margin:12px 12px 0px 2px;background:url(data:type/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAgCAYAAADT5RIaAAAAFklEQVQI12NgYGDgZWJgYGCgDkFtAAAWnAAsyj4TxgAAAABJRU5ErkJggg==) 0 0 repeat;}.lineno{display:block;padding:0px 4px 0px 4px;margin:12px 0px 0px 0px;opacity:.4;text-align:right;float:left;white-space:pre;font-size:12px;line-height:16px!important;}pre .hl_b,samp .hl_b,code .hl_b{display:block;}blockquote{margin:0px;padding:12px;}blockquote>span:first-child::before{content:url(data:type/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAgCAYAAABU1PscAAABRElEQVRYw+3WTytEURjH8c/4l1JTpKxsyEbYWFkpG+UVKOWFeAts7eytbJSysLLVxIKNFAslwhSlUQabUdM0xm0e967Ot+7inPN8z+13z73nXBKJRCIRoJSxbggrmMMInlHBIWoF+KEAQ9jAaJuxe2zhJUe/Iz0ZahZ/uTmMYT1nPxxg/I/xWQzn6IcD1IIha//wkEIBKhlq+nP0wwHOsYuvDjWvOfod6c1Yd9O4ZjDQZvwAbzn6oRVofpKbqLf0P+GxAD8cAO7w0NJ3WqAfDlBCuan9gaMC/XCA+cbJ+sMRqgX6oQCTWGtqX2O/QL8tfRlqyljGUlPgW2y3+SDz8Lv6mRvEQmPbm25ZqQvs/LHtRf3wCkxgtaWvij2cZJg36ocD/Pw91nGJY5zhM+O8UT/8Ck01TswrvHcxb9RPJBKJRDF8AyNbWk4WFTIzAAAAAElFTkSuQmCC);float:left;vertical-align:top;}.ui1,.ui2,.ui3,.ui4,.ui5,.ui6{display:inline-block;height:24px!important;line-height:24px!important;padding:0px 4px;margin:-2px 0px -2px;}kbd{display:inline-block;font-weight:700;border:1px solid #888;height:24px!important;padding:0px 4px;margin:-2px 0px -2px;border-radius:4px;background-image:linear-gradient(#ddd 0%,#eee 10%,#bbb 10%,#ccc 30%,#fff 85%,#eee 85%,#888 100%);}.mouseleft,.mouseright,.mousewheel{display:inline-block;min-width:16px;height:24px!important;padding:0px;margin:-2px 0px 0px 0px;vertical-align:middle;}.mouseleft::before{content:url(data:type/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAYCAMAAADEfo0+AAAAe1BMVEUAAACoqKj9/f2zs7O1tbWRkZGlpaWsrKybm5u2traNjY2Wlpanp6empqaYmJiPj4+3t7f5+fmjo6P19fXu7u6ZmZnx8fHi4uLm5ube3t7q6uqwsLC0tLS7u7u4uLi/v7/W1tbDw8PLy8vPz8/T09Pa2trHx8eIiIhERkShhqFGAAAAAXRSTlMAQObYZgAAAI5JREFUGNNV0EcCwjAMRFEB6R2DKSGQUBLp/idEjsG23m7+cgAMIsJWwR8Z235pumDTnkUbv+lg7CIfTqvSbTquxsGFfjWXLlwsdOFs+XC1EHAWOEwCh4/A4S1weAkcFoHDU0CI8zGQx1Cpe0BVAO0j0PIfiR4cnZjLdHP7abQ9VRVZnaZ1VvjfO42o7edfH3EoHZS6XE4AAAAASUVORK5CYII=);}.mouseright::before{content:url(data:type/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAYCAMAAADEfo0+AAAAe1BMVEUAAACoqKj9/f2zs7O1tbWRkZGlpaWsrKybm5u2traNjY2Wlpanp6empqaYmJiPj4+3t7f5+fmjo6P19fXu7u6ZmZnx8fHi4uLm5ube3t7q6uqwsLC0tLS7u7u4uLi/v7/W1tbDw8PLy8vPz8/T09Pa2trHx8eIiIhERkShhqFGAAAAAXRSTlMAQObYZgAAAI9JREFUGNNV0NkWgjAMRdGozFOxWgdEcYLk/7/Q0EpL9tNd5/ECzLRCIoJF20zdlsinTbRn5Eu0O8zIl/Jk+dAPR4uWUo6d5QNenBDOTghXJ4RRQMCnwOErcPgIHN4Ch0ng8BIQ4nxYyWOo9H1FVwDqsaL4j8T0nknmy0xz+2uMO1UXWZ2mdVbo8LtBNK2dP/2+KB2shyfVAAAAAElFTkSuQmCC);}.mousewheel::before{content:url(data:type/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAYCAMAAADEfo0+AAAAe1BMVEUAAACzs7OoqKisrKyRkZGlpaX9/f22trabm5uNjY2mpqanp6ePj4+1tbWYmJi3t7eWlpajo6OZmZmwsLD5+fnu7u7x8fHi4uLW1tbm5ube3t7T09Pq6ur19fW4uLi7u7u0tLTa2trPz8+/v7/Dw8PLy8vHx8eIiIhERkS4354xAAAAAXRSTlMAQObYZgAAAKdJREFUGNNV0NkagiAUhdHjPAECzWWlWdL7P2Fno/nJumHzXx4iMMI5YeivVVOX592k2vkfy/1CxvjL6L6KJAd9ZF+GVxP144Eh4B170kPHEPAOmtwFEPxw5E6A4AeHKyD4wWEABD84nAHBDw43QPCDwyvA4RPgMAU4vAOO0mLcKFJqzHPDNETisSH4HpntVzbDyazaLZSdj2qqsk6Suqw2d7fO2fnmP7kAJW9a/HbiAAAAAElFTkSuQmCC);}footer{width:100%;padding:0 3.236em;}footer p{opacity:0.6;}footer small{opacity:0.5;}footer a{text-decoration:none;color:inherit;}footer a:hover{text-decoration:underline;}dl{margin:0 0 24px 0;padding:0px;}dt{font-weight:700;margin-bottom:12px;}dd{margin:0 0 12px 24px;}.table table{margin:0px;border-collapse:collapse;border-spacing:0;empty-cells:show;border:1px solid;width:100%;}th{font-weight:700;padding:8px 16px;overflow:visible;vertical-align:middle;white-space:nowrap;border:1px solid;}th.wide{width:100%;}td{padding:8px 16px;overflow:visible;vertical-align:middle;font-size:90%;border:1px solid;}td.right{text-align:right;}table.grid{margin:0px;padding:0px;border:none!important;background:none!important;border-spacing:0;border:0px!important;empty-cells:show;width:100%;}table.grid tr, table.grid td{margin:0px;padding:0px;overflow:hidden;vertical-align:top;background:none!important;border:0px!important;font-size:90%;}div.frame{position:absolute;width:100%;min-height:100%;margin:0px;padding:0px;max-width:1100px;top:0px;left:0px;}#_m{margin-left:300px;min-height:100%;}div.title{display:block;width:300px;padding-top:.809em;padding-bottom:.809em;margin-bottom:.809em;text-align:center;font-weight:700;}div.title>a{padding:4px 6px;margin-bottom:.809em;font-size:150%;}div.title>a:hover{background:transparent;}div.title>a>img{max-width:280px;border:0px;padding:0px;margin:0px;}div.title input{display:none;width:270px;border-radius:50px;padding:6px 12px;font-size:80%;box-shadow:inset 0 1px 3px #ddd;transition:border .3s linear;}div.title input:required:invalid{background:#fcfcfc url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAASFBMVEUAAAC6urq7u7y7vLy8vL3Dw8TLzM67urq8vL29vr69vr/AwMK5ubm5ubm4uLi5t7fAwMC/vr/FxMXBwsPExcW+u7vDw8S4uLiryZHFAAAAF3RSTlMA9vGttk4lfbWnpJQG0MpzYEIglFRCGzMa+EsAAAB0SURBVBjTbY5bCsMwDAQl2U6cR5s0fcz9b1oLpWBC52dhENqVRsmG5SIn60wwryEm0LQkbUacAveh5XGDh4uKfsQZlOqpJAkS5gHPUyzgYdeLjB6/H7lvGbzlssP2WDoRGGzxrVRD82sHRukZ/xhv7tns/QXrhgcaFdOKBwAAAABJRU5ErkJggg==) no-repeat 10px 50%;}div.title input:focus{background:#fcfcfc!important;}div.version{margin-top:.4045em;margin-bottom:.809em;font-size:90%;}nav.side {display:block;position:fixed;top:0;bottom:0;left:0;width:300px;overflow-x:hidden;overflow-y:hidden;min-height:100%;font-weight:400;z-index:999;}nav.mobile {display:none;font-weight:bold;padding:.4045em .809em;position:relative;line-height:50px;text-align:center;font-size:100%;*zoom:1;}nav a{color:inherit;text-decoration:none;display:block;}nav.side>div{position:relative;overflow-x:hidden;overflow-y:scroll;width:320px;height:100%;padding-bottom:64px;}div.nav p{height:32px;line-height:32px;padding:0 1.618em;margin:12px 0px 0px 0px;font-weight:700;text-transform:uppercase;font-size:85%;white-space:nowrap;-webkit-font-smoothing:antialiased}div.nav li>.current,div.nav li>ul{display:none;}div.nav li>a,div.nav li>label{display:block;}div.nav a,div.nav ul>li>label,div.nav ul>li>.current{width:300px;line-height:18px;padding:0.4045em 1.618em;}div.nav a,div.nav ul>li>label{cursor:pointer;}div.nav .current{font-weight:700;border-top:1px solid;border-bottom:1px solid #c9c9c9;}div.nav ul>li>ul>li>a{border-right:solid 1px #c9c9c9;font-size:90%;}div.nav ul>li>ul>li.h2>a{padding:0.4045em 2.427em;}div.nav ul>li>ul>li.h3>a{padding:.4045em 1.618em .4045em 4.045em;}div.nav ul>li>ul>li.h4>a{padding:.4045em 1.618em .4045em 5.663em;}div.nav ul>li>ul>li.h5>a{padding:.4045em 1.618em .4045em 7.281em;}div.nav ul>li>ul>li.h6>a{padding:.4045em 1.618em .4045em 8.899em;}div.nav ul,div.nav li,.breadcrumbs{margin:0px!important;padding:0px;list-style:none;}ul.breadcrumbs,.breadcrumbs li{display:inline-block;}.menu{display:inline-block;position:absolute;top:12px;right:20px;cursor:pointer;width:1.5em;height:1.5em;vertical-align:middle;padding:16px 24px 16px 24px;border:solid 1px rgba(255, 255, 255, 0.5);border-radius:5px;background:no-repeat center center url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");}.home{display:inline-block;max-width:16px;max-height:16px;line-height:16px;margin:0 5px 0 0;cursor:pointer;}.home::before{content:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAS1BMVEUAAAD8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/PyxWsjVAAAAGHRSTlMAx6oLLRnYiXFEvPbey518NQbsj11QKhQ+J0ktAAAAbElEQVQY053ISQ7DMAwEwRYpavHurPz/SwMoMpD46L4MpvBTB0zTP+R9z55Ebh0yQL5DaDA+0WVR3h3Gikp9iPKF9MIkQhSDwUlGHCLQxhLGJkpLZcNYS/tdyorP/DQ7HgBqKRUgHBDcw2X4AFsJCSXB/5UVAAAAAElFTkSuQmCC);}h1>a,h2>a,h3>a,h4>a,h5>a,h6>a{display:none;max-width:16px;max-height:24px;margin:-8px 0 0 5px;vertical-align:middle;}h1:hover>a,h2:hover>a,h3:hover>a,h4:hover>a,h5:hover>a,h6:hover>a{display:inline-block;text-decoration:none!important;}h1>a::before,h2>a::before,h3>a::before,h4>a::before,h5>a::before,h6>a::before{content:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAiBAMAAACkb0T0AAAAMFBMVEUAAAD8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/PzS+N+gAAAAD3RSTlMABab5cVY73o4k2cJTPb1Q83MyAAAAh0lEQVQY02P4DwWkM7YxsNiDGJ8EGBgmgxiKDDkCLAwgAQn7hQxARiGj8v8/IIYDi2a9GZChHiAnMLmBjeGTaIBUAMcFaYaNvA2sC1kD9RkSOCwZF7IW/WdgSP4+yYHlP5Bx/r+RgDiIIfW5kVEfyHBgPMYgBLLdkoEBKABkfHZgyIa7h04MAOVty/RC/PhoAAAAAElFTkSuQmCC);}h1>a:hover::after,h2>a:hover::after,h3>a:hover::after,h4>a:hover::after,h5>a:hover::after,h6>a:hover::after{content:"Permalink to this headline";display:block;padding:12px;position:absolute;margin:-8px 8px;font-weight:400;font-size:14px;background:rgba(0,0,0,.8);color:#fff;border-radius:4px;}input[type=radio]{display:none;}input[type=radio]:checked ~ ul{display:block;}.fig{margin-top:-12px;padding-bottom:12px;display:block;text-align:center;font-style:italic;}div.page{width:100%;padding:1.618em 3.236em;margin:auto;line-height:24px;}div.page ol{margin:0 0 24px 12px;padding-left:0px;}div.page ul{margin:0 0 24px 24px;list-style:disc outside;padding-left:0px;}div.page ol{list-style-type:none;counter-reset:list;}div.page ol li:before{counter-increment:list;content:counters(list,".") ". ";}div.pre{overflow-x:auto;margin:1px 0px 24px;}div.table{overflow-x:auto;margin:0px 0px 24px;}div.info,div.hint,div.warn{padding:12px;line-height:24px;margin-bottom:24px;}div.info>p,div.hint>p,div.warn>p{margin:0px;}div.info>p:first-child,div.hint>p:first-child,div.warn>p:first-child{display:block;font-weight:700;padding:2px 8px 2px;margin:-12px -12px 8px -12px;vertical-align:middle;}div.info>p:first-child>span,div.hint>p:first-child>span,div.warn>p:first-child>span{display:block;max-height:20px;margin:0px;vertical-align:middle;}div.info>p:first-child>span::before,div.hint>p:first-child>span::before,div.warn>p:first-child>span::before{content:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAApUlEQVQ4y82TwQnDMAxFpVJyLPiSbbJETr13Fo+RZZxLRghkgnSEEni9ONS0sg1tDv3wwfjbX7Iki/wVAAd4IPBCiHuudrkHVvJYgb50eaOO7cMkpv0eeQGukYuRiUsNvBFpSvTJ0P2un0Sk+6Le3WEG58yBFrjt61r7Qqbij0gLIX3CaPgOqtqoaiMig6GPtTbOwCVyLraxMEj3yPIgHTLKv3ymJySzt16bW/sWAAAAAElFTkSuQmCC);}p>div:last-child,dd>*:last-child,td>*:last-child,li>ol,li>ul{margin-bottom:0px!important;}img{border:0px;}img.imgt{display:inline-block;max-height:22px!important;padding:0px;margin:-4px 0px 0px 0px;vertical-align:middle;}img.imgl{float:left;margin:0px 12px 12px 0px;}img.imgr{float:right;margin:0px 0px 12px 12px;}div.imgc{text-align:center;padding:0px;margin:0 0 12px 0;clear:both;}img.imgc{max-width:100%;}img.imgw{width:100%;margin-bottom:12px;clear:both;}.btn{border-radius:2px;line-height:normal;white-space:nowrap;color:inherit;text-align:center;cursor:pointer;font-size:100%;padding:4px 12px 8px;border:1px solid rgba(0,0,0,.1);text-decoration:none;box-shadow:inset 0 1px 2px -1px hsla(0,0%,100%,.5),inset 0 -2px 0 0 rgba(0,0,0,.1);vertical-align:middle;*zoom:1;user-select:none;transition:all .1s linear}.prev{float:left;}.prev::before{content:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAANlBMVEUAAABAQEBAQEBAQEBAQEBAQEBAQEBBQUFAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAWW5SEAAAAEnRSTlMA/fC9r2kXAjMN34F3ZlUu6B40Y5wGAAAAVElEQVQY08XPSw6AIAwEUIbS8lFE739Zq6luGtbM8iXTTMOCZGECiCX/MhIQTyCNz+SRrUc1MWKVvR5KYCN6pUFDRtqq4Sql9IYJ+aI/70f4qdOHblOhAuUcC5KnAAAAAElFTkSuQmCC);}.next{float:right;}.next::after{content:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASBAMAAACk4JNkAAAAJFBMVEUAAABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEC4lvDfAAAAC3RSTlMAx711ZjlFPh3zLASjkrYAAABDSURBVAjXY6AUsGhvcgAzOKR3797YAGIx7t5mvVsAxPLevZ159xYQS3v3zgLrTSDW7tTQBcy7ESyELEIHwhSEyQjbAAH1HsMY8tCHAAAAAElFTkSuQmCC);}@media screen and (max-width:991.98px){nav.mobile{display:block;}nav.side{display:none;}#menuchk:checked ~ nav.side{display:block;}#_m{margin-left:0px;}}#_gemini:checked ~ nav div ul li[rel=gemini]>.toc,#_vivendo_no_emacs:checked ~ nav div ul li[rel=vivendo_no_emacs]>.toc,#_qutebrowser:checked ~ nav div ul li[rel=qutebrowser]>.toc,#_atualizacoes:checked ~ nav div ul li[rel=atualizacoes]>.toc,#_bandcamp:checked ~ nav div ul li[rel=bandcamp]>.toc,#_spotify_vs_youtube:checked ~ nav div ul li[rel=spotify_vs_youtube]>.toc,#_assinei_o_spotify:checked ~ nav div ul li[rel=assinei_o_spotify]>.toc,#_proton_pass:checked ~ nav div ul li[rel=proton_pass]>.toc,#_workflow_web:checked ~ nav div ul li[rel=workflow_web]>.toc,#_google_domains_vai_jogar_no_vasco:checked ~ nav div ul li[rel=google_domains_vai_jogar_no_vasco]>.toc,#_fedora_sericea:checked ~ nav div ul li[rel=fedora_sericea]>.toc,#_sway:checked ~ nav div ul li[rel=sway]>.toc,#_minha_nova_tv:checked ~ nav div ul li[rel=minha_nova_tv]>.toc,div.page{display:none;}#_gemini:checked ~ nav div ul li[rel=gemini]>ul,#_gemini:checked ~ nav div ul li[rel=gemini]>.current,#_gemini:checked ~ div div[rel=gemini],#_vivendo_no_emacs:checked ~ nav div ul li[rel=vivendo_no_emacs]>ul,#_vivendo_no_emacs:checked ~ nav div ul li[rel=vivendo_no_emacs]>.current,#_vivendo_no_emacs:checked ~ div div[rel=vivendo_no_emacs],#_qutebrowser:checked ~ nav div ul li[rel=qutebrowser]>ul,#_qutebrowser:checked ~ nav div ul li[rel=qutebrowser]>.current,#_qutebrowser:checked ~ div div[rel=qutebrowser],#_atualizacoes:checked ~ nav div ul li[rel=atualizacoes]>ul,#_atualizacoes:checked ~ nav div ul li[rel=atualizacoes]>.current,#_atualizacoes:checked ~ div div[rel=atualizacoes],#_bandcamp:checked ~ nav div ul li[rel=bandcamp]>ul,#_bandcamp:checked ~ nav div ul li[rel=bandcamp]>.current,#_bandcamp:checked ~ div div[rel=bandcamp],#_spotify_vs_youtube:checked ~ nav div ul li[rel=spotify_vs_youtube]>ul,#_spotify_vs_youtube:checked ~ nav div ul li[rel=spotify_vs_youtube]>.current,#_spotify_vs_youtube:checked ~ div div[rel=spotify_vs_youtube],#_assinei_o_spotify:checked ~ nav div ul li[rel=assinei_o_spotify]>ul,#_assinei_o_spotify:checked ~ nav div ul li[rel=assinei_o_spotify]>.current,#_assinei_o_spotify:checked ~ div div[rel=assinei_o_spotify],#_proton_pass:checked ~ nav div ul li[rel=proton_pass]>ul,#_proton_pass:checked ~ nav div ul li[rel=proton_pass]>.current,#_proton_pass:checked ~ div div[rel=proton_pass],#_workflow_web:checked ~ nav div ul li[rel=workflow_web]>ul,#_workflow_web:checked ~ nav div ul li[rel=workflow_web]>.current,#_workflow_web:checked ~ div div[rel=workflow_web],#_google_domains_vai_jogar_no_vasco:checked ~ nav div ul li[rel=google_domains_vai_jogar_no_vasco]>ul,#_google_domains_vai_jogar_no_vasco:checked ~ nav div ul li[rel=google_domains_vai_jogar_no_vasco]>.current,#_google_domains_vai_jogar_no_vasco:checked ~ div div[rel=google_domains_vai_jogar_no_vasco],#_fedora_sericea:checked ~ nav div ul li[rel=fedora_sericea]>ul,#_fedora_sericea:checked ~ nav div ul li[rel=fedora_sericea]>.current,#_fedora_sericea:checked ~ div div[rel=fedora_sericea],#_sway:checked ~ nav div ul li[rel=sway]>ul,#_sway:checked ~ nav div ul li[rel=sway]>.current,#_sway:checked ~ div div[rel=sway],#_minha_nova_tv:checked ~ nav div ul li[rel=minha_nova_tv]>ul,#_minha_nova_tv:checked ~ nav div ul li[rel=minha_nova_tv]>.current,#_minha_nova_tv:checked ~ div div[rel=minha_nova_tv],#_:checked ~ div div[rel=_]{display:block;}</style>
+  <style rel="theme">@font-face {font-family: 'jetbrainsmono';src: url('./src/jetbrains-mono.ttf');}hr,table,th,td{border-color:#e1e4e5;}th{background:#d6d6d6;}tr:nth-child(odd){background:#f3f6f6;}a{text-decoration:none;color:#2980B9;}samp{background:rgba(0,0,0,.1);color:#408040;}.content{background:#fcfcfc;color:#404040;font-family:"jetbrainsmono";}.title,.home,h1>a,h2>a,h3>a,h4>a,h5>a,h6>a{background:#2980B9;color:#fcfcfc;}.version{color:rgba(255,255,255,0.3);}.search{border:1px solid #2472a4;background:#fcfcfc;}.nav{background:#343131;color:#d9d9d9;}.nav p{color:#55a5d9;}.nav label:hover,.nav a:hover{background:#4e4a4a;}.nav .current{background:#fcfcfc;color:#404040;}.nav li>ul>li{background:#e3e3e3;}.nav li>ul>li>a{color:#404040;}.nav li>ul>li>a:hover{background:#d6d6d6;}.pre {border:1px solid #e1e4e5;background:#f8f8f8;}.info{background:#e7f2fa;}.info>p:first-child{background:#6ab0de;color:#fff;}.hint{background:#dbfaf4;}.hint>p:first-child{background:#1abc9c;color:#fff;}.warn{background:#ffedcc;}.warn>p:first-child{background:#f0b37e;color:#fff;}.btn{background:#f3f6f6;}.btn:hover{background:#e5ebeb;}.ui1{font-family:Serif;font-size:12px;border:1px solid #555;border-radius:3px;background-image:linear-gradient(#fff 0%,#fff 1%,#f2f2f2 1%,#ebebeb 50%,#ddd 50%,#cfcfcf 99%,#fff 99%,#fff 100%);}.hl_h{background-color:#ccffcc;}.hl_c{color:#808080;font-style:italic;}.hl_p{color:#1f7199;}.hl_o{color:#404040;}.hl_n{color:#0164eb;}.hl_s{color:#986801;}.hl_t{color:#60A050;}.hl_k{color:#a626a4;}.hl_f{color:#2a9292;}.hl_v{color:#e95649;}</style>
 </head>
 <body>
-<div id="content" class="content">
-<h1 class="title">Bem-vindo ao meu blog!</h1>
-
-
-<div id="outline-container-org1a10e48" class="outline-2">
-<h2 id="org1a10e48">Posts:</h2>
-<div class="outline-text-2" id="text-org1a10e48">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<tbody>
+  <div class="frame content">
+    <input type="radio" name="page" id="_" checked><input type="radio" name="page" id="_gemini"><input type="radio" name="page" id="_vivendo_no_emacs"><input type="radio" name="page" id="_qutebrowser"><input type="radio" name="page" id="_atualizacoes"><input type="radio" name="page" id="_bandcamp"><input type="radio" name="page" id="_spotify_vs_youtube"><input type="radio" name="page" id="_assinei_o_spotify"><input type="radio" name="page" id="_proton_pass"><input type="radio" name="page" id="_workflow_web"><input type="radio" name="page" id="_google_domains_vai_jogar_no_vasco"><input type="radio" name="page" id="_fedora_sericea"><input type="radio" name="page" id="_sway"><input type="radio" name="page" id="_minha_nova_tv">
+    <input type="checkbox" id="menuchk" style="display:none;"><nav class="side nav"><div>
+      <div class="title"><a href="index.html">Sea</a><div class="version">1.0.0</div><input id="_q" class="search" type="text" required="required" onkeyup="s(this.value);"></div>      <div id="_s" class="nav"></div>
+      <div id="_t" class="nav">
+        <p>Blog</p>
+        <ul>
+        <li rel="gemini"><label class="toc" for="_gemini">Gemini</label><div class="current">Gemini</div><ul>
+          <li class="h2"><a href="#um_protocolo_muito_interessante" onclick="m()">Um protocolo muito interessante</a></li>
+          <li class="h2"><a href="#o_foco_desse_protocolo" onclick="m()">O foco desse protocolo</a></li>
+          <li class="h2"><a href="#navegadores" onclick="m()">Navegadores</a></li>
+          <li class="h2"><a href="#a_inpiracao_para_o_meu_site" onclick="m()">A inpiração para o meu site</a></li>
+          <li class="h2"><a href="#i_fin_i" onclick="m()"><i>fin</i></a></li>
+        </ul></li>
+        <li rel="vivendo_no_emacs"><label class="toc" for="_vivendo_no_emacs">Vivendo no Emacs</label><div class="current">Vivendo no Emacs</div><ul>
+          <li class="h2"><a href="#como_assim" onclick="m()">Como assim?</a></li>
+          <li class="h2"><a href="#e_como_esta_agora" onclick="m()">E como está agora?</a></li>
+          <li class="h2"><a href="#o_que_tem_nela" onclick="m()">O que tem nela?</a></li>
+          <li class="h2"><a href="#sem_evil_mode" onclick="m()">Sem Evil-mode</a></li>
+          <li class="h2"><a href="#" onclick="m()"><i>fin</i></a></li>
+        </ul></li>
+        <li rel="qutebrowser"><label class="toc" for="_qutebrowser">Qutebrowser</label><div class="current">Qutebrowser</div><ul>
+          <li class="h2"><a href="#meu_navegador_web_favorito" onclick="m()">Meu navegador web favorito</a></li>
+          <li class="h2"><a href="#o_que_e_o_qutebrowser" onclick="m()">O que é o Qutebrowser</a></li>
+          <li class="h2"><a href="#o_que_ele_tem_de_especial" onclick="m()">O que ele tem de especial</a></li>
+          <li class="h2"><a href="#porque_eu_to_usando_ele" onclick="m()">Porquê eu tô usando ele</a></li>
+          <li class="h2"><a href="#" onclick="m()"><i>fin</i></a></li>
+        </ul></li>
+        <li rel="atualizacoes"><label class="toc" for="_atualizacoes">Atualizações</label><div class="current">Atualizações</div><ul>
+          <li class="h2"><a href="#iae_tudo_bem" onclick="m()">Iaê! Tudo Bem?</a></li>
+          <li class="h2"><a href="#canal_no_youtube" onclick="m()">Canal no Youtube</a></li>
+          <li class="h2"><a href="#deletei_uma_porrada_de_contas" onclick="m()">Deletei uma porrada de contas</a></li>
+          <li class="h2"><a href="#bem_e_isso" onclick="m()">Bem, é isso.</a></li>
+        </ul></li>
+        <li rel="bandcamp"><label class="toc" for="_bandcamp">Bandcamp</label><div class="current">Bandcamp</div><ul>
+          <li class="h2"><a href="#mais_outro_servico_de_musica_que_eu_estou_usando" onclick="m()">Mais outro serviço de música que eu estou usando ._.</a></li>
+          <li class="h2"><a href="#qual_a_diferenca_dessa_vez" onclick="m()">Qual a diferença dessa vez?</a></li>
+          <li class="h2"><a href="#tambem_existem_musicas_gratuitas" onclick="m()">Também existem músicas gratuítas!</a></li>
+          <li class="h2"><a href="#" onclick="m()"><i>fin</i></a></li>
+        </ul></li>
+        <li rel="spotify_vs_youtube"><label class="toc" for="_spotify_vs_youtube">Spotify vs. Youtube</label><div class="current">Spotify vs. Youtube</div><ul>
+          <li class="h2"><a href="#isso_vai_ser_dificil_de_decidir" onclick="m()">Isso vai ser difícil de decidir.</a></li>
+          <li class="h2"><a href="#precos" onclick="m()">Preços</a></li>
+          <li class="h2"><a href="#a_provavel_escolha_final" onclick="m()">A provável escolha final</a></li>
+          <li class="h2"><a href="#" onclick="m()"><i>fin</i></a></li>
+        </ul></li>
+        <li rel="assinei_o_spotify"><label class="toc" for="_assinei_o_spotify">Assinei o Spotify</label><div class="current">Assinei o Spotify</div><ul>
+          <li class="h2"><a href="#comparacao_entre_os_servicos" onclick="m()">Comparação entre os serviços</a></li>
+          <li class="h2"><a href="#youtube_premium" onclick="m()">Youtube Premium</a></li>
+          <li class="h2"><a href="#spotify" onclick="m()">Spotify</a></li>
+          <li class="h2"><a href="#conclusao" onclick="m()">Conclusão</a></li>
+        </ul></li>
+        <li rel="proton_pass"><label class="toc" for="_proton_pass">Proton Pass</label><div class="current">Proton Pass</div><ul>
+        </ul></li>
+        <li rel="workflow_web"><label class="toc" for="_workflow_web">Workflow Web</label><div class="current">Workflow Web</div><ul>
+        </ul></li>
+        <li rel="google_domains_vai_jogar_no_vasco"><label class="toc" for="_google_domains_vai_jogar_no_vasco">Google Domains vai jogar no Vasco</label><div class="current">Google Domains vai jogar no Vasco</div><ul>
+        </ul></li>
+        <li rel="fedora_sericea"><label class="toc" for="_fedora_sericea">Fedora Sericea</label><div class="current">Fedora Sericea</div><ul>
+        </ul></li>
+        <li rel="sway"><label class="toc" for="_sway">Sway</label><div class="current">Sway</div><ul>
+          <li class="h2"><a href="#nao_me_pergunte_o_porque_de_eu_querer_fazer_um_artigo_sobre_uma_interface_grafica_eu_so_to_entediado_e_sem_nada_melhor_para_fazer" onclick="m()">Não me pergunte o porquê de eu querer fazer um artigo sobre uma interface gráfica.
+    Eu só tô entediado e sem nada melhor para fazer.</a></li>
+          <li class="h2"><a href="#aqui_esta_um_trecho_do_meu_arquivo_de_configuracao" onclick="m()">Aqui está um trecho do meu arquivo de configuração:</a></li>
+          <li class="h2"><a href="#fin" onclick="m()">Fin</a></li>
+        </ul></li>
+        <li rel="minha_nova_tv"><label class="toc" for="_minha_nova_tv">Minha nova TV</label><div class="current">Minha nova TV</div><ul>
+        </ul>
+      </div>
+    </div></nav>
+    <div id="_m">
+      <nav class="mobile title">Sea<label for="menuchk" class="menu"></label></nav>
+<div class="page" rel="_">
+<h1>Bem-vindo(a) ao meu site!</h1>
+<p>Nesse site eu guardo coisas como o meu blog, currículo e página de contato.</p>
+<div class="warn"><p><span>Aviso</span></p><p>Eu ainda não fiz as páginas de contato e currículo ._.</p></div><br style="clear:both;"><label class="btn next" accesskey="n" for="_gemini" title="Gemini">Próximo</label></div>
+<div class="page" rel="gemini"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;Gemini</li></ul><hr></div>
+<h1 id="gemini">Gemini<a href="#gemini"></a></h1>
+<h2 id="um_protocolo_muito_interessante">Um protocolo muito interessante<a href="#um_protocolo_muito_interessante"></a></h2>
+<p>Nos últimos dias eu andei navegando no mundo do Gemini, 
+um protocolo web com um foco em privacidade e simplicidade (e bota simplicidade nisso). 
+Andei procurando por "cápsulas" interessantes e me deparei com várias pérolas, 
+como por exemplo o bbs.geminispace.org, que é um Bulletin Board, só que no Gemini.</p>
+<h2 id="o_foco_desse_protocolo">O foco desse protocolo<a href="#o_foco_desse_protocolo"></a></h2>
+<p>O foco do Gemini é ser um protocolo simples, privado e rápido, mas vamos dar um 
+ênfase no simples. O protocolo é um protocolo somente de texto, com uma request e uma 
+resposta, nada a mais, nada a menos. Ou seja, toda a parte de estilização da página 
+fica por conta do seu cliente, que existe uma boa parcela por aí, sendo o meu 
+preferido o Lagrange.</p>
+<h2 id="navegadores">Navegadores<a href="#navegadores"></a></h2>
+<p>Existem vários navegadores para o Gemini, alguns mais avançados como o Lagrange 
+(um navegador de interface gráfica feito com SDL), outros mais simples como o astro 
+(um navegador feito em shell-script), mas o que todos têm em comum é a navegação geral 
+pelas páginas. Todas as páginas do Gemini são arquivos de texto simples que seguem uma 
+sintaxe também simples (o nome dela é Gemtext) e tudo o que o navegador precisa fazer é 
+renderizar esse arquivo corretamente.</p>
+<h2 id="a_inpiracao_para_o_meu_site">A inpiração para o meu site<a href="#a_inpiracao_para_o_meu_site"></a></h2>
+<p>Como você já deve ter notado, eu reescrevi o meu site pela milionésima vez, dessa vez 
+eu refiz ele usando o org-mode do Emacs, e um CSS de leve, e uma grande inspiração para o 
+design do site foram as cápsulas Gemini. Elas não tem muita coisa além de texto e links, 
+então tomei isso como inspiração.</p>
+<h2 id="i_fin_i"><i>fin</i><a href="#i_fin_i"></a></h2>
+<p>Bem, não sei mais o que dizer, eu estou escrevendo isso tarde e depois de um dia cansativo.</p>
+<p>Enfim, te vejo no próximo post!</p><br style="clear:both;"><label class="btn prev" accesskey="p" for="_">Anterior</label><label class="btn next" accesskey="n" for="_vivendo_no_emacs" title="Vivendo no Emacs">Próximo</label></div>
+<div class="page" rel="vivendo_no_emacs"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;Vivendo no Emacs</li></ul><hr></div>
+<h1 id="vivendo_no_emacs">Vivendo no Emacs<a href="#vivendo_no_emacs"></a></h1>
+<p>Sim, eu enlouqueci.</p>
+<h2 id="como_assim">Como assim?<a href="#como_assim"></a></h2>
+<p>Bom, recentemente eu voltei a mexer no Emacs, eu já tinha feito isso a um tempo atrás, 
+numa era sombria em que eu tinha uma conta no reddit.</p>
+<p><b>Senhor, tenha piedade de minha alma.</b></p>
+<p>Enfim, aquela configuração do Emacs foi a minha primeira experiência com ele, 
+só que ela era… Digamos que não era lá muito boa.</p>
+<p>Eu tava tentando fazer a minha própria versão do <a href="https://github.com/doomemacs/doomemacs" target="new">Doomemacs</a>, 
+o que já vou adiantando: É uma péssima idéia pra quem tá começando. Não é muito 
+diferente de você ser novo em desenvolvimento de jogos e já querer 
+fazer um The Last Of Us: Parte 69. Vai dar merda, é só você que não percebeu ainda.</p>
+<h2 id="e_como_esta_agora">E como está agora?<a href="#e_como_esta_agora"></a></h2>
+<p><b>MUITO</b> melhor. A primeira coisa que eu devo falar sobre a minha configuração é que, 
+em comparação com a minha primeira vez, ela é muito mais estável, agradável de usar, rápida para 
+iniciar e flexível. A configuração antiga parece uma gambiarra feita com fita isolante comparada à atual.</p>
+<h2 id="o_que_tem_nela">O que tem nela?<a href="#o_que_tem_nela"></a></h2>
+<p>Rapaz, eu configurei até que bastante coisa, várias teclas de atalho, pacotes, etc. 
+Mas só pra listar, eu configurei:</p>
+<ul>
+<li>Um cliente de email</li> 
+<li>Um cliente mpd</li> 
+<li>Um cliente irc</li> 
+<li>Um leitor rss</li> 
+<li>Um modo de apresentação de slides</li> 
+<li>Um leitor de PDF</li> 
+<li>Uma dashboard</li> 
+</ul>
+<p>Claro que tem mais coisa, como por exemplo as configurações da aparência, mas isso não é o mais interessante, 
+o que realmente é interessante é…</p>
+<h2 id="sem_evil_mode">Sem Evil-mode<a href="#sem_evil_mode"></a></h2>
+<p>Isso sim é algo que poucos esperam, um Emacs, configurado, sem o Evil. Fiz isso porque eu quero aprender a 
+usar o Emacs, não recriar o Vim, que foi +/- também o que fiz no passado. Estou aprendendo as teclas de atalho 
+padrão do Emacs, e também tô fazendo as minhas próprias, e apesar de ser algo diferente do que eu estou 
+acostumado, a experiência de usar o Emacs está sendo muito agradável.</p>
+<p>A maior parte dos erros na minha configuração foram causados por erros de digitação, não porque um 
+plugin X entrou em conflito com plugin Y ou porque uma tecla de atalho que eu configurei entra em conflito 
+com uma tecla de atalho usada por um plugin que usa ela por algum motivo que só Deus sabe.</p>
+<p>Não tô dizendo que isso é algo que aconteceu comigo enquanto eu usei o Vim, não, isso foi o que acontecia 
+comigo na minha primeira configuração do Emacs. É, eu disse que aqueles eram tempos sombrios.</p>
+<h2><i>fin</i></h2>
+<p>Bem, é isso. Não vou ficar de papo sobre como o Org-mode é a 9ª maravilha do mundo nem nada do gênero, 
+isso já foi dinfundido por cada ser que usa o Emacs no planeta, e eu não preciso ser mais um fazendo isso.</p>
+<p>Até o próximo post!</p><br style="clear:both;"><label class="btn prev" accesskey="p" for="_gemini" title="Gemini">Anterior</label><label class="btn next" accesskey="n" for="_qutebrowser" title="Qutebrowser">Próximo</label></div>
+<div class="page" rel="qutebrowser"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;Qutebrowser</li></ul><hr></div>
+<h1 id="qutebrowser">Qutebrowser<a href="#qutebrowser"></a></h1>
+<h2 id="meu_navegador_web_favorito">Meu navegador web favorito<a href="#meu_navegador_web_favorito"></a></h2>
+<p>Lá vamos nós de novo, mais um artigo sobre navegador web. Faz um tempo que não falo sobre esse 
+assunto, e sinceramente não sei porquê me veio essa vontade de comentar sobre isso. Me soa muito 
+como algo trivial, não sei muito bem como descrever esse sentimento.</p>
+<p><b>ENFIM.</b> vamos logo começar.</p>
+<h2 id="o_que_e_o_qutebrowser">O que é o Qutebrowser<a href="#o_que_e_o_qutebrowser"></a></h2>
+<p>O Qutebrowser é um navegador (quem diria) que usa o motor qtwebengine, que em si é baseado no 
+motor do Chromium, ou seja, o Qutebrowser é um chrome da vida, que nem o Brave, Edge, 
+Opera, Vivaldi e assim por diante.</p>
+<h2 id="o_que_ele_tem_de_especial">O que ele tem de especial<a href="#o_que_ele_tem_de_especial"></a></h2>
+<p>O que torna o Qutebrowser diferente dos outros é uma coisa: o foco no uso do teclado.</p>
+<p>Como que ele faz isso? Usando a movimentação do Vim e teclas de atalho semelhantes. 
+Você quase que não precisa de um mouse para navegar pela internet, praticamente tudo você 
+consegue fazer usando o teclado.</p>
+<p>Como que você interage com o site? Simples. É só apertar f e todos os elementos clicáveis 
+da página vão aparecer com uma sequência de letras, quando você digitar a sequência que você deseja, 
+o Qutebrowser vai agir como se você tivesse usado o mouse para clicar naquele elemento.</p>
+<p>Bom ele tem várias outras particuliaridades, mas por enquanto só vou ficar por aqui mesmo.</p>
+<h2 id="porque_eu_to_usando_ele">Porquê eu tô usando ele<a href="#porque_eu_to_usando_ele"></a></h2>
+<p>Duas coisas:</p>
+<ul>
+<li>Porque eu gosto do Vim</li>
+<li>Porque ele é minimalista</li>
+</ul>
+<p>O Qutebrowser tem uma interface extremamente minimalista, e depois de algumas configurações ele 
+fica ainda mais minimalista. No meu caso, quando só tem uma aba aberta, ele esconde a barra com as abas, 
+então a única barra visível é a barra inferior, que mostra alguns status no lado direito e em qual 
+modo eu estou no lado esquerdo.</p>
+<p>Outra coisa é que o Qutebrowser é surpreendentimente leve e rápido, algo que é difícil de se achar 
+hoje em dia. Meu notebook mal sente o impacto do Qutebrowser, e olha que o meu notebook é só um 
+Celeron com 4Gb de ram (sim, ele é um guerreiro).</p>
+<h2><i>fin</i></h2>
+<p>Tendo dito toda essa ladainha, se você é alguém que usa Linux, ou que gosta do Vim, dê o 
+Qutebrowser uma chance, confie em mim, é algo sem igual.</p>
+<p>Te vejo no próximo post!</p><br style="clear:both;"><label class="btn prev" accesskey="p" for="_vivendo_no_emacs" title="Vivendo no Emacs">Anterior</label><label class="btn next" accesskey="n" for="_atualizacoes" title="Atualizações">Próximo</label></div>
+<div class="page" rel="atualizacoes"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;Atualizações</li></ul><hr></div>
+<h1 id="atualizacoes">Atualizações<a href="#atualizacoes"></a></h1>
+<h2 id="iae_tudo_bem">Iaê! Tudo Bem?<a href="#iae_tudo_bem"></a></h2>
+<p>Quanto tempo, caro leitor! Espero que esteja tudo bem com você. Bom, perdoe a falta de artigos 
+nos últimos tempos, os meses finais de 2023 foram muito agitados pra mim, fim da escola e etc.</p>
+<p>Enfim, vamos às coisas que andei fazendo nos últimos meses.</p>
+<h2 id="canal_no_youtube">Canal no Youtube<a href="#canal_no_youtube"></a></h2>
+<p>Eu criei um canal no youtube no início desse ano, o nome dele é só um nome temporário, mas o que 
+eu vou fazer nele já está decidido: Vídeos sobre ferramentas Linux.</p>
+<p>Bom, o foco maior seria para ferramentas suckless, mas não faz mal comentar sobre outras coisas, 
+como por exemplo o Neomutt (cliente de e-mail para terminal).</p>
+<h2 id="deletei_uma_porrada_de_contas">Deletei uma porrada de contas<a href="#deletei_uma_porrada_de_contas"></a></h2>
+<p>Outra coisa que fiz foi deletar uma porrada de contas, foi algo na casa de 6 contas de serviços 
+diferentes, e eu ainda não terminei, falta muito para eu me sentir realmente satisfeito.</p>
+<p>O que eu consideraria como contas essenciais seriam as minhas contas de E-mail, Github e Google, 
+e vou reduzir ao máximo as demais. Fiz isso porque eu não gosto de redes sociais, nem de serviços 
+que eu considero desnecessários.</p>
+<p>Espero em breve ter o mínimo de contas possível, porque dessa forma será mais fácil de mante-las 
+seguras com senhas novas a cada 7 ou 15 dias, autenticação de 2 fatores atualizada, códigos de 
+recuperação re-gerados, enfim, vai ser algo que me beneficia a longo termo.</p>
+<h2 id="bem_e_isso">Bem, é isso.<a href="#bem_e_isso"></a></h2>
+<p>Acho que eu já disse tudo o que eu tinha a dizer, mas espero ter conseguido te entreter um pouco.</p>
+<p>Até o próximo post!</p><br style="clear:both;"><label class="btn prev" accesskey="p" for="_qutebrowser" title="Qutebrowser">Anterior</label><label class="btn next" accesskey="n" for="_bandcamp" title="Bandcamp">Próximo</label></div>
+<div class="page" rel="bandcamp"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;Bandcamp</li></ul><hr></div>
+<h1 id="bandcamp">Bandcamp<a href="#bandcamp"></a></h1>
+<h2 id="mais_outro_servico_de_musica_que_eu_estou_usando">Mais outro serviço de música que eu estou usando ._.<a href="#mais_outro_servico_de_musica_que_eu_estou_usando"></a></h2>
+<p>Já faz mais de 1 mês desde a última vez que eu postei alguma coisa no blog, e justamente quando 
+eu volto eu já estou com outro serviço de música para comentar.</p>
+<h2 id="qual_a_diferenca_dessa_vez">Qual a diferença dessa vez?<a href="#qual_a_diferenca_dessa_vez"></a></h2>
+<p>A diferença é bem simples: o Bandcamp não é um serviço de assinatura! Só isso mesmo… O modo 
+em que o Bandcamp funciona é bem diferente do usual, nele você compra as músicas/álbuns/discografias 
+ao invés de adicionar elas na sua biblioteca, e quando a compra é feita, você é direcionado para uma 
+página de download dos arquivos. Sim, você baixa os arquivos dos álbuns.</p>
+<p>A variedade de formatos de arquivos oferecido também é incrível. Você tem desde o famoso MP3 comum, 
+ao MP3 320Kbps, Ogg Vorbis, AAC, FLAC, ALAC, WAV e AIFF.</p>
+<h2 id="tambem_existem_musicas_gratuitas">Também existem músicas gratuítas!<a href="#tambem_existem_musicas_gratuitas"></a></h2>
+<p>A melhor parte é que existem artistas/gravadoras que liberam as versões digitais de suas músicas 
+gratuitamente para download ou streaming. Nas últimas semanas eu venho construindo uma biblioteca de 
+músicas vindas do Bandcamp em conjunto com minhas músicas do Spotify, e bem… Eu já tenho 2300 músicas… 
+Só do bandcamp… e outras 1400 no Spotify… É…</p>
+<h2><i>fin</i></h2>
+<p>É isso, me deculpe a demora, mas isso é tudo por hoje pessoal!</p><br style="clear:both;"><label class="btn prev" accesskey="p" for="_atualizacoes" title="Atualizações">Anterior</label><label class="btn next" accesskey="n" for="_spotify_vs_youtube" title="Spotify vs. Youtube">Próximo</label></div>
+<div class="page" rel="spotify_vs_youtube"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;Spotify vs. Youtube</li></ul><hr></div>
+<h1 id="spotify_vs_youtube">Spotify vs. Youtube<a href="#spotify_vs_youtube"></a></h1>
+<h2 id="isso_vai_ser_dificil_de_decidir">Isso vai ser difícil de decidir.<a href="#isso_vai_ser_dificil_de_decidir"></a></h2>
+<p>Nas últimas semanas eu vim usando o Spotify Premium junto da minha namorada, o que vem sendo uma 
+experiência incrível, porém, o Youtube com o passar do tempo parece ser cada vez mais atraente, 
+não acho que ele supere o Spotify em vários aspectos, mas ainda assim, ele continua sendo uma boa opção.</p>
+<h2 id="precos">Preços<a href="#precos"></a></h2>
+<p>Os preços de cada plano são extremamente diferentes</p>
+<div class="table"><table>
 <tr>
-<td class="org-left"><a href="./posts/gemini.html">Gemini</a></td>
-<td class="org-left">23/02/2024</td>
+<th>Serviço</th>
+<th>Preço</th>
+<th>Pessoas no plano</th>
+<th>Preço por pessoa</th>
 </tr>
-
 <tr>
-<td class="org-left"><a href="./posts/vivendo-no-emacs.html">Vivendo no Emacs</a></td>
-<td class="org-left">09/02/2024</td>
+<td>Spotify Duo</td>
+<td>R$27,90</td>
+<td>2</td>
+<td>R$13,95</td>
 </tr>
-
 <tr>
-<td class="org-left"><a href="./posts/qutebrowser.html">Qutebrowser</a></td>
-<td class="org-left">05/02/2024</td>
+<td>Youtube Premium Family</td>
+<td>R$41,90</td>
+<td>5</td>
+<td>R$8,38</td>
 </tr>
-
+</table></div>
+<p>Como já está aparente, o Youtube é mais barato quando 5 pessoas fazem parte do plano e estão pagando, 
+porém, é mais provável que no máximo 3 possam pagar, sendo assim ele custa <samp>~R$14</samp>. Sendo assim ambos ficam 
+empatados em questões monetárias. O que me resta agora é escolher qual deles eu irei deixar um cartão 
+com renovação automática.</p>
+<h2 id="a_provavel_escolha_final">A provável escolha final<a href="#a_provavel_escolha_final"></a></h2>
+<p>Tenho quase total certeza de que eu irei ficar com o Spotify no fim das contas. Minha biblioteca já tem um 
+valor emocional que me faz não querer trocar de plataforma, então é muito mais provável que eu fique com ele.</p>
+<h2><i>fin</i></h2>
+<p>Deve ser muito difícil ter que ler uma pessoa tão indecisa quanto eu, mas é isso, te vejo no próximo post!</p><br style="clear:both;"><label class="btn prev" accesskey="p" for="_bandcamp" title="Bandcamp">Anterior</label><label class="btn next" accesskey="n" for="_assinei_o_spotify" title="Assinei o Spotify">Próximo</label></div>
+<div class="page" rel="assinei_o_spotify"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;Assinei o Spotify</li></ul><hr></div>
+<h1 id="assinei_o_spotify">Assinei o Spotify<a href="#assinei_o_spotify"></a></h1>
+<p>Tenho que começar admitindo que essa assinatura foi praticamente uma ação compulsiva. Eu já tinha (ainda tenho na realidade) 
+o Youtube Premium, que acompanha o Youtube Music, e ambos tem a mesma biblioteca de músicas.</p>
+<p>Então, o que foi tão atraente sobre o Spotify? Ele realmente vale os $19,90 mensais? Como fica a comparação entre o Youtube 
+Premium e o Spotify? Descubra isso e muito mais, aqui, no Animal Planet- Pera, lugar errado… enfim, vamo pra rinha de assinaturas!</p>
+<h2 id="comparacao_entre_os_servicos">Comparação entre os serviços<a href="#comparacao_entre_os_servicos"></a></h2>
+<p>Não posso falar sobre assinaturas sem antes mencionar o valor que cada uma carrega. Vou começar com o Youtube Premium, 
+já que é uma assinatura que tenho a um certo tempo e também é uma assinatura de uma plataforma que uso desde os 11 anos de idade 
+(obrigado Xbox 360 por ter existido).</p>
+<h2 id="youtube_premium">Youtube Premium<a href="#youtube_premium"></a></h2>
+<p>Por mais que, aqui no Brasil, pagar pelo Youtube gera frases como “Bicho, tu tá pagando pelo Youtube? É sério isso?” 
+ele por incrível que pareça é um bom serviço para que usa casualmente (um ser humano descente) e um serviço quase que 
+indispensável para alguém que usa o Youtube com grande frequência (um viciado como vosso escritor).</p>
+<p>Algumas das funções que o Youtube mais faz propaganda sobre é a falta de anúncios e reprodução em segundo plano, ele 
+inclusive tem uma aba dedicada somente para te mostrar quantas horas de anúncios você deixou de ver, quantas horas de 
+mídia em segundo plano você reproduziu, quantos vídeos offline você assitiu e quantas horas de músicas você escutou. 
+Me usando de exemplo, eu tenho o total de:</p>
+<div class="table"><table>
 <tr>
-<td class="org-left"><a href="./posts/dracula.html">Dracula</a></td>
-<td class="org-left">27/01/2024</td>
+<th>Anúncios pulados</th>
+<th>Reprodução em segundo plano</th>
+<th>Vídeos offline</th> 
+<th>Músicas escutadas</th>
 </tr>
-
 <tr>
-<td class="org-left"><a href="./posts/codeberg.html">Codeberg</a></td>
-<td class="org-left">23/01/2024</td>
+<td>Mais de 450 horas</td>
+<td>Mais de 60 horas</td>
+<td>486 vídeos</td>
+<td>Mais de 70 horas<td>
 </tr>
-
-<tr>
-<td class="org-left"><a href="./posts/atualizações.html">Atualizações</a></td>
-<td class="org-left">02/01/2024</td>
-</tr>
-
-<tr>
-<td class="org-left"><a href="./posts/bandcamp.html">Bandcamp</a></td>
-<td class="org-left">27/10/2023</td>
-</tr>
-
-<tr>
-<td class="org-left"><a href="./posts/spotify-vs-youtube.html">Spotify vs Youtube</a></td>
-<td class="org-left">23/09/2023</td>
-</tr>
-
-<tr>
-<td class="org-left"><a href="./posts/assinei-o-spotify.html">Assinei o Spotify</a></td>
-<td class="org-left">17/07/2023</td>
-</tr>
-
-<tr>
-<td class="org-left"><a href="./posts/proton-pass.html">Proton Pass</a></td>
-<td class="org-left">02/07/2023</td>
-</tr>
-
-<tr>
-<td class="org-left"><a href="./posts/workflow-web.html">Workflow Web</a></td>
-<td class="org-left">28/06/2023</td>
-</tr>
-
-<tr>
-<td class="org-left"><a href="./posts/google-domains.html">Google Domains vai de Vasco</a></td>
-<td class="org-left">17/06/2023</td>
-</tr>
-
-<tr>
-<td class="org-left"><a href="./posts/fedora-sericea.html">Fedora Sericea</a></td>
-<td class="org-left">11/06/2023</td>
-</tr>
-
-<tr>
-<td class="org-left"><a href="./posts/sway.html">Sway</a></td>
-<td class="org-left">10/06/2023</td>
-</tr>
-
-<tr>
-<td class="org-left"><a href="./posts/minha-tv.html">Minha nova TV</a></td>
-<td class="org-left">08/06/2023</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
+</table></div>
+<p>Sim, eu “pulei” um total de 18 dias em anúncios. Eu não sei se fico contente ou revoltado com a audácia do 
+Youtube contabilizar isso e achar que é uma coisa boa mostrar essa quantidade absurda de anúncios que eu não vi.</p>
+<p>Deixa eu ser mais claro, o que eu quero dizer é que de todos os últimos 120 dias que eu tenho o Premium 
+e assisto vídeos, praticamente 20 deles são o equivalente de anúncios a quem não é assinante, isso são aproximadamente 
+16,66% de todo o conteúdo que eu consumi (se eu fiz os cálculos corretamente).</p>
+<p>Isso só quer dizer que o Youtube sem assinatura é praticamente inutilizável hoje em dia, não é atoa a má 
+impressão que passa você pagar por um serviço que tem uma imagem tão ruim pelo usuário majoritário da plataforma.</p>
+<p>Tendo dito tudo isso, o Youtube tem 2 tipos de assinaturas: O Youtube Music Premium, e o Youtube Premium. 
+Os preços dos dois são respectivamente R$16,90 e R$20,90, porém, eu só vou considerar o plano mais caro 
+como uma assinatura opcional, porque o Youtube Music é praticamente inutilizável sem a assinatura Premium, 
+não porque ele limita o acesso à biblioteca ou algo do gênero, mas por conta dos anúncios altíssimos com 
+frequência maior que o próprio Youtube e, para adicionar sal na ferida, a falta de reprodução em segundo 
+plano, em um player de música. O Youtube Music só é um serviço competente se você pagar por ele.</p>
+<p>Agora o Youtube Premium, ele sim é uma assinatura que faz um certo sentido, e além de tudo, 
+traz consigo o Youtube Music Premium, que nessa perspectiva vira um brinde agradável que vem com sua assinatura.</p>
+<h2 id="spotify">Spotify<a href="#spotify"></a></h2>
+<p>Ao contrário da imagem negativa que Youtube Premium tem aqui em minha terra tupiniquim, o Spotify se qualquer 
+coisa é quase um objeto de desejo, quase como um iPhone, não por ser caro mas por ser algo que é extremamente 
+bem feito e bem pensado, tendo também a fama de ser o melhor no que faz.</p>
+<p>Eu começei a usar o Spotify fazem apenas 5 dias, e já tenho coisas positivas para falar sobre ele. Uma delas 
+é o Spotify Connect, que na minha perspectiva antes de usar o serviço, era só um recurso pra encher linguiça 
+e que não tinha uma situação onde eu usaria essa função, até que eu, sem nem ter a intenção, acabei utilizando 
+o recurso e vi o potencial dele. É algo quase como o ecossitema Apple de fazer as coisas, você só usa o seus 
+dispositivos de forma natural, e sem você nem perceber, tudo fica interligado, e com isso você para de dinstinguir 
+o seu celular da sua TV ou do seu computador. Tudo funciona como 1 aparelho que possui múltiplas formas de interagir.</p>
+<p>Algo que me deixou surpreso e mudou a forma como eu escuto música, foram as playlists do Spotify. 
+O Youtube Music tem algo similar com as estações de rádio e Mixes, mas as playlists criadas pelo Spotify com base 
+no seu uso são simplesmente espetaculares, sem se falar nas playlists da comunidade que são realmente boas e também 
+nas playlists com base em algum tema/artista/studio/série/filme que são publicadas pelo próprio Spotify.</p>
+<p>No Youtube, as playlists que ele recomenda são quase sempre repetitivas, desconexas ou no pior dos casos, 
+recheada de conteúdo que nem sequer é compatível com o Youtube Music, fazendo com que você tenha que abrir a 
+playlist no Youtube, o que convenhamos, acaba completamente com a razão de você estar no Youtube Music.</p>
+<p>Letras sincronizadas são outra função que eu nem sequer tinha conhecimento, mas que são algo que 
+também, agregam na experiência do usuário. As letras tem uma cor de fundo que se aproxima das cores de 
+destaque da capa do álbum, e no caso de uma música do oriente, tem uma transcrição em inglês da letra. 
+Isso é algo que mostra o cuidado com a experiência de usuário que o Youtube parece não ter desde a criação do 
+Youtube Music. Tudo o que você tem no Youtube Music é uma aba com a letra da música, que em alguns casos nem 
+sequer tá completa, não tem sincronização com a música ou então está ausente ou simplesmente tá errada.</p>
+<h2 id="conclusao">Conclusão<a href="#conclusao"></a></h2>
+<p>Com tudo isso dito, só me resta agora chegar a minha conclusão e opinião sobre os serviços.</p>
+<p>Em relação ao Youtube Premium, ele foi um serviço que eu adorei o período que experênciei, 
+porém, não vou continuar com a assinatura. A única coisa que me prendeu ao serviço foi o Youtube Music, 
+e como eu já verbalizei acima, ele em si não é um serviço bom quando deixado por conta própria, 
+só servindo como um brinde agradável e não como algo indispensável.</p>
+<p>Quanto ao Spotify, ele me mostrou entre outras coisas, o quanto que o Youtube Music tem a melhorar 
+e o Youtube não parece ligar. Possui diversas funções que, se não úteis, são convenientes no mínimo, 
+e além de tudo, não passa a impressão de um produto mal terminado e sem nenhum pensamento para o futuro.</p>
+<p>Acho que já te fiz ler até demais. Até o próximo post!</p><br style="clear:both;"><label class="btn prev" accesskey="p" for="_spotify_vs_youtube" title="Spotify vs. Youtube">Anterior</label><label class="btn next" accesskey="n" for="_proton_pass" title="Proton Pass">Próximo</label></div>
+<div class="page" rel="proton_pass"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;Proton Pass</li></ul><hr></div>
+<h1 id="proton_pass">Proton Pass<a href="#proton_pass"></a></h1>
+<p>Ontem, por volta das 21:00 eu estava no ChromeOS Flex fazendo o usual, checando minhas 
+senhas e excluindo contas redundantes, até que eu chego no site do Proton e percebo 
+que o Proton Pass tinha acabado de lançar, e ele tinha bem mais funcionalidade 
+do que eu esperava.</p>
+<p>Começei a testar ele no navegador e no app mobile, e bem… adorei o serviço, tanto que em 
+1 hora de testes eu assinei o serviço pago, que me dá acesso à 20 Vaults (basicamente cofres 
+aparte, algo como várias pastas para organização), configuração de TOTP (códigos de verificação 
+aleatórios) e um número ilimitado de e-mail aliases (e-mails “falsos” que redirecionam os e-mails 
+que recebem para sua caixa de entrada verdadeira).</p>
+<p>A única coisa que me assustou foi a cobrança de aproximadamente R$120 no meu cartão de crédito, 
+o porém é que isso foi culpa minha. Ao invés de ter selecionado a opção de pagamento mensal, 
+eu deixei a opção de pagamento a cada 2 anos, o que explica a cobrança dos $24/R$120 (esse em 
+si é um preço promocional de 80% de desconto devido ao lançamento do serviço, então até que 
+não foi algo tão ruim assim).</p>
+<p>Até o próximo post… E sempre tome cuidado com compras online.</p><br style="clear:both;"><label class="btn prev" accesskey="p" for="_assinei_o_spotify" title="Assinei o Spotify">Anterior</label><label class="btn next" accesskey="n" for="_workflow_web" title="Workflow Web">Próximo</label></div>
+<div class="page" rel="workflow_web"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;Workflow Web</li></ul><hr></div>
+<h1 id="workflow_web">Workflow Web<a href="#workflow_web"></a></h1>
+<p>Nos últimos meses passei a maior parte do meu tempo no navegador, não me refiro somente à 
+consumo de mídia ou algo do gênero, me refiro a trabalhos de escola, documentos, roteiros, vídeos, 
+entre outras diversas coisas que não muito tempo atrás eu utilizaria um programa dedicado para a tarefa.</p>
+<p>Desde a concepção desse site eu já estava caminhando para esse tipo de Workflow mais centrado na Web, 
+mas isso passou de uma caminhada para uma corrida e não muito tempo depois cá estou eu escrevendo 
+esse artigo através do VSCode.dev.</p>
+<p>Isso sim é algo que eu não esperaria vindo de mim, que até dezembro de 2022 usava o Alpine Linux 
+com uma suíte de programas suckless como desktop principal e onde o meu Workflow era completamente offline 
+(não é que eu não voltaria a ter esse workflow, mas atualmente ele seria imprático para mim).</p>
+<p>Até o próximo post!</p><br style="clear:both;"><label class="btn prev" accesskey="p" for="_proton_pass" title="Proton Pass">Anterior</label><label class="btn next" accesskey="n" for="_google_domains_vai_jogar_no_vasco" title="Google Domains vai jogar no Vasco">Próximo</label></div>
+<div class="page" rel="google_domains_vai_jogar_no_vasco"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;Google Domains vai jogar no Vasco</li></ul><hr></div>
+<h1 id="google_domains_vai_jogar_no_vasco">Google Domains vai jogar no Vasco<a href="#google_domains_vai_jogar_no_vasco"></a></h1>
+<p>Hoje eu vi um vídeo do Fireship no Youtube falando sobre o assunto, o que me deixou extremamente 
+decepcionado com o Google.</p>
+<p>O Google é famoso por matar os próprios projetos, mas esse me quebrou, eu comprei um domínio 
+faz um pouco menos que 2 meses no Google Domains e desde então utilizo as funções que ele traz de 
+alias de e-mail e redirecionamento de páginas. Cheguei até a usar o Google Sites como teste, mas depois, 
+criei este website em que você está lendo esse artigo nesse exato momento e fiz com que o meu domínio, 
+pseudominimalista.com, se direcionasse para a minha página do Github: pseudominimalista.github.io.</p>
+<p>Nesse momento estou transferindo a maior parte das minhas coisas para fora do Google, não por 
+questões de privacidade ou algo do tipo, só por pura insegurança do Google simplesmente se 
+livrar do serviço sem mais nem menos.</p>
+<p>Meus aliases, senhas, domínios, tudo o que eu puder mover para outros serviços/programas, 
+tudo para fora do Google.</p>
+<p>Até o próximo post!</p><br style="clear:both;"><label class="btn prev" accesskey="p" for="_workflow_web" title="Workflow Web">Anterior</label><label class="btn next" accesskey="n" for="_fedora_sericea" title="Fedora Sericea">Próximo</label></div>
+<div class="page" rel="fedora_sericea"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;Fedora Sericea</li></ul><hr></div>
+<h1 id="fedora_sericea">Fedora Sericea<a href="#fedora_sericea"></a></h1>
+<p>O Fedora Sericea (que nome complicado do cacete) é uma distro imutável (não vou explicar o que é isso) 
+que vem com o Sway e alguns outros poucos programas pré-instalados, características que me fizeram 
+instalar ela no momento que vi ela no website do Fedora. Afinal ela junta os programas que eu mais 
+uso e amo, uma base sempre atualizada e estável, tendo a adição de estar debaixo do chapéu de uma 
+empresa que não vai simplesmente matar o projeto: A Red Hat.</p>
+<p>Um dos aspectos mais atraentes para mim foi a base imutável, que em suma, provê um nível de 
+segurança impecável. Outras coisas são: o sistema de arquivos BTRFS, integração de Flatpaks entre 
+outras características.</p>
+<p>Isso é um assunto muito técnico, mas eu gosto de comentar sobre, eu acho relaxante.</p>
+<p>Até o próximo post!</p><br style="clear:both;"><label class="btn prev" accesskey="p" for="_google_domains_vai_jogar_no_vasco" title="Google Domains vai jogar no Vasco">Anterior</label><label class="btn next" accesskey="n" for="_sway" title="Sway">Próximo</label></div>
+<div class="page" rel="sway"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;Sway</li></ul><hr></div>
+<h1 id="sway">Sway<a href="#sway"></a></h1>
+<h2 id="nao_me_pergunte_o_porque_de_eu_querer_fazer_um_artigo_sobre_uma_interface_grafica_eu_so_to_entediado_e_sem_nada_melhor_para_fazer">Não me pergunte o porquê de eu querer fazer um artigo sobre uma interface gráfica.
+    Eu só tô entediado e sem nada melhor para fazer.<a href="#nao_me_pergunte_o_porque_de_eu_querer_fazer_um_artigo_sobre_uma_interface_grafica_eu_so_to_entediado_e_sem_nada_melhor_para_fazer"></a></h2>
+<p>Nos últimos dias dessa semana eu voltei a utilizar o Sway (A interface gráfica, não o programa da Microsoft) 
+só por puro tédio. Eu tive que pegar uma configuração antiga minha e reconfigurar quase tudo para deixar ela atualizada 
+e confortável para o meu workflow atual, como por exemplo: uma troca na paleta de cores.</p>
+<p>Antes a paleta de cores que eu usava era a Catppuccin Mocha, porém por alguma razão ela me dá dores de cabeça. 
+Isso pode ter relação com o contraste que eles usam, eu sinceramente não sei. Eu só sei que ela me dá dor de cabeça, 
+então eu troquei ela por outra paleta de cores, essa que é confortável para os meus olhos e também é muito bonita: Nord.</p>
+<p>Feito isso, o próximo passo foi re-adaptar algumas teclas de atalho, essa parte foi bem mais tranquila graças ao 
+arquivo de configuração do Sway que é extremamente simples e legível.</p>
+<h2 id="aqui_esta_um_trecho_do_meu_arquivo_de_configuracao">Aqui está um trecho do meu arquivo de configuração:<a href="#aqui_esta_um_trecho_do_meu_arquivo_de_configuracao"></a></h2>
+<div class="pre"><pre class="lineno">1<br></pre><code>    <span class="hl_v">Ctrl</span><span class="hl_o">+</span><span class="hl_v">Shift</span><span class="hl_o">+</span><span class="hl_v">Print</span> <span class="hl_v">exec</span> <span class="hl_v">$term</span> <span class="hl_v">wf</span><span class="hl_o">-</span><span class="hl_v">recorder</span> <span class="hl_o">-</span><span class="hl_v">a</span> <span class="hl_o">-</span><span class="hl_v">f</span> <span class="hl_v">out.mkv</span></code></div>
+<p>Agora chegou a hora de explicar o que está acontecendo aqui encima. Bem, <samp>bindsym</samp> é a palavra chave para criar 
+uma tecla de atalho, o que vem em seguida são as teclas que eu quero e depois disso a ação que esse tecla de atalho fará.</p>
+<p>No caso do exemplo acima, após eu apertar as teclas Ctrl, Shift e Print juntas, uma janela de um terminal irá aparecer 
+e dentro dela um programa de gravação de tela será executado, quando eu quiser finalizar a gravação, tudo o que eu preciso 
+fazer é clicar na janela aberta e apertar as teclas Ctrl e C juntas. Após isso a janela fechará e a gravação de tela estará pronta.</p>
+<h2 id="fin">Fin<a href="#fin"></a></h2>
+<p>Eu com toda certeza te enchi de informações que aparentam serem desconexas, mas confie em mim quando eu digo que 
+elas tem uma relação bem lógica e que, quando analisada, é extremamente simples.</p>
+<p>Tendo isso dito, é seguro dizer com toda certeza do mundo que eu sou um nerd.</p>
+Até o próximo post!<br style="clear:both;"><label class="btn prev" accesskey="p" for="_fedora_sericea" title="Fedora Sericea">Anterior</label><label class="btn next" accesskey="n" for="_minha_nova_tv" title="Minha nova TV">Próximo</label></div>
+<div class="page" rel="minha_nova_tv"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;Minha nova TV</li></ul><hr></div>
+<h1 id="minha_nova_tv">Minha nova TV<a href="#minha_nova_tv"></a></h1>
+<p>A televisão em questão é a Philips Série 6000 32" (32PHG6917/78), e que eu comprei basicamente por 
+influência da minha mãe. Ela têm falado a algum tempo sobre esse assunto, e bem, hoje ela me convenceu.</p>
+<p>A especificações da televisão em questão são:</p>
+<ul>
+<li>Tela de 32 polegadas</li>
+<li>Suporte à HDR10, HLG e Pixel Plus HD</li>
+<li>Resolução de 1366x768px</li>
+<li>Android TV 11</li>
+<li>4Gb de memória interna</li>
+<li>ChromeCast integrado</li>
+<li>Controle por Voz</li>
+<li>Bluetooth 5.0</li>
+</ul>
+<p>Nada mal para a primeira TV que comprei, eu acho…</p>
+<p>Até o próximo post!</p><br style="clear:both;"><label class="btn prev" accesskey="p" for="_sway" title="Sway">Anterior</label></div>
+      <footer><hr><p>© Copyright 2024 Sea (https://github.com/0x736561)<br><small>Generated by <a href="https://gitlab.com/bztsrc/gendoc">gendoc</a> v1.0.0</small></p></footer>
+    </div>
+  </div>
+<script>function m(){document.getElementById("menuchk").checked=false;}function c(s){var r=document.getElementById(s);if(r!=undefined){if(r.tagName=="INPUT")r.checked=true;else document.getElementById("_"+r.parentNode.getAttribute("rel")).checked=true;}m();}function s(s){var r=document.getElementById("_s"),p=document.getElementById("_m").getElementsByClassName("page"),n,i,j,a,b,c,d;if(s){s=s.toLowerCase();document.getElementById("_t").style.display="none";r.style.display="block";while(r.firstChild)r.removeChild(r.firstChild);n=document.createElement("p");n.appendChild(document.createTextNode("Resultados da busca"));r.appendChild(n);for(i=1;i<p.length;i++){a=p[i].getAttribute("rel");b="";c=p[i].childNodes;d=p[i].getElementsByTagName("H1")[0].innerText;for(j=1;j<c.length && c[j].className!="btn prev";j++){if(c[j].id!=undefined&&c[j].id!=""){a=c[j].id;d=c[j].innerText;}else if(a!=b&&c[j].innerText!=undefined&&c[j].innerText.toLowerCase().indexOf(s)!=-1){b=a;n=document.createElement("a");n.appendChild(document.createTextNode(d));n.setAttribute("href","#"+a);n.setAttribute("onclick","c('"+a+"');");r.appendChild(n);}}}}else{document.getElementById("_t").style.display="block";r.style.display="none";}}document.addEventListener("DOMContentLoaded",function(e){var i,r,n;document.getElementById("_q").style.display="inline-block";if(document.location.href.indexOf("?")!=-1)document.location.href=document.location.href.replace("?","#");else{r=document.querySelectorAll("LABEL:not(.menu)");while(r.length){l=r[0].getAttribute("for").substr(1);n=document.createElement("a");n.appendChild(document.createTextNode(r[0].innerText));n.setAttribute("href","#"+l);n.setAttribute("onclick","c('"+(l!=""?l:"_")+"');");if(r[0].getAttribute("class")!=undefined)n.setAttribute("class",r[0].getAttribute("class"));if(r[0].getAttribute("title")!=undefined&&l!="")n.setAttribute("title",r[0].getAttribute("title"));if(r[0].getAttribute("accesskey")!=undefined)n.setAttribute("accesskey",r[0].getAttribute("accesskey"));r[0].parentNode.replaceChild(n,r[0]);r=document.querySelectorAll("LABEL:not(.menu)");}try{c(document.location.href.split("#")[1]);}catch(e){}}});</script>
 </body>
 </html>

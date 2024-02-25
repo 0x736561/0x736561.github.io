@@ -1,2 +1,0 @@
-* Meu blog pessoal.
-Feito inteiramente dentro do Emacs, usando a ferramenta de exportação do Org-mode para html.
