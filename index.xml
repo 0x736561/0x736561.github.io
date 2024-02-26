@@ -1,7 +1,7 @@
 <doc>
     <title>Sea</title>
     <url>index.html</url>
-    <theme>./src/dracula.css</theme>
+    <theme>./src/gruvbox.css</theme>
     <version>Keep it simple, stupid.</version>
     <lang>pt-br</lang>
     <rslt>Resultados da busca</rslt>
@@ -23,7 +23,15 @@
 <hello>
     <h1>Bem-vindo(a) ao meu site!</h1>
     <p>Nesse site eu guardo coisas como o meu blog, currículo e página de contato.</p>
+    <p>No meu blog eu posto artigos sobre coisas que ando fazendo ou que me interessam,
+        é basicamente um blog a moda antiga.</p>
     <warn>Eu ainda não fiz as páginas de contato e currículo ._.</warn>
+    <note>
+        <p>Esse site é inteiramente contido em um único arquivo HTML, gerado com o programa 
+        chamado <a https://bztsrc.gitlab.io/gendoc/><i>gemdoc</i></a>.</p>
+        <p>O cógido fonte do site está localizado 
+        <a https://github.com/0x736561/0x736561.github.io>neste repositório</a>.</p>
+    </note>
 </hello>
 
 <cap>Sobre Mim</cap>
@@ -45,6 +53,32 @@
     </ul>
 
 <cap>Blog</cap>
+
+<h1>O site tá de cara nova...</h1>
+    <h2>...de novo?</h2>
+        <p>Pois é, como eu <a /home/john/git/0x736561.github.io/index.html#a_provavel_escolha_final>
+        já mencionei</a> em um post antigo, eu sou uma pessoa muito indecisa. Indecisa ao ponto 
+        de reescrito o próprio site umas 1000 vezes. Já usei <a https://gohugo.io/>framework</a>, 
+        já usei <a https://picocss.com>CSS pré-feito</a>, já usei até mesmo o Google Sites. 
+        Mas eu nunca me dou por satisfeito. Nem quando eu me dei o trabalho de aplicar uma 
+        paleta de cores como a <a https://nordtheme.com>Nord</a>, <a https://draculatheme.com>Dracula</a> 
+        ou até mesmo a <a https://github.com/morhetz/gruvbox>Gruvbox</a>(a paleta de cores que eu estou 
+        usando no site atualmente).</p>
+
+    <h2>O que tem de diferente agora?</h2>
+        <p>Bom, agora eu estou usando um programa que cria uma página que clona a aparência e navegação
+        do Readthedocs, o nome dele é gendoc. Isso é algo que eu já deixei na tela inicial do site, 
+        com o link do site do projeto junto.</p>
+
+    <h2>Já era rápido antes... mas agora tá demais</h2>
+        <p>O motivo desse site ser tão rápido agora é bem simples: com a excessão do CSS e da fonte que 
+        eu uso, o site inteiro está contido em 1 arquivo.</p>
+        <p>Por conta disso, quanto você entra no site, você praticamente baixou ele por inteiro. Além disso, 
+        o site também é extremamente pequeno, tendo uns 70Kb no total, então qualquer aparelho consegue 
+        acessar esse site, mesmo com uma conexão lenta.</p>
+    
+    <h2><i>fin</i></h2>
+        <p>Bem, eu não sei muito o que dizer agora... enfim, te vejo no próximo post!</p>
 
 <h1>Gemini</h1>
     <h2>Um protocolo muito interessante</h2>
