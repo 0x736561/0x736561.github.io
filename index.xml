@@ -26,6 +26,23 @@
     <warn>Eu ainda não fiz as páginas de contato e currículo ._.</warn>
 </hello>
 
+<cap>Sobre Mim</cap>
+
+<h1>Github</a></h1>
+    <h2>Meu perfil do Github</h2>
+    <p><a https://github.com/0x736561><i>acesse por aqui</i></a></p>
+    <p>O lar dos meus repositórios e também desse site.</p>
+    <p>Eu tenho uma relação de amor e ódio com esse lugar, ao mesmo tempo que ele é
+    extremamente conveniente e um ambiente estável, ele é um produto Microsoft©, então
+    claro que quando tiver alguma trend no mundo tech o Github vai colocar mais uma 
+    função que praticamente ninguém usa.</p>
+    <h2>Alguns dos meus projetos:</h2>
+    <ul>
+        <li><a https://github.com/0x736561/0x736561.github.io>O código fonte desse site</a></li>
+        <li><a https://github.com/0x736561/emacs>Minhas configurações do Emacs</a></li>
+        <li><a https://github.com/0x736561/vim>Minhas configurações do Vim</a></li>
+        <li><a https://github.com/0x736561/suckless>O código fonte do <i>"desktop environment"</i> que uso atualmente</a></li>
+    </ul>
 
 <cap>Blog</cap>
 
