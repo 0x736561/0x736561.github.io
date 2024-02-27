@@ -1,0 +1,61 @@
+@font-face {
+font-family: 'jetbrainsmono';
+src: url('./src/jetbrains-mono.ttf');
+}
+:root {background-color: #282828;}
+hr,table,td{border-color:#282828;}
+th{border-color:#98971a;}
+th{background:#98971a;color:#ebdbb2;}
+tr:nth-child(odd){background:#3c3836;}
+tr{background:#32302f;}
+#home{background-color: #282828;color: #282828;}
+a{text-decoration:none;color:#98971a;}
+.home::before{
+content: url(data:image/png;base64,)}
+h1 > a::before, h2 > a::before, h3 > a::before, h4 > a::before, 
+h5 > a::before, h6 > a::before{
+content: url(data:image/png;base64,)}
+.next::after{
+content: url(data:image/png;base64,)}
+.prev::before{
+content: url(data:image/png;base64,)}
+
+
+samp{background:rgba(0,0,0,.1);color:#689d6a;}
+.content{background:#282828;color:#ebdbb2;font-family:"jetbrainsmono";}
+.title,.home,h1>a,h2>a,h3>a,h4>a,h5>a,h6>a{background:#98971a;color:#ebdbb2;}
+.version{color:rgba(255,255,255,0.3);}
+.search{border:1px solid #3c3836;background:#3c3836;color:#458588;}
+.nav{background:#32302f;color:#ebdbb2;}
+.nav p{color:#689d6a;}
+.nav label:hover,.nav a:hover{color:#282828;background:#b16286;}
+.nav .current{background:#98971a;color:#ebdbb2;}
+.nav li>ul>li{background:#282828;}
+.nav li>ul>li>a{color:#ebdbb2;}
+.nav li>ul>li>a:hover{color:#282828;background:#b16286;}
+.pre {border:1px solid #fbf1c7;background:#3c3836;}
+.info{background:#32302f;}
+.info>p:first-child{background:#98971a;color:#ebdbb2;}
+.hint{background:#32302f;}
+.hint>p:first-child{background:#b16286;color:#ebdbb2;}
+.warn{background:#32302f;}
+.warn>p:first-child{background:#cc241d;color:#ebdbb2;}
+.btn{background:#98971a;}
+.btn:hover{background:#b8bb26;}
+.ui1 {
+    font-family:Serif;
+    font-size:12px;
+    border:1px solid #3c3836;
+    border-radius:3px;
+    background-image:linear-gradient( #32302f 0%, #32302f 100%);
+}
+.hl_h{background-color:#504945;}
+.hl_c{color:#928374;font-style:italic;}
+.hl_p{color:#458588;}
+.hl_o{color:#d65d0e;}
+.hl_n{color:#83a598;}
+.hl_s{color:#ebdbb2;}
+.hl_t{color:#98971a;}
+.hl_k{color:#b16286;}
+.hl_f{color:#8ec07c;}
+.hl_v{color:#cc241d;}
