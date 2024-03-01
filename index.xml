@@ -149,10 +149,6 @@
     mais intuitivo, eu não tenho palavras para descrever o quão bom é 
     isso.</p>
 
-    <p>Mas para ilustrar, eu vou por um meme aqui que demonstra bem como 
-    é se movimentar pelo Vim:</p>
-    <imgw ./media/gif/kakashi-vim.gif>
-
     <h2>Deixa eu dar um exemplo melhor</h2>
     <p>No Vim, para deletar uma linha inteira, eu preciso estar no modo 
     <tt>normal</tt> e digitar <tt>dd</tt>, o primeiro "d" significa "delete", 
