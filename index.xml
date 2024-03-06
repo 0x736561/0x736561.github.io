@@ -1,7 +1,7 @@
 <doc>
     <title>Sea</title>
     <url>index.html</url>
-    <theme>./src/gruvbox.css</theme>
+    <theme>gruvbox.css</theme>
     <version>Keep it simple, stupid.</version>
     <lang>pt-br</lang>
     <rslt>Resultados da busca</rslt>
