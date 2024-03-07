@@ -1,7 +1,7 @@
 <doc>
     <title>Sea</title>
     <url>index.html</url>
-    <theme>gruvbox.css</theme>
+    <theme>temas/everforest.css</theme>
     <version>Keep it simple, stupid.</version>
     <lang>pt-br</lang>
     <rslt>Resultados da busca</rslt>
@@ -32,7 +32,7 @@
     <note>
         <p>Esse site é inteiramente contido em um único arquivo HTML, 
         gerado com o programa chamado <a https://bztsrc.gitlab.io/gendoc/>
-        <i>gendoc</i></a>.</p>
+        <i>gendoc</i></a>.</p><br>
 
         <p>O cógido fonte do site está localizado 
         <a https://github.com/0x736561/0x736561.github.io>

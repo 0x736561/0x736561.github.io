@@ -48,18 +48,19 @@ h2>a::before,
 h3>a::before,
 h4>a::before,
 h5>a::before,
-h6>a::before {
+h6>a::before,
+.next::after,
+.prev::before,
+.home::before,
+div.info>p:first-child>span::before,
+div.hint>p:first-child>span::before,
+div.warn>p:first-child>span::before {
   content: url(data:image/png;base64,)
 }
 
-.next::after {
-  content: url(data:image/png;base64,)
+code {
+  background: url(data:image/png;base64,) !important;
 }
-
-.prev::before {
-  content: url(data:image/png;base64,)
-}
-
 
 samp {
   background: rgba(0, 0, 0, .1);
@@ -112,6 +113,7 @@ h6>a {
 .nav .current {
   background: #98971a;
   color: #ebdbb2;
+  border: none !important;
 }
 
 .nav li>ul>li {
@@ -120,6 +122,7 @@ h6>a {
 
 .nav li>ul>li>a {
   color: #ebdbb2;
+  border: none !important;
 }
 
 .nav li>ul>li>a:hover {
