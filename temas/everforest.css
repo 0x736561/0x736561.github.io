@@ -55,6 +55,10 @@ code {
   background: url(data:image/png;base64,) !important;
 }
 
+.breadcrumbs {
+  display: none !important;
+}
+
 samp {
   background: #343f44;
   color: #a7c080;

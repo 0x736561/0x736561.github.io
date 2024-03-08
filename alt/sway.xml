@@ -1,0 +1,451 @@
+<doc>
+    <title>Sea</title>
+    <url>sway.html</url>
+    <theme>../temas/everforest.css</theme>
+    <version>Keep it simple, stupid.</version>
+    <lang>pt-br</lang>
+    <rslt>Resultados da busca</rslt>
+    <home>Início</home>
+    <info>Importante</info>
+    <hint>Dica</hint>
+    <note>Nota</note>
+    <also>Veja também</also>
+    <todo>A fazer</todo>
+    <args>Argumentos</args>
+    <rval>Valor Retornado</rval>
+    <warn>Aviso</warn>
+    <copy>2024 Sea (https://github.com/0x736561)</copy>
+    <prev>Anterior</prev>
+    <next>Próximo</next>
+</doc>
+
+<hello>
+  <h1>Bem-vindo(a)!</h1>
+  <p>Aqui eu irei documentar cada parte que compõe o setup e também como você pode modificar cada parte dele.</p>
+  <p>Apesar de ser um setup simples, acho que vale a pena explicar como fiz algumas coisas.</p>
+  <note>
+    <p>Esse setup possue 4 paletas de cores diferentes (Gruvbox, Dracula, Nord e Everforest) 
+      que podem ser escolhidas a qualquer momento com a tecla de atalho <tt>Super+t</tt>.</p>
+  </note>
+</hello>
+
+<cap>sway</cap>
+  <h1>Variáveis</h1>
+    <p>Essa Configuração possue algumas variáveis que são usadas em várias partes diferentes, 
+    sinta-se livre para alterar seus valores.</p>
+    <pre>
+Variáveis     Valor
+$mod          Mod4 (Super)
+$term         foot
+$web          qutebrowser
+$file         manager
+$nag          nag
+$left         h
+$down         j
+$up           k
+$right        l
+    </pre>
+  <h1>Touchpad</h1>
+    <h2>Input</h2>
+      <p>Por padrão, a minha configuração desabilita a emulação de botão central e 
+      scroll natural, e habilita o tap-to-click.</p>
+      <p>Se você por alguma razão precisa alterar qualquer um desses comportamentos, 
+      basta editar as seguintes linhas em ~/.config/sway/config:</p>
+      <code>
+### Touchpad
+    
+input "1267:12734:MSFT0001:01_04F3:31BE_Touchpad" {
+    dwt enabled
+    tap enabled
+    natural_scroll disabled
+    middle_emulation disabled
+}
+      </code>
+    <h2>Gestos</h2>
+      <p>Tomei a liberdade de configurar alguns gestos para manipulação de janelas 
+      e navegação entre áreas de trabalho. Todos eles usam 3 dedos para serem realizados.</p>
+      <p>Os gestos são os seguintes:</p>
+      <ul>
+        <li>Deslizar para a esquerda = área de trabalho à esquerda</li>
+        <li>Deslizar para a direita = área de trabalho à direita</li>
+        <li>Pinça para dentro + deslizar para cima = mover janela para cima</li>
+        <li>Pinça para dentro + deslizar para baixo = mover janela para baixo</li>
+        <li>Pinça para dentro + deslizar para esquerda = mover janela para esquerda</li>
+        <li>Pinça para dentro + deslizar para direita = mover janela para direita</li>
+      </ul>
+      <p>Para alterar qualquer um desses gestos, basta alterar as seguintes linhas em <tt>~/.config/sway/config:</tt></p>
+      <code>
+### Gestos
+
+    bindgesture swipe:left workspace prev
+    bindgesture swipe:right workspace next
+    bindgesture pinch:inward+up move up
+    bindgesture pinch:inward+down move down
+    bindgesture pinch:inward+left move left
+    bindgesture pinch:inward+right move right
+      </code>
+  <h1>Teclado</h1>
+    <h2>Layout</h2>
+      <p>O layout padrão do teclado é BR-ABNT2, se você precisar modificar este layout, basta editar essa linha:</p>
+      <code>
+### Teclado
+    input 1:1:AT_Translated_Set_2_keyboard xkb_layout "br"
+      </code>
+    <h2>Teclas de atalho</h2>
+      <h3>Manipulação de janelas</h3>
+        <pre>
+$mod+q         = fechar janela
+alt+tab        = alterar foco entre janela flutuante e janela em tiling
+$mod+tab       = alterar entre modo flutuante e tiling
+$mod+period    = abrir janela abaixo da atual
+$mod+comma     = abrir janela à direita da atual
+$mod+f         = tela cheia
+$mod+z         = layout tiling
+$mod+x         = layout de abas
+$mod+-         = mostrar scratchpad
+$mod+alt+-     = mover janela para scratchpad
+$mod+h         = focar na janela à esquerda
+$mod+j         = focar na janela abaixo
+$mod+k         = focar na janela acima
+$mod+l         = focar na janela à direita
+$mod+alt+h     = mover janela para esquerda
+$mod+alt+j     = mover janela para baixo
+$mod+alt+k     = mover janela para cima
+$mod+alt+l     = mover janela para direita
+$mod+ctrl+h    = redimensionar janela para esquerda
+$mod+ctrl+j    = redimensionar janela para baixo
+$mod+ctrl+k    = redimensionar janela para cima
+$mod+ctrl+l    = redimensionar janela para direita
+        </pre>
+      <h3>Áreas de trabalho</h3>
+        <pre>
+$mod+[1-0]     = Ir para a área de trabalho de número correspondente
+$mod+alt+[1-0] = Mover janela para área de trabalho de número correspondente
+        </pre>
+      <h3>Menus</h3>
+        <pre>
+$mod+p         = Binários
+$mod+d         = Desktop Entries
+$mod+e         = Explorador de arquivos
+$mod+s         = Explorador de senhas
+$mod+y         = Menu de wifi
+$mod+g         = Afazeres
+$mod+t         = Seletor de temas
+$mod+semicolon = Seletor de emojis
+$mod+delete    = Menu de energia
+ctrl+alt+q     = Menu de saída
+        </pre>
+      <h3>Screesharing</h3>
+        <pre>
+print          = Screenshot da tela inteira
+shift+print    = Screenshot de uma seleção
+ctrl+print     = Gravação de tela
+        </pre>
+      <h3>Programas</h3>
+        <pre>
+$mod+enter     = Abrir terminal
+$mod+w         = Abrir navegador
+$mod+a         = Abrir pavucontrol
+$mod+c         = Abrir cmus
+$mod+n         = Abrir newsboat
+$mod+m         = Abrir neomutt
+        </pre>
+
+<cap>scripts</cap>
+  <h1>manager</h1>
+    <p>Um explorador de arquivos simples.</p>
+    <p>Serve basicamente para abrir arquivos de forma ágil.</p>
+    <note><p>Criado originalmente por <a https://gitlab.com/Oglo12>Oglo12</a></p></note>
+    <code bash>
+open_fs () {
+	item=$(ls -ap | rofi -dmenu -i -p "File Browser:")
+
+	if [[ -d $item ]];
+	then
+		cd "$item"
+		open_fs
+	else	
+		xdg-open $item
+	fi
+}
+
+open_fs
+    </code>
+  <h1>pass_menu</h1>
+    <note>
+      <p>Esse script foi modificado por mim para utilizar o Rofi no lugar do dmenu.</p>
+      <p><a https://tools.suckless.org/dmenu/scripts/passmenu2>Código-fonte original</a></p>
+    </note>
+    <p>Um explorador de senhas que utiliza o passwordstore.</p>
+    <code bash>
+#!/usr/bin/env bash
+
+shopt -s nullglob globstar
+
+typeit=0
+if [[ $1 == "--type" ]]; then
+	typeit=1
+	shift
+fi
+
+
+STARTDIR=${PASSWORD_STORE_DIR-~/.password-store}
+BASEDIR=$STARTDIR
+DONE=0
+LEVEL=0
+PREVSELECTION=""
+SELECTION=""
+
+while [ "$DONE" -eq 0 ] ; do 
+  password_files=( "$STARTDIR"/* )
+  password_files=( "${password_files[@]#"$STARTDIR"/}" )
+  password_files=( "${password_files[@]%.gpg}" )
+  
+  if [ "$LEVEL" -ne 0 ] ; then
+    password_files=(".." "${password_files[@]}") 
+  fi
+  entry=$(printf '%s\n' "${password_files[@]}" | rofi -dmenu "$@" -i -p "Escolha a senha")
+  
+  echo "entry: $entry"
+  if [ -z "$entry" ] ; then
+    DONE=1
+    exit
+  fi
+  
+  if [ "$entry" != ".." ] ; then
+    PREVSELECTION=$SELECTION
+    SELECTION="$SELECTION/$entry"
+  
+    # check if another dir
+    if [ -d "$STARTDIR/$entry" ] ; then
+      STARTDIR="$STARTDIR/$entry"
+      LEVEL=$((LEVEL+1))
+    else
+      # not a directory so it must be a real password entry
+  
+      if [[ $typeit -eq 0 ]]; then
+        pass show -c "$SELECTION" 2>/dev/null
+      else
+        xdotool - <<<"type --clearmodifiers -- $(pass show "$SELECTION" | head -n 1)"
+      fi
+      DONE=1
+    fi
+  
+  else
+    LEVEL=$((LEVEL-1))
+    SELECTION=$PREVSELECTION
+    STARTDIR="$BASEDIR/$SELECTION"
+  fi
+done
+    </code>
+  <h1>wifi_menu</h1>
+    <p>Um wrapper para o NetworkManager feito por <a https://github.com/ericmurphyxyz/rofi-wifi-menu>Eric Murphy</a></p>
+    <code bash>
+#!/usr/bin/env bash
+
+notify-send "Getting list of available Wi-Fi networks..."
+# Get a list of available wifi connections and morph it into a nice-looking list
+wifi_list=$(nmcli --fields "SECURITY,SSID" device wifi list | sed 1d | sed 's/  */ /g' | sed -E "s/WPA*.?\S/ /g" | sed "s/^--/ /g" | sed "s/  //g" | sed "/--/d")
+
+connected=$(nmcli -fields WIFI g)
+if [[ "$connected" =~ "enabled" ]]; then
+	toggle="󰖪  Disable Wi-Fi"
+elif [[ "$connected" =~ "disabled" ]]; then
+	toggle="󰖩  Enable Wi-Fi"
+fi
+
+# Use rofi to select wifi network
+chosen_network=$(echo -e "$toggle\n$wifi_list" | uniq -u | rofi -dmenu -i -selected-row 1 -p "Wi-Fi SSID: " )
+# Get name of connection
+read -r chosen_id <<< "${chosen_network:3}"
+
+if [ "$chosen_network" = "" ]; then
+	exit
+elif [ "$chosen_network" = "󰖩  Enable Wi-Fi" ]; then
+	nmcli radio wifi on
+elif [ "$chosen_network" = "󰖪  Disable Wi-Fi" ]; then
+	nmcli radio wifi off
+else
+	# Message to show when connection is activated successfully
+  	success_message="You are now connected to the Wi-Fi network \"$chosen_id\"."
+	# Get saved connections
+	saved_connections=$(nmcli -g NAME connection)
+	if [[ $(echo "$saved_connections" | grep -w "$chosen_id") = "$chosen_id" ]]; then
+		nmcli connection up id "$chosen_id" | grep "successfully" && notify-send "Connection Established" "$success_message"
+	else
+		if [[ "$chosen_network" =~ "" ]]; then
+			wifi_password=$(rofi -dmenu -password -p "Password: " )
+		fi
+		nmcli device wifi connect "$chosen_id" password "$wifi_password" | grep "successfully" && notify-send "Connection Established" "$success_message"
+    fi
+fi
+    </code>
+  <h1>power_menu</h1>
+    <p>Um menu de energia extremamente simples que fiz.</p>
+    <code bash>
+#!/bin/env bash
+
+ESCOLHA="$(printf "Sair\nReiniciar\nDesligar" | rofi -dmenu -i -p "Escolha uma opção:")"
+
+case "$ESCOLHA" in
+	Sair) pkill -KILL -u $USER;;
+  Reiniciar) systemctl reboot;;
+  Desligar) systemctl poweroff;;
+	*) exit;;
+esac
+    </code>
+  <h1>todo</h1>
+    <note>
+      <p>Esse script foi modificado por mim para utilizar o Rofi no lugar do dmenu.</p>
+      <p><a https://tools.suckless.org/dmenu/scripts/todo>Código-fonte original</a></p>
+    </note>
+    <p>Um gerenciador de afazeres simples.</p>
+    <code bash>
+#!/bin/sh
+#
+# Write/remove a task to do later.
+#
+# Select an existing entry to remove it from the file, or type a new entry to
+# add it.
+#
+
+file="$HOME/.local/share/todo"
+touch "$file"
+height=$(wc -l "$file" | awk '{print $1}')
+prompt="Add/delete a task: "
+
+cmd=$(rofi -dmenu -i -l "$height" -p "$prompt" "$@" < "$file")
+while [ -n "$cmd" ]; do
+ 	if grep -q "^$cmd\$" "$file"; then
+		grep -v "^$cmd\$" "$file" > "$file.$$"
+		mv "$file.$$" "$file"
+        height=$(( height - 1 ))
+ 	else
+		echo "$cmd" >> "$file"
+		height=$(( height + 1 ))
+ 	fi
+
+	cmd=$(rofi -dmenu -i -l "$height" -p "$prompt" "$@" < "$file")
+done
+
+exit 0
+    </code>
+  <h1>nag</h1>
+    <p>Um script que substitui o swaynag na única coisa em que ele era usado no meu setup.</p>
+    <p>Eu irei trocar o nome desse script eventualmente porque não quero causar confusão por 
+    conta do nome, ele não é um script uso geral, ele serve apenas como uma janela de confirmação 
+    de saída para o Sway.</p>
+    <code bash>
+#!/bin/env bash
+
+ESCOLHA="$(printf "Sim\nNão" | rofi -dmenu -i -p "Você realmente quer sair do Sway?")"
+case "$ESCOLHA" in
+	Sim) swaymsg exit;;
+	*) exit;;
+esac
+    </code>
+  <h1>tema</h1>
+    <p>Um script feito por mim que troca o tema do setup.</p>
+    <p>Ainda está em estágios iniciais e está ineficiente, porém, funciona perfeitamente e sem erro algum.</p>
+    <p>Toda e qualquer modificação para melhorar esse script é bem-vinda.</p>
+    <code bash>
+#!/bin/env bash
+
+gruvbox() {
+	cat .config/sway/config | sed "s/temas\/\S*/temas\/gruvbox/g" > ~/.config/sway/.tmp
+	cat .config/rofi/config.rasi | sed "s/themes\/\S*/themes\/gruvbox\"/g" > ~/.config/rofi/.tmp
+	cat .config/helix/config.toml | sed "s/theme\s*=\s\"\S*/theme = \"gruvbox\"/g" > ~/.config/helix/.tmp
+
+	cp ~/.config/sway/.tmp ~/.config/sway/config
+	cp ~/.config/rofi/.tmp ~/.config/rofi/config.rasi
+	cp ~/.config/helix/.tmp ~/.config/helix/config.toml
+	cp ~/.config/foot/gruvbox.ini ~/.config/foot/foot.ini
+	cp ~/.config/mako/gruvbox ~/.config/mako/config
+	cp ~/.config/sway/wallpapers/gruvbox.png ~/.config/sway/wp
+
+	rm ~/.config/sway/.tmp
+	rm ~/.config/rofi/.tmp
+	rm ~/.config/helix/.tmp
+
+	pkill mako
+	mako &
+
+	swaymsg reload
+}
+
+dracula() {
+	cat .config/sway/config | sed "s/temas\/\S*/temas\/dracula/g" > ~/.config/sway/.tmp
+	cat .config/rofi/config.rasi | sed "s/themes\/\S*/themes\/dracula\"/g" > ~/.config/rofi/.tmp
+	cat .config/helix/config.toml | sed "s/theme\s*=\s\"\S*/theme = \"dracula\"/g" > ~/.config/helix/.tmp
+	
+	cp ~/.config/sway/.tmp ~/.config/sway/config
+	cp ~/.config/rofi/.tmp ~/.config/rofi/config.rasi
+	cp ~/.config/helix/.tmp ~/.config/helix/config.toml
+	cp ~/.config/foot/dracula.ini ~/.config/foot/foot.ini
+	cp ~/.config/mako/dracula ~/.config/mako/config
+	cp ~/.config/sway/wallpapers/dracula.png ~/.config/sway/wp
+	
+	rm ~/.config/sway/.tmp
+	rm ~/.config/rofi/.tmp
+	rm ~/.config/helix/.tmp
+
+	pkill mako
+	mako &
+
+	swaymsg reload
+}
+
+nord() {
+	cat .config/sway/config | sed "s/temas\/\S*/temas\/nord/g" > ~/.config/sway/.tmp
+	cat .config/rofi/config.rasi | sed "s/themes\/\S*/themes\/nord\"/g" > ~/.config/rofi/.tmp
+	cat .config/helix/config.toml | sed "s/theme\s*=\s\"\S*/theme = \"nord\"/g" > ~/.config/helix/.tmp
+
+	cp ~/.config/sway/.tmp ~/.config/sway/config
+	cp ~/.config/rofi/.tmp ~/.config/rofi/config.rasi
+	cp ~/.config/helix/.tmp ~/.config/helix/config.toml
+	cp ~/.config/foot/nord.ini ~/.config/foot/foot.ini
+	cp ~/.config/mako/nord ~/.config/mako/config
+	cp ~/.config/sway/wallpapers/nord.png ~/.config/sway/wp
+	
+	rm ~/.config/sway/.tmp
+	rm ~/.config/rofi/.tmp
+	rm ~/.config/helix/.tmp
+
+	pkill mako
+	mako &
+
+	swaymsg reload
+}
+
+everforest() {
+	cat .config/sway/config | sed "s/temas\/\S*/temas\/everforest/g" > ~/.config/sway/.tmp
+	cat .config/rofi/config.rasi | sed "s/themes\/\S*/themes\/everforest\"/g" > ~/.config/rofi/.tmp
+	cat .config/helix/config.toml | sed "s/theme\s*=\s\"\S*/theme = \"everforest_dark\"/g" > ~/.config/helix/.tmp
+
+	cp ~/.config/sway/.tmp ~/.config/sway/config
+	cp ~/.config/rofi/.tmp ~/.config/rofi/config.rasi
+	cp ~/.config/helix/.tmp ~/.config/helix/config.toml
+	cp ~/.config/foot/everforest.ini ~/.config/foot/foot.ini
+	cp ~/.config/mako/everforest ~/.config/mako/config
+	cp ~/.config/sway/wallpapers/everforest.png ~/.config/sway/wp
+
+	rm ~/.config/sway/.tmp
+	rm ~/.config/rofi/.tmp
+	rm ~/.config/helix/.tmp
+
+	pkill mako
+	mako &
+
+	swaymsg reload
+}
+
+ESCOLHA=$(printf "Gruvbox\nEverforest\nDracula\nNord" | rofi -dmenu -i -p "Escolha o tema:")
+
+case "$ESCOLHA" in
+	Gruvbox) gruvbox;;
+	Everforest) everforest;;
+	Dracula) dracula;;
+	Nord) nord;;
+	*) exit;;
+esac
+    </code>

@@ -62,6 +62,10 @@ code {
   background: url(data:image/png;base64,) !important;
 }
 
+.breadcrumbs {
+  display: none !important;
+}
+
 samp {
   background: rgba(0, 0, 0, .1);
   color: #689d6a;
