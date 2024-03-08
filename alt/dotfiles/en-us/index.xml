@@ -3,38 +3,37 @@
     <url>index.html</url>
     <theme>../../../temas/everforest.css</theme>
     <version>Keep it simple, stupid.</version>
-    <lang>pt-br</lang>
-    <rslt>Resultados da busca</rslt>
-    <home>Início</home>
-    <info>Importante</info>
-    <hint>Dica</hint>
-    <note>Nota</note>
-    <also>Veja também</also>
-    <todo>A fazer</todo>
-    <args>Argumentos</args>
-    <rval>Valor Retornado</rval>
-    <warn>Aviso</warn>
+    <lang>en-us</lang>
+    <rslt>Search Results</rslt>
+    <home>Home</home>
+    <info>Important</info>
+    <hint>Hint</hint>
+    <note>Note</note>
+    <also>See Also</also>
+    <todo>Todo</todo>
+    <args>Arguments</args>
+    <rval>Returned Value</rval>
+    <warn>Warning</warn>
     <copy>2024 Sea (https://github.com/0x736561)</copy>
-    <prev>Anterior</prev>
-    <next>Próximo</next>
+    <prev>Previous</prev>
+    <next>Next</next>
 </doc>
 
 <hello>
-  <h1>Bem-vindo(a)!</h1>
-  <p>Aqui eu irei documentar cada parte que compõe o setup e também como você pode modificar cada parte dele.</p>
-  <p>Apesar de ser um setup simples, acho que vale a pena explicar como fiz algumas coisas.</p>
+  <h1>Welcome!</h1>
+  <p>Here I will document every part that makes up the setup and also how you can modify every part of it.</p>
+  <p>Despite being a simple setup, I think it's worth explaining how I did some things.</p>
   <note>
-    <p>Esse setup possui 4 paletas de cores diferentes (Gruvbox, Dracula, Nord e Everforest) 
-      que podem ser escolhidas a qualquer momento com a tecla de atalho <tt>Super+t</tt>.</p>
+    <p>This setup has 4 different color palettes (Gruvbox, Dracula, Nord and Everforest) that can be chosen at any time with the shortcut key <tt>Super+t</tt>.</p>
   </note>
 </hello>
 
 <cap>sway</cap>
-  <h1>Variáveis</h1>
-    <p>Essa configuração possui algumas variáveis que são usadas em várias partes diferentes, 
-    sinta-se livre para alterar seus valores.</p>
+  <h1>Variables</h1>
+    <p>This configuration has some variables that are used in several different parts,
+     Feel free to change your values.</p>
     <pre>
-Variáveis     Valor
+Variables     Values
 $mod          Mod4 (Super)
 $term         foot
 $web          qutebrowser
@@ -47,10 +46,10 @@ $right        l
     </pre>
   <h1>Touchpad</h1>
     <h2>Input</h2>
-      <p>Por padrão, a minha configuração desabilita a emulação de botão central e 
-      scroll natural, e habilita o tap-to-click.</p>
-      <p>Se você por alguma razão precisa alterar qualquer um desses comportamentos, 
-      basta editar as seguintes linhas em <tt>~/.config/sway/config</tt>:</p>
+      <p>By default, my configuration disables the central button emulation and
+       Natural Scroll, and enables Tap-to-Click.</p>
+      <p>If you for some reason you need to change any of these behaviors,
+       Just edit the following lines in <tt>~/.config/sway/config</tt>:</p>
       <code>
 ### Touchpad
     
@@ -61,19 +60,19 @@ input "1267:12734:MSFT0001:01_04F3:31BE_Touchpad" {
     middle_emulation <hl>disabled</hl>
 }
       </code>
-    <h2>Gestos</h2>
-      <p>Tomei a liberdade de configurar alguns gestos para manipulação de janelas 
-      e navegação entre áreas de trabalho. Todos eles usam 3 dedos para serem realizados.</p>
-      <p>Os gestos são os seguintes:</p>
+    <h2>Gestures</h2>
+      <p>I took the freedom to configure some gestures for window handling
+       and navigation between work areas. They all use 3 fingers to be performed.</p>
+      <p>The gestures are as follows:</p>
       <ul>
-        <li>Deslizar para a esquerda = área de trabalho à esquerda</li>
-        <li>Deslizar para a direita = área de trabalho à direita</li>
-        <li>Pinça para dentro + deslizar para cima = mover janela para cima</li>
-        <li>Pinça para dentro + deslizar para baixo = mover janela para baixo</li>
-        <li>Pinça para dentro + deslizar para esquerda = mover janela para esquerda</li>
-        <li>Pinça para dentro + deslizar para direita = mover janela para direita</li>
+        <li>Slide to the left = Workspace on the left </li>
+        <li>Slide to the right = Workspace on the right </li>
+        <li>Pinch inward + slide up = Move window up</li>
+        <li>Pinch inward + slide down = Move window down</li>
+        <li>Pinch inward + slide to the left = Move window to the left</li>
+        <li>Pinch inward + slide to the right = Move window to the right</li>
       </ul>
-      <p>Para alterar qualquer um desses gestos, basta alterar as seguintes linhas em <tt>~/.config/sway/config:</tt></p>
+      <p>To change any of these gestures, simply change the following lines in <tt>~/.config/sway/config:</tt></p>
       <code>
 ### Gestos
 
@@ -84,79 +83,78 @@ input "1267:12734:MSFT0001:01_04F3:31BE_Touchpad" {
     bindgesture pinch:inward+left move left
     bindgesture pinch:inward+right move right
       </code>
-  <h1>Teclado</h1>
+  <h1>Keyboard</h1>
     <h2>Layout</h2>
-      <p>O layout padrão do teclado é BR-ABNT2, se você precisar modificar este layout, basta editar essa linha:</p>
+      <p>The default keyboard layout is BR-ABNT2, if you need to modify this layout, just edit this line:</p>
       <code>
 ### Teclado
     input 1:1:AT_Translated_Set_2_keyboard xkb_layout <hl>"br"</hl>
       </code>
-    <h2>Teclas de atalho</h2>
-      <h3>Manipulação de janelas</h3>
+    <h2>Keybinds</h2>
+      <h3>Window manipulation</h3>
         <pre>
-$mod+q         = fechar janela
-alt+tab        = alterar foco entre janela flutuante e janela em tiling
-$mod+tab       = alterar entre modo flutuante e tiling
-$mod+period    = abrir janela abaixo da atual
-$mod+comma     = abrir janela à direita da atual
-$mod+f         = tela cheia
-$mod+z         = layout tiling
-$mod+x         = layout de abas
-$mod+-         = mostrar scratchpad
-$mod+alt+-     = mover janela para scratchpad
-$mod+h         = focar na janela à esquerda
-$mod+j         = focar na janela abaixo
-$mod+k         = focar na janela acima
-$mod+l         = focar na janela à direita
-$mod+alt+h     = mover janela para esquerda
-$mod+alt+j     = mover janela para baixo
-$mod+alt+k     = mover janela para cima
-$mod+alt+l     = mover janela para direita
-$mod+ctrl+h    = redimensionar janela para esquerda
-$mod+ctrl+j    = redimensionar janela para baixo
-$mod+ctrl+k    = redimensionar janela para cima
-$mod+ctrl+l    = redimensionar janela para direita
+$ mod+q        = close window
+Alt+tab        = change focus between floating window and tiling window
+$ mod+tab      = change between floating mode and tiling
+$ mod+period   = open window below the current
+$ mod+comma    = open window to the right of the current
+$ mod+f        = full screen
+$ mod+z        = layout tiling
+$ mod+x        = tab layout
+$ mod+-        = show scratchpad
+$ mod+alt+-    = move window to scratchpad
+$ mod+h        = focus on the window on the left
+$ mod+j        = focus on the window below
+$ mod+k        = focus on the window above
+$ mod+l        = focus on the window on the right
+$ mod+alt+h    = move window to the left
+$ mod+alt+j    = move window down
+$ mod+alt+k    = move window up
+$ mod+alt+l    = move window to the right
+$ mod+ctrl+h   = resize window to the left
+$ mod+ctrl+j   = resize window down
+$ mod+ctrl+k   = resize window up
+$ mod+ctrl+l   = resize window to the right
         </pre>
-      <h3>Áreas de trabalho</h3>
+      <h3>Workspaces</h3>
         <pre>
-$mod+[1-0]     = Ir para a área de trabalho de número correspondente
-$mod+alt+[1-0] = Mover janela para área de trabalho de número correspondente
+$mod+[1-0]     = Goto the corresponding workspace
+$mod+alt+[1-0] = Move current window to corresponding workspace
         </pre>
       <h3>Menus</h3>
         <pre>
-$mod+p         = Binários
-$mod+d         = Desktop Entries
-$mod+e         = Explorador de arquivos
-$mod+s         = Explorador de senhas
-$mod+y         = Menu de wifi
-$mod+g         = Afazeres
-$mod+t         = Seletor de temas
-$mod+c         = Biblioteca de música (mpd)
-$mod+semicolon = Seletor de emojis
-$mod+delete    = Menu de energia
-ctrl+alt+q     = Menu de saída
+$mod+p         = Binaries
+$mod+d         = Desktop entries
+$mod+e         = File browser
+$mod+s         = Password browser
+$mod+y         = Wifi menu
+$mod+g         = Todo list
+$mod+t         = Theme selector
+$mod+c         = Music library (mpd)
+$mod+semicolon = Emoji selector
+$mod+delete    = Power menu
+ctrl+alt+q     = Exit menu
         </pre>
       <h3>Screesharing</h3>
         <pre>
-print          = Screenshot da tela inteira
-shift+print    = Screenshot de uma seleção
-ctrl+print     = Gravação de tela
+print          = Screenshot of the entire screen
+shift+print    = Screenshot of a selection
+ctrl+print     = Screenrecording
         </pre>
-      <h3>Programas</h3>
+      <h3>Programs</h3>
         <pre>
-$mod+enter     = Abrir terminal
-$mod+w         = Abrir navegador
-$mod+a         = Abrir pavucontrol
-$mod+alt+c     = Abrir cava
-$mod+n         = Abrir newsboat
-$mod+m         = Abrir neomutt
+$mod+enter     = Open terminal
+$mod+w         = Open web browser
+$mod+a         = Open pavucontrol
+$mod+alt+c     = Open cava
+$mod+n         = Open newsboat
+$mod+m         = Open neomutt
         </pre>
 
 <cap>scripts</cap>
   <h1>manager</h1>
-    <p>Um explorador de arquivos simples.</p>
-    <p>Serve basicamente para abrir arquivos de forma ágil.</p>
-    <note><p>Criado originalmente por <a https://gitlab.com/Oglo12>Oglo12</a></p></note>
+    <p>A simple file manager.</p>
+    <note><p>Created by <a https://gitlab.com/Oglo12>Oglo12</a></p></note>
     <code>
 open_fs () {
 	item=$(ls -ap | rofi -dmenu -i -p "File Browser:")
@@ -174,10 +172,10 @@ open_fs
     </code>
   <h1>pass_menu</h1>
     <note>
-      <p>Esse script foi modificado por mim para utilizar o Rofi no lugar do dmenu.</p>
-      <p><a https://tools.suckless.org/dmenu/scripts/passmenu2>Código-fonte original</a></p>
+      <p>This script was modified by me to use Rofi instead of dmenu.</p>
+      <p><a https://tools.suckless.org/dmenu/scripts/passmenu2>Original source-code</a></p>
     </note>
-    <p>Um explorador de senhas que utiliza o passwordstore.</p>
+    <p>A password browser that uses passwordstore.</p>
     <code>
 #!/usr/bin/env bash
 
@@ -240,7 +238,7 @@ while [ "$DONE" -eq 0 ] ; do
 done
     </code>
   <h1>wifi_menu</h1>
-    <p>Um wrapper para o NetworkManager feito por <a https://github.com/ericmurphyxyz/rofi-wifi-menu>Eric Murphy</a></p>
+    <p>A NetworkManager wrapper made by <a https://github.com/ericmurphyxyz/rofi-wifi-menu>Eric Murphy</a></p>
     <code>
 #!/usr/bin/env bash
 
@@ -282,7 +280,7 @@ else
 fi
     </code>
   <h1>power_menu</h1>
-    <p>Um menu de energia extremamente simples que fiz.</p>
+    <p>A simple power menu made by me.</p>
     <code>
 #!/bin/env bash
 
@@ -297,10 +295,10 @@ esac
     </code>
   <h1>todo</h1>
     <note>
-      <p>Esse script foi modificado por mim para utilizar o Rofi no lugar do dmenu.</p>
-      <p><a https://tools.suckless.org/dmenu/scripts/todo>Código-fonte original</a></p>
+      <p>This script was modified by me to use Rofi instead of dmenu.</p>
+      <p><a https://tools.suckless.org/dmenu/scripts/todo>Original source-code</a></p>
     </note>
-    <p>Um gerenciador de afazeres simples.</p>
+    <p>A simple todo-list script.</p>
     <code>
 #!/bin/sh
 #
@@ -332,10 +330,8 @@ done
 exit 0
     </code>
   <h1>nag</h1>
-    <p>Um script que substitui o swaynag na única coisa em que ele era usado no meu setup.</p>
-    <p>Eu irei trocar o nome desse script eventualmente porque não quero causar confusão por 
-    conta do nome, ele não é um script uso geral, ele serve apenas como uma janela de confirmação 
-    de saída para o Sway.</p>
+    <p>A script that asks if you really want to exit Sway.</p>
+    <p>I'll change the name of this script at some point so it doesn't create confusion with "swaynag".</p>
     <code>
 #!/bin/env bash
 
@@ -346,9 +342,9 @@ case "$ESCOLHA" in
 esac
     </code>
   <h1>tema</h1>
-    <p>Um script feito por mim que troca o tema do setup.</p>
-    <p>Ainda está em estágios iniciais e está ineficiente, porém, funciona perfeitamente e sem erro algum.</p>
-    <p>Toda e qualquer modificação para melhorar esse script é bem-vinda.</p>
+    <p>A theme switcher script made by me.</p>
+    <p>Is on it's early stages, but perfectly functional.</p>
+    <p>Any improvements are welcome.</p>
     <code>
 #!/bin/env bash
 
