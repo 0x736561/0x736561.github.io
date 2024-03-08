@@ -131,6 +131,7 @@ $mod+s         = Explorador de senhas
 $mod+y         = Menu de wifi
 $mod+g         = Afazeres
 $mod+t         = Seletor de temas
+$mod+c         = Biblioteca de música
 $mod+semicolon = Seletor de emojis
 $mod+delete    = Menu de energia
 ctrl+alt+q     = Menu de saída
@@ -146,7 +147,7 @@ ctrl+print     = Gravação de tela
 $mod+enter     = Abrir terminal
 $mod+w         = Abrir navegador
 $mod+a         = Abrir pavucontrol
-$mod+c         = Abrir cmus
+$mod+alt+c     = Abrir cava
 $mod+n         = Abrir newsboat
 $mod+m         = Abrir neomutt
         </pre>
