@@ -146,7 +146,7 @@ ctrl+print     = Screenrecording
 $mod+enter     = Open terminal
 $mod+w         = Open web browser
 $mod+a         = Open pavucontrol
-$mod+alt+c     = Open cava
+$mod+v         = Open cava
 $mod+n         = Open newsboat
 $mod+m         = Open neomutt
         </pre>

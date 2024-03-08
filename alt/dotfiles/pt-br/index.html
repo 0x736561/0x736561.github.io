@@ -57,12 +57,12 @@
 <p>Aqui eu irei documentar cada parte que compõe o setup e também como você pode modificar cada parte dele.</p>
 <p>Apesar de ser um setup simples, acho que vale a pena explicar como fiz algumas coisas.</p>
 <div class="info"><p><span>Nota</span></p><p>
-<p>Esse setup possue 4 paletas de cores diferentes (Gruvbox, Dracula, Nord e Everforest) 
+<p>Esse setup possui 4 paletas de cores diferentes (Gruvbox, Dracula, Nord e Everforest) 
 que podem ser escolhidas a qualquer momento com a tecla de atalho <samp>Super+t</samp>.</p>
 </p></div><br style="clear:both;"><label class="btn next" accesskey="n" for="_variaveis" title="Variáveis">Próximo</label></div>
 <div class="page" rel="variaveis"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;Variáveis</li></ul><hr></div>
 <h1 id="variaveis">Variáveis<a href="#variaveis"></a></h1>
-<p>Essa Configuração possue algumas variáveis que são usadas em várias partes diferentes, 
+<p>Essa configuração possui algumas variáveis que são usadas em várias partes diferentes, 
 sinta-se livre para alterar seus valores.</p>
 <div class="pre"><pre>
 Variáveis     Valor
@@ -82,14 +82,14 @@ $right        l
 <p>Por padrão, a minha configuração desabilita a emulação de botão central e 
 scroll natural, e habilita o tap-to-click.</p>
 <p>Se você por alguma razão precisa alterar qualquer um desses comportamentos, 
-basta editar as seguintes linhas em ~/.config/sway/config:</p>
+basta editar as seguintes linhas em <samp>~/.config/sway/config</samp>:</p>
 <div class="pre"><pre class="lineno">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br></pre><code><span class="hl_c">### Touchpad</span>
     
 <span class="hl_v">input</span> <span class="hl_s">&quot;1267:12734:MSFT0001:01_04F3:31BE_Touchpad&quot;</span> {
     <span class="hl_v">dwt</span> <span class="hl_v">enabled</span>
-    <span class="hl_v">tap</span> <span class="hl_v">enabled</span>
-    <span class="hl_v">natural_scroll</span> <span class="hl_v">disabled</span>
-    <span class="hl_v">middle_emulation</span> <span class="hl_v">disabled</span>
+    <span class="hl_v">tap</span> <span class="hl_h"><span class="hl_v">enabled</span></span>
+    <span class="hl_v">natural_scroll</span> <span class="hl_h"><span class="hl_v">disabled</span></span>
+    <span class="hl_v">middle_emulation</span> <span class="hl_h"><span class="hl_v">disabled</span></span>
 }</code></div>
 <h2 id="gestos">Gestos<a href="#gestos"></a></h2>
 <p>Tomei a liberdade de configurar alguns gestos para manipulação de janelas 
@@ -117,7 +117,7 @@ e navegação entre áreas de trabalho. Todos eles usam 3 dedos para serem reali
 <h2 id="layout">Layout<a href="#layout"></a></h2>
 <p>O layout padrão do teclado é BR-ABNT2, se você precisar modificar este layout, basta editar essa linha:</p>
 <div class="pre"><pre class="lineno">1<br>2<br></pre><code><span class="hl_c">### Teclado</span>
-    <span class="hl_v">input</span> <span class="hl_n">1</span>:<span class="hl_n">1</span>:<span class="hl_v">AT_Translated_Set_2_keyboard</span> <span class="hl_v">xkb_layout</span> <span class="hl_s">&quot;br&quot;</span></code></div>
+    <span class="hl_v">input</span> <span class="hl_n">1</span>:<span class="hl_n">1</span>:<span class="hl_v">AT_Translated_Set_2_keyboard</span> <span class="hl_v">xkb_layout</span> <span class="hl_h"><span class="hl_s">&quot;br&quot;</span></span></code></div>
 <h2 id="teclas_de_atalho">Teclas de atalho<a href="#teclas_de_atalho"></a></h2>
 <h3 id="manipulacao_de_janelas">Manipulação de janelas<a href="#manipulacao_de_janelas"></a></h3>
 <div class="pre"><pre>
@@ -158,7 +158,7 @@ $mod+s         = Explorador de senhas
 $mod+y         = Menu de wifi
 $mod+g         = Afazeres
 $mod+t         = Seletor de temas
-$mod+c         = Biblioteca de música
+$mod+c         = Biblioteca de música (mpd)
 $mod+semicolon = Seletor de emojis
 $mod+delete    = Menu de energia
 ctrl+alt+q     = Menu de saída
@@ -174,7 +174,7 @@ ctrl+print     = Gravação de tela
 $mod+enter     = Abrir terminal
 $mod+w         = Abrir navegador
 $mod+a         = Abrir pavucontrol
-$mod+alt+c     = Abrir cava
+$mod+c         = Abrir cava
 $mod+n         = Abrir newsboat
 $mod+m         = Abrir neomutt
 </pre></div><br style="clear:both;"><label class="btn prev" accesskey="p" for="_touchpad" title="Touchpad">Anterior</label><label class="btn next" accesskey="n" for="_manager" title="manager">Próximo</label></div>
