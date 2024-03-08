@@ -1,5 +1,5 @@
 <doc>
-    <title>Sea</title>
+    <title>Sea - Blog</title>
     <url>index.html</url>
     <theme>temas/everforest.css</theme>
     <version>Keep it simple, stupid.</version>
@@ -8,7 +8,7 @@
     <home>Início</home>
     <info>Importante</info>
     <hint>Dica</hint>
-    <note>Observação</note>
+    <note>Nota</note>
     <also>Veja também</also>
     <todo>A fazer</todo>
     <args>Argumentos</args>
@@ -42,7 +42,7 @@
 
 <cap>Sobre Mim</cap>
 
-<h1>Github</a></h1>
+<h1>Github</h1>
     <h2>Meu perfil do Github</h2>
     <p><a https://github.com/0x736561><i>acesse por aqui</i></a></p>
     
@@ -77,6 +77,16 @@
             </a>
         </li>
     </ul>
+
+<cap>Projetos</cap>
+
+<h1>Dotfiles</h1>
+    <h2>Arquivos de configuração e documentação</h2>
+    <p>Um projeto simples em que compartilho os arquivos de configurações do meu setup, 
+    tendo também um website próprio documentando o ambiente para as pessoas que se 
+    interessarem.</p>
+    <p><a https://0x736561.github.io/alt/dotfiles/pt-br>Website</a><br>
+    <a https://github.com/0x736561/dotfiles>Repositório</a></p>
 
 <cap>Blog</cap>
 
