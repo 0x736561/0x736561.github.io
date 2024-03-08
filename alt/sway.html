@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="gendoc 1.0.0: https://gitlab.com/bztsrc/gendoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sea - Sway Config</title>
+  <style rel="logic">*{box-sizing:border-box;font-family:inherit;}body {background:rgba(0,0,0,0.05);font-weight:400;font-size:16px;}hr{display:block;height:1px;border:0;border-top:1px solid #e1e4e5;margin:26px 0;padding:0;border-top:1px solid;}br:after,br:before{display:table;content:""}br{clear:both;}h1,h2,h3,h4,h5,h6{clear:both;margin:0px 0px 20px 0px;padding-top:4px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}p{margin:0 0 24px}a{cursor:pointer;}h1{font-size:175%}h2{font-size:150%}h3{font-size:125%}h4{font-size:115%}h5{font-size:110%}h6{font-size:100%}pre,samp,code,var,kbd{font-family:Monaco,Consolas,Liberation Mono,Courier,monospace;font-variant-ligatures:none;}pre,code{display:block;overflow:auto;white-space:pre;font-size:14px;line-height:16px!important;}pre{padding:12px;margin:0px;}code{padding:0 0 12px 0;margin:12px 12px 0px 2px;background:url(data:type/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAgCAYAAADT5RIaAAAAFklEQVQI12NgYGDgZWJgYGCgDkFtAAAWnAAsyj4TxgAAAABJRU5ErkJggg==) 0 0 repeat;}.lineno{display:block;padding:0px 4px 0px 4px;margin:12px 0px 0px 0px;opacity:.4;text-align:right;float:left;white-space:pre;font-size:12px;line-height:16px!important;}pre .hl_b,samp .hl_b,code .hl_b{display:block;}blockquote{margin:0px;padding:12px;}blockquote>span:first-child::before{content:url(data:type/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAgCAYAAABU1PscAAABRElEQVRYw+3WTytEURjH8c/4l1JTpKxsyEbYWFkpG+UVKOWFeAts7eytbJSysLLVxIKNFAslwhSlUQabUdM0xm0e967Ot+7inPN8z+13z73nXBKJRCIRoJSxbggrmMMInlHBIWoF+KEAQ9jAaJuxe2zhJUe/Iz0ZahZ/uTmMYT1nPxxg/I/xWQzn6IcD1IIha//wkEIBKhlq+nP0wwHOsYuvDjWvOfod6c1Yd9O4ZjDQZvwAbzn6oRVofpKbqLf0P+GxAD8cAO7w0NJ3WqAfDlBCuan9gaMC/XCA+cbJ+sMRqgX6oQCTWGtqX2O/QL8tfRlqyljGUlPgW2y3+SDz8Lv6mRvEQmPbm25ZqQvs/LHtRf3wCkxgtaWvij2cZJg36ocD/Pw91nGJY5zhM+O8UT/8Ck01TswrvHcxb9RPJBKJRDF8AyNbWk4WFTIzAAAAAElFTkSuQmCC);float:left;vertical-align:top;}.ui1,.ui2,.ui3,.ui4,.ui5,.ui6{display:inline-block;height:24px!important;line-height:24px!important;padding:0px 4px;margin:-2px 0px -2px;}kbd{display:inline-block;font-weight:700;border:1px solid #888;height:24px!important;padding:0px 4px;margin:-2px 0px -2px;border-radius:4px;background-image:linear-gradient(#ddd 0%,#eee 10%,#bbb 10%,#ccc 30%,#fff 85%,#eee 85%,#888 100%);}.mouseleft,.mouseright,.mousewheel{display:inline-block;min-width:16px;height:24px!important;padding:0px;margin:-2px 0px 0px 0px;vertical-align:middle;}.mouseleft::before{content:url(data:type/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAYCAMAAADEfo0+AAAAe1BMVEUAAACoqKj9/f2zs7O1tbWRkZGlpaWsrKybm5u2traNjY2Wlpanp6empqaYmJiPj4+3t7f5+fmjo6P19fXu7u6ZmZnx8fHi4uLm5ube3t7q6uqwsLC0tLS7u7u4uLi/v7/W1tbDw8PLy8vPz8/T09Pa2trHx8eIiIhERkShhqFGAAAAAXRSTlMAQObYZgAAAI5JREFUGNNV0EcCwjAMRFEB6R2DKSGQUBLp/idEjsG23m7+cgAMIsJWwR8Z235pumDTnkUbv+lg7CIfTqvSbTquxsGFfjWXLlwsdOFs+XC1EHAWOEwCh4/A4S1weAkcFoHDU0CI8zGQx1Cpe0BVAO0j0PIfiR4cnZjLdHP7abQ9VRVZnaZ1VvjfO42o7edfH3EoHZS6XE4AAAAASUVORK5CYII=);}.mouseright::before{content:url(data:type/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAYCAMAAADEfo0+AAAAe1BMVEUAAACoqKj9/f2zs7O1tbWRkZGlpaWsrKybm5u2traNjY2Wlpanp6empqaYmJiPj4+3t7f5+fmjo6P19fXu7u6ZmZnx8fHi4uLm5ube3t7q6uqwsLC0tLS7u7u4uLi/v7/W1tbDw8PLy8vPz8/T09Pa2trHx8eIiIhERkShhqFGAAAAAXRSTlMAQObYZgAAAI9JREFUGNNV0NkWgjAMRdGozFOxWgdEcYLk/7/Q0EpL9tNd5/ECzLRCIoJF20zdlsinTbRn5Eu0O8zIl/Jk+dAPR4uWUo6d5QNenBDOTghXJ4RRQMCnwOErcPgIHN4Ch0ng8BIQ4nxYyWOo9H1FVwDqsaL4j8T0nknmy0xz+2uMO1UXWZ2mdVbo8LtBNK2dP/2+KB2shyfVAAAAAElFTkSuQmCC);}.mousewheel::before{content:url(data:type/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAYCAMAAADEfo0+AAAAe1BMVEUAAACzs7OoqKisrKyRkZGlpaX9/f22trabm5uNjY2mpqanp6ePj4+1tbWYmJi3t7eWlpajo6OZmZmwsLD5+fnu7u7x8fHi4uLW1tbm5ube3t7T09Pq6ur19fW4uLi7u7u0tLTa2trPz8+/v7/Dw8PLy8vHx8eIiIhERkS4354xAAAAAXRSTlMAQObYZgAAAKdJREFUGNNV0NkagiAUhdHjPAECzWWlWdL7P2Fno/nJumHzXx4iMMI5YeivVVOX592k2vkfy/1CxvjL6L6KJAd9ZF+GVxP144Eh4B170kPHEPAOmtwFEPxw5E6A4AeHKyD4wWEABD84nAHBDw43QPCDwyvA4RPgMAU4vAOO0mLcKFJqzHPDNETisSH4HpntVzbDyazaLZSdj2qqsk6Suqw2d7fO2fnmP7kAJW9a/HbiAAAAAElFTkSuQmCC);}footer{width:100%;padding:0 3.236em;}footer p{opacity:0.6;}footer small{opacity:0.5;}footer a{text-decoration:none;color:inherit;}footer a:hover{text-decoration:underline;}dl{margin:0 0 24px 0;padding:0px;}dt{font-weight:700;margin-bottom:12px;}dd{margin:0 0 12px 24px;}.table table{margin:0px;border-collapse:collapse;border-spacing:0;empty-cells:show;border:1px solid;width:100%;}th{font-weight:700;padding:8px 16px;overflow:visible;vertical-align:middle;white-space:nowrap;border:1px solid;}th.wide{width:100%;}td{padding:8px 16px;overflow:visible;vertical-align:middle;font-size:90%;border:1px solid;}td.right{text-align:right;}table.grid{margin:0px;padding:0px;border:none!important;background:none!important;border-spacing:0;border:0px!important;empty-cells:show;width:100%;}table.grid tr, table.grid td{margin:0px;padding:0px;overflow:hidden;vertical-align:top;background:none!important;border:0px!important;font-size:90%;}div.frame{position:absolute;width:100%;min-height:100%;margin:0px;padding:0px;max-width:1100px;top:0px;left:0px;}#_m{margin-left:300px;min-height:100%;}div.title{display:block;width:300px;padding-top:.809em;padding-bottom:.809em;margin-bottom:.809em;text-align:center;font-weight:700;}div.title>a{padding:4px 6px;margin-bottom:.809em;font-size:150%;}div.title>a:hover{background:transparent;}div.title>a>img{max-width:280px;border:0px;padding:0px;margin:0px;}div.title input{display:none;width:270px;border-radius:50px;padding:6px 12px;font-size:80%;box-shadow:inset 0 1px 3px #ddd;transition:border .3s linear;}div.title input:required:invalid{background:#fcfcfc url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAASFBMVEUAAAC6urq7u7y7vLy8vL3Dw8TLzM67urq8vL29vr69vr/AwMK5ubm5ubm4uLi5t7fAwMC/vr/FxMXBwsPExcW+u7vDw8S4uLiryZHFAAAAF3RSTlMA9vGttk4lfbWnpJQG0MpzYEIglFRCGzMa+EsAAAB0SURBVBjTbY5bCsMwDAQl2U6cR5s0fcz9b1oLpWBC52dhENqVRsmG5SIn60wwryEm0LQkbUacAveh5XGDh4uKfsQZlOqpJAkS5gHPUyzgYdeLjB6/H7lvGbzlssP2WDoRGGzxrVRD82sHRukZ/xhv7tns/QXrhgcaFdOKBwAAAABJRU5ErkJggg==) no-repeat 10px 50%;}div.title input:focus{background:#fcfcfc!important;}div.version{margin-top:.4045em;margin-bottom:.809em;font-size:90%;}nav.side {display:block;position:fixed;top:0;bottom:0;left:0;width:300px;overflow-x:hidden;overflow-y:hidden;min-height:100%;font-weight:400;z-index:999;}nav.mobile {display:none;font-weight:bold;padding:.4045em .809em;position:relative;line-height:50px;text-align:center;font-size:100%;*zoom:1;}nav a{color:inherit;text-decoration:none;display:block;}nav.side>div{position:relative;overflow-x:hidden;overflow-y:scroll;width:320px;height:100%;padding-bottom:64px;}div.nav p{height:32px;line-height:32px;padding:0 1.618em;margin:12px 0px 0px 0px;font-weight:700;text-transform:uppercase;font-size:85%;white-space:nowrap;-webkit-font-smoothing:antialiased}div.nav li>.current,div.nav li>ul{display:none;}div.nav li>a,div.nav li>label{display:block;}div.nav a,div.nav ul>li>label,div.nav ul>li>.current{width:300px;line-height:18px;padding:0.4045em 1.618em;}div.nav a,div.nav ul>li>label{cursor:pointer;}div.nav .current{font-weight:700;border-top:1px solid;border-bottom:1px solid #c9c9c9;}div.nav ul>li>ul>li>a{border-right:solid 1px #c9c9c9;font-size:90%;}div.nav ul>li>ul>li.h2>a{padding:0.4045em 2.427em;}div.nav ul>li>ul>li.h3>a{padding:.4045em 1.618em .4045em 4.045em;}div.nav ul>li>ul>li.h4>a{padding:.4045em 1.618em .4045em 5.663em;}div.nav ul>li>ul>li.h5>a{padding:.4045em 1.618em .4045em 7.281em;}div.nav ul>li>ul>li.h6>a{padding:.4045em 1.618em .4045em 8.899em;}div.nav ul,div.nav li,.breadcrumbs{margin:0px!important;padding:0px;list-style:none;}ul.breadcrumbs,.breadcrumbs li{display:inline-block;}.menu{display:inline-block;position:absolute;top:12px;right:20px;cursor:pointer;width:1.5em;height:1.5em;vertical-align:middle;padding:16px 24px 16px 24px;border:solid 1px rgba(255, 255, 255, 0.5);border-radius:5px;background:no-repeat center center url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");}.home{display:inline-block;max-width:16px;max-height:16px;line-height:16px;margin:0 5px 0 0;cursor:pointer;}.home::before{content:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAS1BMVEUAAAD8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/PyxWsjVAAAAGHRSTlMAx6oLLRnYiXFEvPbey518NQbsj11QKhQ+J0ktAAAAbElEQVQY053ISQ7DMAwEwRYpavHurPz/SwMoMpD46L4MpvBTB0zTP+R9z55Ebh0yQL5DaDA+0WVR3h3Gikp9iPKF9MIkQhSDwUlGHCLQxhLGJkpLZcNYS/tdyorP/DQ7HgBqKRUgHBDcw2X4AFsJCSXB/5UVAAAAAElFTkSuQmCC);}h1>a,h2>a,h3>a,h4>a,h5>a,h6>a{display:none;max-width:16px;max-height:24px;margin:-8px 0 0 5px;vertical-align:middle;}h1:hover>a,h2:hover>a,h3:hover>a,h4:hover>a,h5:hover>a,h6:hover>a{display:inline-block;text-decoration:none!important;}h1>a::before,h2>a::before,h3>a::before,h4>a::before,h5>a::before,h6>a::before{content:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAiBAMAAACkb0T0AAAAMFBMVEUAAAD8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/PzS+N+gAAAAD3RSTlMABab5cVY73o4k2cJTPb1Q83MyAAAAh0lEQVQY02P4DwWkM7YxsNiDGJ8EGBgmgxiKDDkCLAwgAQn7hQxARiGj8v8/IIYDi2a9GZChHiAnMLmBjeGTaIBUAMcFaYaNvA2sC1kD9RkSOCwZF7IW/WdgSP4+yYHlP5Bx/r+RgDiIIfW5kVEfyHBgPMYgBLLdkoEBKABkfHZgyIa7h04MAOVty/RC/PhoAAAAAElFTkSuQmCC);}h1>a:hover::after,h2>a:hover::after,h3>a:hover::after,h4>a:hover::after,h5>a:hover::after,h6>a:hover::after{content:"Permalink to this headline";display:block;padding:12px;position:absolute;margin:-8px 8px;font-weight:400;font-size:14px;background:rgba(0,0,0,.8);color:#fff;border-radius:4px;}input[type=radio]{display:none;}input[type=radio]:checked ~ ul{display:block;}.fig{margin-top:-12px;padding-bottom:12px;display:block;text-align:center;font-style:italic;}div.page{width:100%;padding:1.618em 3.236em;margin:auto;line-height:24px;}div.page ol{margin:0 0 24px 12px;padding-left:0px;}div.page ul{margin:0 0 24px 24px;list-style:disc outside;padding-left:0px;}div.page ol{list-style-type:none;counter-reset:list;}div.page ol li:before{counter-increment:list;content:counters(list,".") ". ";}div.pre{overflow-x:auto;margin:1px 0px 24px;}div.table{overflow-x:auto;margin:0px 0px 24px;}div.info,div.hint,div.warn{padding:12px;line-height:24px;margin-bottom:24px;}div.info>p,div.hint>p,div.warn>p{margin:0px;}div.info>p:first-child,div.hint>p:first-child,div.warn>p:first-child{display:block;font-weight:700;padding:2px 8px 2px;margin:-12px -12px 8px -12px;vertical-align:middle;}div.info>p:first-child>span,div.hint>p:first-child>span,div.warn>p:first-child>span{display:block;max-height:20px;margin:0px;vertical-align:middle;}div.info>p:first-child>span::before,div.hint>p:first-child>span::before,div.warn>p:first-child>span::before{content:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAApUlEQVQ4y82TwQnDMAxFpVJyLPiSbbJETr13Fo+RZZxLRghkgnSEEni9ONS0sg1tDv3wwfjbX7Iki/wVAAd4IPBCiHuudrkHVvJYgb50eaOO7cMkpv0eeQGukYuRiUsNvBFpSvTJ0P2un0Sk+6Le3WEG58yBFrjt61r7Qqbij0gLIX3CaPgOqtqoaiMig6GPtTbOwCVyLraxMEj3yPIgHTLKv3ymJySzt16bW/sWAAAAAElFTkSuQmCC);}p>div:last-child,dd>*:last-child,td>*:last-child,li>ol,li>ul{margin-bottom:0px!important;}img{border:0px;}img.imgt{display:inline-block;max-height:22px!important;padding:0px;margin:-4px 0px 0px 0px;vertical-align:middle;}img.imgl{float:left;margin:0px 12px 12px 0px;}img.imgr{float:right;margin:0px 0px 12px 12px;}div.imgc{text-align:center;padding:0px;margin:0 0 12px 0;clear:both;}img.imgc{max-width:100%;}img.imgw{width:100%;margin-bottom:12px;clear:both;}.btn{border-radius:2px;line-height:normal;white-space:nowrap;color:inherit;text-align:center;cursor:pointer;font-size:100%;padding:4px 12px 8px;border:1px solid rgba(0,0,0,.1);text-decoration:none;box-shadow:inset 0 1px 2px -1px hsla(0,0%,100%,.5),inset 0 -2px 0 0 rgba(0,0,0,.1);vertical-align:middle;*zoom:1;user-select:none;transition:all .1s linear}.prev{float:left;}.prev::before{content:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAANlBMVEUAAABAQEBAQEBAQEBAQEBAQEBAQEBBQUFAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAWW5SEAAAAEnRSTlMA/fC9r2kXAjMN34F3ZlUu6B40Y5wGAAAAVElEQVQY08XPSw6AIAwEUIbS8lFE739Zq6luGtbM8iXTTMOCZGECiCX/MhIQTyCNz+SRrUc1MWKVvR5KYCN6pUFDRtqq4Sql9IYJ+aI/70f4qdOHblOhAuUcC5KnAAAAAElFTkSuQmCC);}.next{float:right;}.next::after{content:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASBAMAAACk4JNkAAAAJFBMVEUAAABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEC4lvDfAAAAC3RSTlMAx711ZjlFPh3zLASjkrYAAABDSURBVAjXY6AUsGhvcgAzOKR3797YAGIx7t5mvVsAxPLevZ159xYQS3v3zgLrTSDW7tTQBcy7ESyELEIHwhSEyQjbAAH1HsMY8tCHAAAAAElFTkSuQmCC);}@media screen and (max-width:991.98px){nav.mobile{display:block;}nav.side{display:none;}#menuchk:checked ~ nav.side{display:block;}#_m{margin-left:0px;}}#_variaveis:checked ~ nav div ul li[rel=variaveis]>.toc,#_touchpad:checked ~ nav div ul li[rel=touchpad]>.toc,#_teclado:checked ~ nav div ul li[rel=teclado]>.toc,#_manager:checked ~ nav div ul li[rel=manager]>.toc,#_pass_menu:checked ~ nav div ul li[rel=pass_menu]>.toc,#_wifi_menu:checked ~ nav div ul li[rel=wifi_menu]>.toc,#_power_menu:checked ~ nav div ul li[rel=power_menu]>.toc,#_todo:checked ~ nav div ul li[rel=todo]>.toc,#_nag:checked ~ nav div ul li[rel=nag]>.toc,#_tema:checked ~ nav div ul li[rel=tema]>.toc,div.page{display:none;}#_variaveis:checked ~ nav div ul li[rel=variaveis]>ul,#_variaveis:checked ~ nav div ul li[rel=variaveis]>.current,#_variaveis:checked ~ div div[rel=variaveis],#_touchpad:checked ~ nav div ul li[rel=touchpad]>ul,#_touchpad:checked ~ nav div ul li[rel=touchpad]>.current,#_touchpad:checked ~ div div[rel=touchpad],#_teclado:checked ~ nav div ul li[rel=teclado]>ul,#_teclado:checked ~ nav div ul li[rel=teclado]>.current,#_teclado:checked ~ div div[rel=teclado],#_manager:checked ~ nav div ul li[rel=manager]>ul,#_manager:checked ~ nav div ul li[rel=manager]>.current,#_manager:checked ~ div div[rel=manager],#_pass_menu:checked ~ nav div ul li[rel=pass_menu]>ul,#_pass_menu:checked ~ nav div ul li[rel=pass_menu]>.current,#_pass_menu:checked ~ div div[rel=pass_menu],#_wifi_menu:checked ~ nav div ul li[rel=wifi_menu]>ul,#_wifi_menu:checked ~ nav div ul li[rel=wifi_menu]>.current,#_wifi_menu:checked ~ div div[rel=wifi_menu],#_power_menu:checked ~ nav div ul li[rel=power_menu]>ul,#_power_menu:checked ~ nav div ul li[rel=power_menu]>.current,#_power_menu:checked ~ div div[rel=power_menu],#_todo:checked ~ nav div ul li[rel=todo]>ul,#_todo:checked ~ nav div ul li[rel=todo]>.current,#_todo:checked ~ div div[rel=todo],#_nag:checked ~ nav div ul li[rel=nag]>ul,#_nag:checked ~ nav div ul li[rel=nag]>.current,#_nag:checked ~ div div[rel=nag],#_tema:checked ~ nav div ul li[rel=tema]>ul,#_tema:checked ~ nav div ul li[rel=tema]>.current,#_tema:checked ~ div div[rel=tema],#_:checked ~ div div[rel=_]{display:block;}</style>
+  <style rel="theme">:root {  background-color: #343f44;}hr,table,td {  border-color: #2d353b;}th {  background: #425258;  color: #d3c6aa;  border-color: #425258;}tr:nth-child(odd) {  background: #3d484d;}tr {  background: #343f44;}#home {  background-color: #2d353b;  color: #2d353b;}input {  display: none !important;}a {  text-decoration: none;  color: #a7c080;}h1>a::before,h2>a::before,h3>a::before,h4>a::before,h5>a::before,h6>a::before,.next::after,.prev::before,.home::before,div.info>p:first-child>span::before,div.hint>p:first-child>span::before,div.warn>p:first-child>span::before {  content: url(data:image/png;base64,)}code {  background: url(data:image/png;base64,) !important;}samp {  background: #343f44;  color: #a7c080;}.content {  background: #2d353b;  color: #d3c6aa;  font-family: "Sans";}.title,.home,h1>a,h2>a,h3>a,h4>a,h5>a,h6>a {  background: #3d484d;  color: #d3c6aa;}.version {  color: #4f585e;}.search {  border: 1px solid #3c3836;  background: #3c3836;  color: #458588;}.nav {  background: #343f44;  color: #d3c6aa;}.nav p {  color: #a7c080;}.nav label:hover,.nav a:hover {  color: #d3c6aa;  background: #56635f;}.nav .current {  background: #232a2e;  color: #d3c6aa;  border: none !important;}.nav li>ul>li {  background: #2d353b;}.nav li>ul>li>a {  color: #d3c6aa;  border: none !important;}.nav li>ul>li>a:hover {  color: #d3c6aa;  background: #56635f;}.pre {  border: 1px solid #475258;  background: #343f44;}.info {  background: #455047;}.info>p:first-child {  background: #a7c080;  color: #2d353b;}.hint {  background: #343f44;}.hint>p:first-child {  background: #b16286;  color: #2d353b;}.warn {  background: #543a48;}.warn>p:first-child {  background: #e67e80;  color: #2d353b;}.btn {  background: #4f585e;  color: #d3c6aa;}.btn:hover {  background: #475258;}.ui1 {  font-family: Serif;  font-size: 12px;  border: 1px solid #4f585e;  border-radius: 3px;  background-image: linear-gradient(#343f44 0%, #343f44 100%);}.hl_h {  background-color: #4f585e;}.hl_c {  color: #859289;  font-style: italic;}.hl_p {  color: #3a515d;}.hl_o {  color: #e69875;}.hl_n {  color: #7fbbb3;}.hl_s {  color: #d3c6aa;}.hl_t {  color: #a7c080;}.hl_k {  color: #e67e80;}.hl_f {  color: #dbbc7f;}.hl_v {  color: #d699b6;}</style>
+</head>
+<body>
+  <div class="frame content">
+    <input type="radio" name="page" id="_" checked><input type="radio" name="page" id="_variaveis"><input type="radio" name="page" id="_touchpad"><input type="radio" name="page" id="_teclado"><input type="radio" name="page" id="_manager"><input type="radio" name="page" id="_pass_menu"><input type="radio" name="page" id="_wifi_menu"><input type="radio" name="page" id="_power_menu"><input type="radio" name="page" id="_todo"><input type="radio" name="page" id="_nag"><input type="radio" name="page" id="_tema">
+    <input type="checkbox" id="menuchk" style="display:none;"><nav class="side nav"><div>
+      <div class="title"><a href="sway.html">Sea - Sway Config</a><div class="version">Keep it simple, stupid.</div><input id="_q" class="search" type="text" required="required" onkeyup="s(this.value);"></div>      <div id="_s" class="nav"></div>
+      <div id="_t" class="nav">
+        <p>Sway</p>
+        <ul>
+        <li rel="variaveis"><label class="toc" for="_variaveis">Variáveis</label><div class="current">Variáveis</div><ul>
+        </ul></li>
+        <li rel="touchpad"><label class="toc" for="_touchpad">Touchpad</label><div class="current">Touchpad</div><ul>
+          <li class="h2"><a href="#input" onclick="m()">Input</a></li>
+          <li class="h2"><a href="#gestos" onclick="m()">Gestos</a></li>
+        </ul></li>
+        <li rel="teclado"><label class="toc" for="_teclado">Teclado</label><div class="current">Teclado</div><ul>
+          <li class="h2"><a href="#layout" onclick="m()">Layout</a></li>
+          <li class="h2"><a href="#teclas_de_atalho" onclick="m()">Teclas de atalho</a></li>
+        </ul></li>
+        </ul>
+        <p>Scripts</p>
+        <ul>
+        <li rel="manager"><label class="toc" for="_manager">manager</label><div class="current">manager</div><ul>
+        </ul></li>
+        <li rel="pass_menu"><label class="toc" for="_pass_menu">pass_menu</label><div class="current">pass_menu</div><ul>
+        </ul></li>
+        <li rel="wifi_menu"><label class="toc" for="_wifi_menu">wifi_menu</label><div class="current">wifi_menu</div><ul>
+        </ul></li>
+        <li rel="power_menu"><label class="toc" for="_power_menu">power_menu</label><div class="current">power_menu</div><ul>
+        </ul></li>
+        <li rel="todo"><label class="toc" for="_todo">todo</label><div class="current">todo</div><ul>
+        </ul></li>
+        <li rel="nag"><label class="toc" for="_nag">nag</label><div class="current">nag</div><ul>
+        </ul></li>
+        <li rel="tema"><label class="toc" for="_tema">tema</label><div class="current">tema</div><ul>
+        </ul>
+      </div>
+    </div></nav>
+    <div id="_m">
+      <nav class="mobile title">Sea - Sway Config<label for="menuchk" class="menu"></label></nav>
+<div class="page" rel="_">
+<h1>Bem-vindo(a)!</h1>
+<p>Aqui eu irei documentar cada parte que compõe o setup e também como 
+você pode modificar cada parte dele.</p>
+<p>Apesar de ser um setup simples, acho que vale a pena explicar como fiz 
+algumas coisas.</p>
+<div class="info"><p><span>Nota</span></p><p>Esse setup possue 4 paletas de cores diferentes (Gruvbox, Dracula, Nord e Everforest) 
+que podem ser escolhidas a qualquer momento com a tecla de atalho <samp>Super+t</samp>.</p></div><br style="clear:both;"><label class="btn next" accesskey="n" for="_variaveis" title="Variáveis">Próximo</label></div>
+<div class="page" rel="variaveis"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;Variáveis</li></ul><hr></div>
+<h1 id="variaveis">Variáveis<a href="#variaveis"></a></h1>
+<p>Essa Configuração possue algumas variáveis que são usadas em várias partes diferentes, 
+sinta-se livre para alterar seus valores.</p>
+<div class="pre"><pre>
+Variáveis     Valor
+$mod          Mod4 (Super)
+$term         foot
+$web          qutebrowser
+$file         manager
+$nag          nag
+$left         h
+$down         j
+$up           k
+$right        l
+</pre></div><br style="clear:both;"><label class="btn prev" accesskey="p" for="_">Anterior</label><label class="btn next" accesskey="n" for="_touchpad" title="Touchpad">Próximo</label></div>
+<div class="page" rel="touchpad"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;Touchpad</li></ul><hr></div>
+<h1 id="touchpad">Touchpad<a href="#touchpad"></a></h1>
+<h2 id="input">Input<a href="#input"></a></h2>
+<p>Por padrão, a minha configuração desabilita a emulação de botão central e scroll natural, 
+e habilita o tap-to-click.</p>
+<p>Se você por alguma razão precisa alterar qualquer um desses comportamentos, basta editar as 
+seguintes linhas em <samp>~/.config/sway/config</samp>:</p>
+<div class="pre"><pre class="lineno">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br></pre><code><span class="hl_c">### Touchpad</span>
+    
+<span class="hl_v">input</span> <span class="hl_s">&quot;1267:12734:MSFT0001:01_04F3:31BE_Touchpad&quot;</span> {
+    <span class="hl_v">dwt</span> <span class="hl_v">enabled</span>
+    <span class="hl_v">tap</span> <span class="hl_h"><span class="hl_v">enabled</span></span>
+    <span class="hl_v">natural_scroll</span> <span class="hl_h"><span class="hl_v">disabled</span></span>
+    <span class="hl_v">middle_emulation</span> <span class="hl_h"><span class="hl_v">disabled</span></span>
+}</code></div>
+<h2 id="gestos">Gestos<a href="#gestos"></a></h2>
+<p>Tomei a liberdade de configurar alguns gestos para manipulação de janelas e navegação 
+entre áreas de trabalho. Todos eles usam 3 dedos para serem realizados.</p>
+<p>Os gestos são os seguintes:</p>
+<ul>
+<li>Deslizar para a esquerda = área de trabalho à esquerda</li>
+<li>Deslizar para a direita = área de trabalho à direita</li>
+<li>Pinça para dentro + deslizar para cima = mover janela para cima</li>
+<li>Pinça para dentro + deslizar para baixo = mover janela para baixo</li>
+<li>Pinça para dentro + deslizar para esquerda = mover janela para esquerda</li>
+<li>Pinça para dentro + deslizar para direita = mover janela para direita</li>
+</ul>
+<p>Para alterar qualquer um desses gestos, basta alterar as seguintes linhas em 
+<samp>~/.config/sway/config</samp>:</p>
+<div class="pre"><pre class="lineno">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br></pre><code><span class="hl_c">### Gestos</span>
+
+    <span class="hl_v">bindgesture</span> <span class="hl_v">swipe</span>:<span class="hl_v">left</span> <span class="hl_v">workspace</span> <span class="hl_v">prev</span>
+    <span class="hl_v">bindgesture</span> <span class="hl_v">swipe</span>:<span class="hl_v">right</span> <span class="hl_v">workspace</span> <span class="hl_v">next</span>
+    <span class="hl_v">bindgesture</span> <span class="hl_v">pinch</span>:<span class="hl_v">inward</span><span class="hl_o">+</span><span class="hl_v">up</span> <span class="hl_v">move</span> <span class="hl_v">up</span>
+    <span class="hl_v">bindgesture</span> <span class="hl_v">pinch</span>:<span class="hl_v">inward</span><span class="hl_o">+</span><span class="hl_v">down</span> <span class="hl_v">move</span> <span class="hl_v">down</span>
+    <span class="hl_v">bindgesture</span> <span class="hl_v">pinch</span>:<span class="hl_v">inward</span><span class="hl_o">+</span><span class="hl_v">left</span> <span class="hl_v">move</span> <span class="hl_v">left</span>
+    <span class="hl_v">bindgesture</span> <span class="hl_v">pinch</span>:<span class="hl_v">inward</span><span class="hl_o">+</span><span class="hl_v">right</span> <span class="hl_v">move</span> <span class="hl_v">right</span></code></div><br style="clear:both;"><label class="btn prev" accesskey="p" for="_variaveis" title="Variáveis">Anterior</label><label class="btn next" accesskey="n" for="_teclado" title="Teclado">Próximo</label></div>
+<div class="page" rel="teclado"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;Teclado</li></ul><hr></div>
+<h1 id="teclado">Teclado<a href="#teclado"></a></h1>
+<h2 id="layout">Layout<a href="#layout"></a></h2>
+<p>O layout padrão do teclado é BR-ABNT2, se você precisar modificar este layout, basta editar essa linha:</p>
+<div class="pre"><pre class="lineno">1<br>2<br></pre><code><span class="hl_c">### Teclado</span>
+    <span class="hl_v">input</span> <span class="hl_n">1</span>:<span class="hl_n">1</span>:<span class="hl_v">AT_Translated_Set_2_keyboard</span> <span class="hl_v">xkb_layout</span> <span class="hl_s">&quot;br&quot;</span></code></div>
+<h2 id="teclas_de_atalho">Teclas de atalho<a href="#teclas_de_atalho"></a></h2>
+<p>Esta configuração possui diversas teclas de atalho para realizar diferentes tipos de tarefas.</p>
+<p>Como sempre, tudo pode ser modificado no arquivo <samp>~/.config/sway/config</samp>.</p>
+<p>Manipulação de janelas</p>
+<div class="pre"><pre>
+$mod+q         = fechar janela
+alt+tab        = alterar foco entre janela flutuante e janela em tiling
+$mod+tab       = alterar entre modo flutuante e tiling
+$mod+period    = abrir janela abaixo da atual
+$mod+comma     = abrir janela à direita da atual
+$mod+f         = tela cheia
+$mod+z         = layout tiling
+$mod+x         = layout de abas
+$mod+-         = mostrar scratchpad
+$mod+alt+-     = mover janela para scratchpad
+$mod+h         = focar na janela à esquerda
+$mod+j         = focar na janela abaixo
+$mod+k         = focar na janela acima
+$mod+l         = focar na janela à direita
+$mod+alt+h     = mover janela para esquerda
+$mod+alt+j     = mover janela para baixo
+$mod+alt+k     = mover janela para cima
+$mod+alt+l     = mover janela para direita
+$mod+ctrl+h    = redimensionar janela para esquerda
+$mod+ctrl+j    = redimensionar janela para baixo
+$mod+ctrl+k    = redimensionar janela para cima
+$mod+ctrl+l    = redimensionar janela para direita
+</pre></div>
+<p>Áreas de trabalho</p>
+<div class="pre"><pre>
+$mod+[1-0]     = Ir para a área de trabalho de número correspondente
+$mod+alt+[1-0] = Mover janela para área de trabalho de número correspondente
+</pre></div>
+<p>Menus</p>
+<div class="pre"><pre>
+$mod+p         = Binários
+$mod+d         = Desktop Entries
+$mod+e         = Explorador de arquivos
+$mod+s         = Explorador de senhas
+$mod+y         = Menu de wifi
+$mod+g         = Afazeres
+$mod+t         = Seletor de temas
+$mod+semicolon = Seletor de emojis
+$mod+delete    = Menu de energia
+ctrl+alt+q     = Menu de saída
+</pre></div>
+<p>Screesharing</p>
+<div class="pre"><pre>
+print          = Screenshot da tela inteira
+shift+print    = Screenshot de uma seleção
+ctrl+print     = Gravação de tela
+</pre></div>
+<p>Programas</p>
+<div class="pre"><pre>
+$mod+enter     = Abrir terminal
+$mod+w         = Abrir navegador
+$mod+a         = Abrir pavucontrol
+$mod+c         = Abrir cmus
+$mod+n         = Abrir newsboat
+$mod+m         = Abrir neomutt
+</pre></div><br style="clear:both;"><label class="btn prev" accesskey="p" for="_touchpad" title="Touchpad">Anterior</label><label class="btn next" accesskey="n" for="_manager" title="manager">Próximo</label></div>
+<div class="page" rel="manager"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;manager</li></ul><hr></div>
+<h1 id="manager">manager<a href="#manager"></a></h1>
+<p>Um explorador de arquivos simples.<br>
+Serve basicamente para abrir arquivos de forma ágil</p>
+<p>Criado originalmente por <a href="https://gitlab.com/Oglo12" target="new">Oglo12</a></p>
+<div class="pre"><pre class="lineno">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br></pre><code><span class="hl_c">#!/bin/bash</span>
+
+<span class="hl_f">open_fs</span> () {
+	<span class="hl_v">item</span><span class="hl_o">=</span><span class="hl_f">$</span>(<span class="hl_v">ls</span> <span class="hl_o">-</span><span class="hl_v">ap</span> <span class="hl_o">|</span> <span class="hl_v">rofi</span> <span class="hl_o">-</span><span class="hl_v">dmenu</span> <span class="hl_o">-</span><span class="hl_v">i</span> <span class="hl_o">-</span><span class="hl_v">p</span> <span class="hl_s">&quot;File Browser:&quot;</span>)
+
+	<span class="hl_k">if</span> [[ <span class="hl_o">-</span><span class="hl_v">d</span> <span class="hl_v">$item</span> ]];
+	<span class="hl_k">then</span>
+		<span class="hl_v">cd</span> <span class="hl_s">&quot;$item&quot;</span>
+		<span class="hl_v">open_fs</span>
+	<span class="hl_k">else</span>	
+		<span class="hl_v">xdg</span><span class="hl_o">-</span><span class="hl_v">open</span> <span class="hl_v">$item</span>
+	<span class="hl_v">fi</span>
+}
+
+<span class="hl_v">open_fs</span></code></div><br style="clear:both;"><label class="btn prev" accesskey="p" for="_teclado" title="Teclado">Anterior</label><label class="btn next" accesskey="n" for="_pass_menu" title="pass_menu">Próximo</label></div>
+<div class="page" rel="pass_menu"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;pass_menu</li></ul><hr></div>
+<h1 id="pass_menu">pass_menu<a href="#pass_menu"></a></h1>
+<p>Um explorador de senhas que utiliza o passwordstore.<br>
+Esse script foi modificado por mim para que ele utiliza-se o Rofi no lugar do dmenu.</p>
+<p>O código original foi retirado <a href="https://tools.suckless.org/dmenu/scripts/passmenu2" target="new">daqui</a></p>
+<div class="pre"><pre class="lineno">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br></pre><code><span class="hl_c">#!/usr/bin/env bash</span>
+
+<span class="hl_v">shopt</span> <span class="hl_o">-</span><span class="hl_v">s</span> <span class="hl_v">nullglob</span> <span class="hl_v">globstar</span>
+
+<span class="hl_v">typeit</span><span class="hl_o">=</span><span class="hl_n">0</span>
+<span class="hl_k">if</span> [[ <span class="hl_v">$1</span> <span class="hl_o">==</span> <span class="hl_s">&quot;--type&quot;</span> ]]; <span class="hl_k">then</span>
+	<span class="hl_v">typeit</span><span class="hl_o">=</span><span class="hl_n">1</span>
+	<span class="hl_v">shift</span>
+<span class="hl_v">fi</span>
+
+
+<span class="hl_v">STARTDIR</span><span class="hl_o">=</span><span class="hl_v">$</span>{<span class="hl_v">PASSWORD_STORE_DIR</span><span class="hl_o">-</span><span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.password</span><span class="hl_o">-</span><span class="hl_v">store</span>}
+<span class="hl_v">BASEDIR</span><span class="hl_o">=</span><span class="hl_v">$STARTDIR</span>
+<span class="hl_v">DONE</span><span class="hl_o">=</span><span class="hl_n">0</span>
+<span class="hl_v">LEVEL</span><span class="hl_o">=</span><span class="hl_n">0</span>
+<span class="hl_v">PREVSELECTION</span><span class="hl_o">=</span><span class="hl_s">&quot;&quot;</span>
+<span class="hl_v">SELECTION</span><span class="hl_o">=</span><span class="hl_s">&quot;&quot;</span>
+
+<span class="hl_k">while</span> [ <span class="hl_s">&quot;$DONE&quot;</span> <span class="hl_o">-</span><span class="hl_v">eq</span> <span class="hl_n">0</span> ] ; <span class="hl_k">do</span> 
+  <span class="hl_f">password_files</span><span class="hl_o">=</span>( <span class="hl_s">&quot;$STARTDIR&quot;</span><span class="hl_o">/*</span> )
+  <span class="hl_f">password_files</span><span class="hl_o">=</span>( <span class="hl_s">&quot;${password_files[@]#&quot;</span><span class="hl_v">$STARTDIR</span><span class="hl_s">&quot;/}&quot;</span> )
+  <span class="hl_f">password_files</span><span class="hl_o">=</span>( <span class="hl_s">&quot;${password_files[@]%.gpg}&quot;</span> )
+  
+  <span class="hl_k">if</span> [ <span class="hl_s">&quot;$LEVEL&quot;</span> <span class="hl_o">-</span><span class="hl_v">ne</span> <span class="hl_n">0</span> ] ; <span class="hl_k">then</span>
+    <span class="hl_f">password_files</span><span class="hl_o">=</span>(<span class="hl_s">&quot;..&quot;</span> <span class="hl_s">&quot;${password_files[@]}&quot;</span>) 
+  <span class="hl_v">fi</span>
+  <span class="hl_v">entry</span><span class="hl_o">=</span><span class="hl_f">$</span>(<span class="hl_v">printf</span> <span class="hl_s">'%s\n'</span> <span class="hl_s">&quot;${password_files[@]}&quot;</span> <span class="hl_o">|</span> <span class="hl_v">rofi</span> <span class="hl_o">-</span><span class="hl_v">dmenu</span> <span class="hl_s">&quot;$@&quot;</span> <span class="hl_o">-</span><span class="hl_v">i</span> <span class="hl_o">-</span><span class="hl_v">p</span> <span class="hl_s">&quot;Escolha a senha&quot;</span>)
+  
+  <span class="hl_v">echo</span> <span class="hl_s">&quot;entry: $entry&quot;</span>
+  <span class="hl_k">if</span> [ <span class="hl_o">-</span><span class="hl_v">z</span> <span class="hl_s">&quot;$entry&quot;</span> ] ; <span class="hl_k">then</span>
+    <span class="hl_v">DONE</span><span class="hl_o">=</span><span class="hl_n">1</span>
+    <span class="hl_v">exit</span>
+  <span class="hl_v">fi</span>
+  
+  <span class="hl_k">if</span> [ <span class="hl_s">&quot;$entry&quot;</span> <span class="hl_o">!=</span> <span class="hl_s">&quot;..&quot;</span> ] ; <span class="hl_k">then</span>
+    <span class="hl_v">PREVSELECTION</span><span class="hl_o">=</span><span class="hl_v">$SELECTION</span>
+    <span class="hl_v">SELECTION</span><span class="hl_o">=</span><span class="hl_s">&quot;$SELECTION/$entry&quot;</span>
+  
+    <span class="hl_c"># check if another dir</span>
+    <span class="hl_k">if</span> [ <span class="hl_o">-</span><span class="hl_v">d</span> <span class="hl_s">&quot;$STARTDIR/$entry&quot;</span> ] ; <span class="hl_k">then</span>
+      <span class="hl_v">STARTDIR</span><span class="hl_o">=</span><span class="hl_s">&quot;$STARTDIR/$entry&quot;</span>
+      <span class="hl_v">LEVEL</span><span class="hl_o">=</span><span class="hl_f">$</span>((<span class="hl_v">LEVEL</span><span class="hl_o">+</span><span class="hl_n">1</span>))
+    <span class="hl_k">else</span>
+      <span class="hl_c"># not a directory so it must be a real password entry</span>
+  
+      <span class="hl_k">if</span> [[ <span class="hl_v">$typeit</span> <span class="hl_o">-</span><span class="hl_v">eq</span> <span class="hl_n">0</span> ]]; <span class="hl_k">then</span>
+        <span class="hl_v">pass</span> <span class="hl_v">show</span> <span class="hl_o">-</span><span class="hl_v">c</span> <span class="hl_s">&quot;$SELECTION&quot;</span> <span class="hl_n">2</span><span class="hl_o">&gt;/</span><span class="hl_v">dev</span><span class="hl_o">/</span><span class="hl_t">null</span>
+      <span class="hl_k">else</span>
+        <span class="hl_v">xdotool</span> <span class="hl_o">-</span> <span class="hl_o">&lt;&lt;&lt;</span><span class="hl_s">&quot;type --clearmodifiers -- $(pass show &quot;</span><span class="hl_v">$SELECTION</span><span class="hl_s">&quot; | head -n 1)&quot;</span>
+      <span class="hl_v">fi</span>
+      <span class="hl_v">DONE</span><span class="hl_o">=</span><span class="hl_n">1</span>
+    <span class="hl_v">fi</span>
+  
+  <span class="hl_k">else</span>
+    <span class="hl_v">LEVEL</span><span class="hl_o">=</span><span class="hl_f">$</span>((<span class="hl_v">LEVEL</span><span class="hl_n">-1</span>))
+    <span class="hl_v">SELECTION</span><span class="hl_o">=</span><span class="hl_v">$PREVSELECTION</span>
+    <span class="hl_v">STARTDIR</span><span class="hl_o">=</span><span class="hl_s">&quot;$BASEDIR/$SELECTION&quot;</span>
+  <span class="hl_v">fi</span>
+<span class="hl_v">done</span></code></div><br style="clear:both;"><label class="btn prev" accesskey="p" for="_manager" title="manager">Anterior</label><label class="btn next" accesskey="n" for="_wifi_menu" title="wifi_menu">Próximo</label></div>
+<div class="page" rel="wifi_menu"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;wifi_menu</li></ul><hr></div>
+<h1 id="wifi_menu">wifi_menu<a href="#wifi_menu"></a></h1>
+<p>Um wrapper para o NetworkManager feito por 
+<a href="https://github.com/ericmurphyxyz/rofi-wifi-menu" target="new">Eric Murphy</a></p>
+<div class="pre"><pre class="lineno">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br></pre><code><span class="hl_c">#!/usr/bin/env bash</span>
+
+<span class="hl_v">notify</span><span class="hl_o">-</span><span class="hl_v">send</span> <span class="hl_s">&quot;Getting list of available Wi-Fi networks...&quot;</span>
+<span class="hl_c"># Get a list of available wifi connections and morph it into a nice-looking list</span>
+<span class="hl_v">wifi_list</span><span class="hl_o">=</span><span class="hl_f">$</span>(<span class="hl_v">nmcli</span> <span class="hl_o">--</span><span class="hl_v">fields</span> <span class="hl_s">&quot;SECURITY,SSID&quot;</span> <span class="hl_v">device</span> <span class="hl_v">wifi</span> <span class="hl_v">list</span> <span class="hl_o">|</span> <span class="hl_v">sed</span> <span class="hl_n">1d</span> <span class="hl_o">|</span> <span class="hl_v">sed</span> <span class="hl_s">'s/  */ /g'</span> <span class="hl_o">|</span> <span class="hl_v">sed</span> <span class="hl_o">-</span><span class="hl_v">E</span> <span class="hl_s">&quot;s/WPA*.?\S/ /g&quot;</span> <span class="hl_o">|</span> <span class="hl_v">sed</span> <span class="hl_s">&quot;s/^--/ /g&quot;</span> <span class="hl_o">|</span> <span class="hl_v">sed</span> <span class="hl_s">&quot;s/  //g&quot;</span> <span class="hl_o">|</span> <span class="hl_v">sed</span> <span class="hl_s">&quot;/--/d&quot;</span>)
+
+<span class="hl_v">connected</span><span class="hl_o">=</span><span class="hl_f">$</span>(<span class="hl_v">nmcli</span> <span class="hl_o">-</span><span class="hl_v">fields</span> <span class="hl_v">WIFI</span> <span class="hl_v">g</span>)
+<span class="hl_k">if</span> [[ <span class="hl_s">&quot;$connected&quot;</span> <span class="hl_o">=</span><span class="hl_v">~</span> <span class="hl_s">&quot;enabled&quot;</span> ]]; <span class="hl_k">then</span>
+	<span class="hl_v">toggle</span><span class="hl_o">=</span><span class="hl_s">&quot;󰖪  Disable Wi-Fi&quot;</span>
+<span class="hl_k">elif</span> [[ <span class="hl_s">&quot;$connected&quot;</span> <span class="hl_o">=</span><span class="hl_v">~</span> <span class="hl_s">&quot;disabled&quot;</span> ]]; <span class="hl_k">then</span>
+	<span class="hl_v">toggle</span><span class="hl_o">=</span><span class="hl_s">&quot;󰖩  Enable Wi-Fi&quot;</span>
+<span class="hl_v">fi</span>
+
+<span class="hl_c"># Use rofi to select wifi network</span>
+<span class="hl_v">chosen_network</span><span class="hl_o">=</span><span class="hl_f">$</span>(<span class="hl_v">echo</span> <span class="hl_o">-</span><span class="hl_v">e</span> <span class="hl_s">&quot;$toggle\n$wifi_list&quot;</span> <span class="hl_o">|</span> <span class="hl_v">uniq</span> <span class="hl_o">-</span><span class="hl_v">u</span> <span class="hl_o">|</span> <span class="hl_v">rofi</span> <span class="hl_o">-</span><span class="hl_v">dmenu</span> <span class="hl_o">-</span><span class="hl_v">i</span> <span class="hl_o">-</span><span class="hl_v">selected</span><span class="hl_o">-</span><span class="hl_v">row</span> <span class="hl_n">1</span> <span class="hl_o">-</span><span class="hl_v">p</span> <span class="hl_s">&quot;Wi-Fi SSID: &quot;</span> )
+<span class="hl_c"># Get name of connection</span>
+<span class="hl_v">read</span> <span class="hl_o">-</span><span class="hl_v">r</span> <span class="hl_v">chosen_id</span> <span class="hl_o">&lt;&lt;&lt;</span> <span class="hl_s">&quot;${chosen_network:3}&quot;</span>
+
+<span class="hl_k">if</span> [ <span class="hl_s">&quot;$chosen_network&quot;</span> <span class="hl_o">=</span> <span class="hl_s">&quot;&quot;</span> ]; <span class="hl_k">then</span>
+	<span class="hl_v">exit</span>
+<span class="hl_k">elif</span> [ <span class="hl_s">&quot;$chosen_network&quot;</span> <span class="hl_o">=</span> <span class="hl_s">&quot;󰖩  Enable Wi-Fi&quot;</span> ]; <span class="hl_k">then</span>
+	<span class="hl_v">nmcli</span> <span class="hl_v">radio</span> <span class="hl_v">wifi</span> <span class="hl_v">on</span>
+<span class="hl_k">elif</span> [ <span class="hl_s">&quot;$chosen_network&quot;</span> <span class="hl_o">=</span> <span class="hl_s">&quot;󰖪  Disable Wi-Fi&quot;</span> ]; <span class="hl_k">then</span>
+	<span class="hl_v">nmcli</span> <span class="hl_v">radio</span> <span class="hl_v">wifi</span> <span class="hl_v">off</span>
+<span class="hl_k">else</span>
+	<span class="hl_c"># Message to show when connection is activated successfully</span>
+  	<span class="hl_v">success_message</span><span class="hl_o">=</span><span class="hl_s">&quot;You are now connected to the Wi-Fi network \&quot;$chosen_id\&quot;.&quot;</span>
+	<span class="hl_c"># Get saved connections</span>
+	<span class="hl_v">saved_connections</span><span class="hl_o">=</span><span class="hl_f">$</span>(<span class="hl_v">nmcli</span> <span class="hl_o">-</span><span class="hl_v">g</span> <span class="hl_v">NAME</span> <span class="hl_v">connection</span>)
+	<span class="hl_k">if</span> [[ <span class="hl_f">$</span>(<span class="hl_v">echo</span> <span class="hl_s">&quot;$saved_connections&quot;</span> <span class="hl_o">|</span> <span class="hl_v">grep</span> <span class="hl_o">-</span><span class="hl_v">w</span> <span class="hl_s">&quot;$chosen_id&quot;</span>) <span class="hl_o">=</span> <span class="hl_s">&quot;$chosen_id&quot;</span> ]]; <span class="hl_k">then</span>
+		<span class="hl_v">nmcli</span> <span class="hl_v">connection</span> <span class="hl_v">up</span> <span class="hl_v">id</span> <span class="hl_s">&quot;$chosen_id&quot;</span> <span class="hl_o">|</span> <span class="hl_v">grep</span> <span class="hl_s">&quot;successfully&quot;</span> <span class="hl_o">&amp;&amp;</span> <span class="hl_v">notify</span><span class="hl_o">-</span><span class="hl_v">send</span> <span class="hl_s">&quot;Connection Established&quot;</span> <span class="hl_s">&quot;$success_message&quot;</span>
+	<span class="hl_k">else</span>
+		<span class="hl_k">if</span> [[ <span class="hl_s">&quot;$chosen_network&quot;</span> <span class="hl_o">=</span><span class="hl_v">~</span> <span class="hl_s">&quot;&quot;</span> ]]; <span class="hl_k">then</span>
+			<span class="hl_v">wifi_password</span><span class="hl_o">=</span><span class="hl_f">$</span>(<span class="hl_v">rofi</span> <span class="hl_o">-</span><span class="hl_v">dmenu</span> <span class="hl_o">-</span><span class="hl_v">password</span> <span class="hl_o">-</span><span class="hl_v">p</span> <span class="hl_s">&quot;Password: &quot;</span> )
+		<span class="hl_v">fi</span>
+		<span class="hl_v">nmcli</span> <span class="hl_v">device</span> <span class="hl_v">wifi</span> <span class="hl_v">connect</span> <span class="hl_s">&quot;$chosen_id&quot;</span> <span class="hl_v">password</span> <span class="hl_s">&quot;$wifi_password&quot;</span> <span class="hl_o">|</span> <span class="hl_v">grep</span> <span class="hl_s">&quot;successfully&quot;</span> <span class="hl_o">&amp;&amp;</span> <span class="hl_v">notify</span><span class="hl_o">-</span><span class="hl_v">send</span> <span class="hl_s">&quot;Connection Established&quot;</span> <span class="hl_s">&quot;$success_message&quot;</span>
+    <span class="hl_v">fi</span>
+<span class="hl_v">fi</span></code></div><br style="clear:both;"><label class="btn prev" accesskey="p" for="_pass_menu" title="pass_menu">Anterior</label><label class="btn next" accesskey="n" for="_power_menu" title="power_menu">Próximo</label></div>
+<div class="page" rel="power_menu"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;power_menu</li></ul><hr></div>
+<h1 id="power_menu">power_menu<a href="#power_menu"></a></h1>
+<p>Um menu de energia extremamente simples que fiz.</p>
+<div class="pre"><pre class="lineno">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br></pre><code><span class="hl_c">#!/bin/env bash</span>
+
+<span class="hl_v">ESCOLHA</span><span class="hl_o">=</span><span class="hl_s">&quot;$(printf &quot;</span><span class="hl_v">Sair\nReiniciar\nDesligar</span><span class="hl_s">&quot; | rofi -dmenu -i -p &quot;</span><span class="hl_v">Escolha</span> <span class="hl_v">uma</span> <span class="hl_v">opção</span>:<span class="hl_s">&quot;)&quot;</span>
+
+<span class="hl_k">case</span> <span class="hl_s">&quot;$ESCOLHA&quot;</span> <span class="hl_k">in</span>
+	<span class="hl_v">Sair</span>) <span class="hl_v">pkill</span> <span class="hl_o">-</span><span class="hl_v">KILL</span> <span class="hl_o">-</span><span class="hl_v">u</span> <span class="hl_v">$USER</span>;;
+  <span class="hl_v">Reiniciar</span>) <span class="hl_v">systemctl</span> <span class="hl_v">reboot</span>;;
+  <span class="hl_v">Desligar</span>) <span class="hl_v">systemctl</span> <span class="hl_v">poweroff</span>;;
+	<span class="hl_o">*</span>) <span class="hl_v">exit</span>;;
+<span class="hl_v">esac</span></code></div><br style="clear:both;"><label class="btn prev" accesskey="p" for="_wifi_menu" title="wifi_menu">Anterior</label><label class="btn next" accesskey="n" for="_todo" title="todo">Próximo</label></div>
+<div class="page" rel="todo"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;todo</li></ul><hr></div>
+<h1 id="todo">todo<a href="#todo"></a></h1>
+<p>Um gerenciador de afazeres simples.<br>
+De novo, modificado por mim para usar o Rofi.<br>
+<a href="https://tools.suckless.org/dmenu/scripts/todo" target="new">Código-fonte original</a>.</p>
+<div class="pre"><pre class="lineno">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br></pre><code><span class="hl_c">#!/bin/sh</span>
+<span class="hl_c">#</span>
+<span class="hl_c"># Write/remove a task to do later.</span>
+<span class="hl_c">#</span>
+<span class="hl_c"># Select an existing entry to remove it from the file, or type a new entry to</span>
+<span class="hl_c"># add it.</span>
+<span class="hl_c">#</span>
+
+<span class="hl_v">file</span><span class="hl_o">=</span><span class="hl_s">&quot;$HOME/.local/share/todo&quot;</span>
+<span class="hl_v">touch</span> <span class="hl_s">&quot;$file&quot;</span>
+<span class="hl_v">height</span><span class="hl_o">=</span><span class="hl_f">$</span>(<span class="hl_v">wc</span> <span class="hl_o">-</span><span class="hl_v">l</span> <span class="hl_s">&quot;$file&quot;</span> <span class="hl_o">|</span> <span class="hl_v">awk</span> <span class="hl_s">'{print $1}'</span>)
+<span class="hl_v">prompt</span><span class="hl_o">=</span><span class="hl_s">&quot;Add/delete a task: &quot;</span>
+
+<span class="hl_v">cmd</span><span class="hl_o">=</span><span class="hl_f">$</span>(<span class="hl_v">rofi</span> <span class="hl_o">-</span><span class="hl_v">dmenu</span> <span class="hl_o">-</span><span class="hl_v">i</span> <span class="hl_o">-</span><span class="hl_v">l</span> <span class="hl_s">&quot;$height&quot;</span> <span class="hl_o">-</span><span class="hl_v">p</span> <span class="hl_s">&quot;$prompt&quot;</span> <span class="hl_s">&quot;$@&quot;</span> <span class="hl_o">&lt;</span> <span class="hl_s">&quot;$file&quot;</span>)
+<span class="hl_k">while</span> [ <span class="hl_o">-</span><span class="hl_v">n</span> <span class="hl_s">&quot;$cmd&quot;</span> ]; <span class="hl_k">do</span>
+ 	<span class="hl_k">if</span> <span class="hl_v">grep</span> <span class="hl_o">-</span><span class="hl_v">q</span> <span class="hl_s">&quot;^$cmd\$&quot;</span> <span class="hl_s">&quot;$file&quot;</span>; <span class="hl_k">then</span>
+		<span class="hl_v">grep</span> <span class="hl_o">-</span><span class="hl_v">v</span> <span class="hl_s">&quot;^$cmd\$&quot;</span> <span class="hl_s">&quot;$file&quot;</span> <span class="hl_o">&gt;</span> <span class="hl_s">&quot;$file.$$&quot;</span>
+		<span class="hl_v">mv</span> <span class="hl_s">&quot;$file.$$&quot;</span> <span class="hl_s">&quot;$file&quot;</span>
+        <span class="hl_v">height</span><span class="hl_o">=</span><span class="hl_f">$</span>(( <span class="hl_v">height</span> <span class="hl_o">-</span> <span class="hl_n">1</span> ))
+ 	<span class="hl_k">else</span>
+		<span class="hl_v">echo</span> <span class="hl_s">&quot;$cmd&quot;</span> <span class="hl_o">&gt;&gt;</span> <span class="hl_s">&quot;$file&quot;</span>
+		<span class="hl_v">height</span><span class="hl_o">=</span><span class="hl_f">$</span>(( <span class="hl_v">height</span> <span class="hl_o">+</span> <span class="hl_n">1</span> ))
+ 	<span class="hl_v">fi</span>
+
+	<span class="hl_v">cmd</span><span class="hl_o">=</span><span class="hl_f">$</span>(<span class="hl_v">rofi</span> <span class="hl_o">-</span><span class="hl_v">dmenu</span> <span class="hl_o">-</span><span class="hl_v">i</span> <span class="hl_o">-</span><span class="hl_v">l</span> <span class="hl_s">&quot;$height&quot;</span> <span class="hl_o">-</span><span class="hl_v">p</span> <span class="hl_s">&quot;$prompt&quot;</span> <span class="hl_s">&quot;$@&quot;</span> <span class="hl_o">&lt;</span> <span class="hl_s">&quot;$file&quot;</span>)
+<span class="hl_v">done</span>
+
+<span class="hl_v">exit</span> <span class="hl_v">0</span></code></div><br style="clear:both;"><label class="btn prev" accesskey="p" for="_power_menu" title="power_menu">Anterior</label><label class="btn next" accesskey="n" for="_nag" title="nag">Próximo</label></div>
+<div class="page" rel="nag"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;nag</li></ul><hr></div>
+<h1 id="nag">nag<a href="#nag"></a></h1>
+<p>Um script que substitui o swaynag na única coisa em que ele era usado no meu setup.<br>
+Eu irei trocar o nome desse script eventualmente porque não quero causar confusão por conta 
+do nome, ele não é um script uso geral, ele serve apenas como uma janela de confirmação 
+de saída para o Sway.</p>
+<div class="pre"><pre class="lineno">1<br>2<br>3<br>4<br>5<br>6<br>7<br></pre><code><span class="hl_c">#!/bin/env bash</span>
+
+<span class="hl_v">ESCOLHA</span><span class="hl_o">=</span><span class="hl_s">&quot;$(printf &quot;</span><span class="hl_v">Sim\nNão</span><span class="hl_s">&quot; | rofi -dmenu -i -p &quot;</span><span class="hl_v">Você</span> <span class="hl_v">realmente</span> <span class="hl_v">quer</span> <span class="hl_v">sair</span> <span class="hl_k">do</span> <span class="hl_v">Sway?</span><span class="hl_s">&quot;)&quot;</span>
+<span class="hl_k">case</span> <span class="hl_s">&quot;$ESCOLHA&quot;</span> <span class="hl_k">in</span>
+	<span class="hl_v">Sim</span>) <span class="hl_v">swaymsg</span> <span class="hl_v">exit</span>;;
+	<span class="hl_o">*</span>) <span class="hl_v">exit</span>;;
+<span class="hl_v">esac</span></code></div><br style="clear:both;"><label class="btn prev" accesskey="p" for="_todo" title="todo">Anterior</label><label class="btn next" accesskey="n" for="_tema" title="tema">Próximo</label></div>
+<div class="page" rel="tema"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Início"></label>&nbsp;»</li><li>&nbsp;tema</li></ul><hr></div>
+<h1 id="tema">tema<a href="#tema"></a></h1>
+<p>Um script feito por mim que troca o tema do setup</p>
+<p>Ainda está em estágios iniciais e está ineficiente, porém, funciona perfeitamente e 
+sem erro algum.</p>
+<p>Toda e qualquer modificação para melhorar esse script é bem-vinda.</p>
+<div class="pre"><pre class="lineno">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85<br>86<br>87<br>88<br>89<br>90<br>91<br>92<br>93<br>94<br>95<br>96<br>97<br>98<br>99<br></pre><code><span class="hl_c">#!/bin/env bash</span>
+
+<span class="hl_f">gruvbox</span>() {
+	<span class="hl_v">cat</span> <span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">config</span> <span class="hl_o">|</span> <span class="hl_v">sed</span> <span class="hl_s">&quot;s/temas\/\S*/temas\/gruvbox/g&quot;</span> <span class="hl_o">&gt;</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+	<span class="hl_v">cat</span> <span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">rofi</span><span class="hl_o">/</span><span class="hl_v">config.rasi</span> <span class="hl_o">|</span> <span class="hl_v">sed</span> <span class="hl_s">&quot;s/themes\/\S*/themes\/gruvbox\&quot;/g&quot;</span> <span class="hl_o">&gt;</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">rofi</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+	<span class="hl_v">cat</span> <span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">helix</span><span class="hl_o">/</span><span class="hl_v">config.toml</span> <span class="hl_o">|</span> <span class="hl_v">sed</span> <span class="hl_s">&quot;s/theme\s*=\s\&quot;\S*/theme = \&quot;gruvbox\&quot;/g&quot;</span> <span class="hl_o">&gt;</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">helix</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">.tmp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">config</span>
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">rofi</span><span class="hl_o">/</span><span class="hl_v">.tmp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">rofi</span><span class="hl_o">/</span><span class="hl_v">config.rasi</span>
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">helix</span><span class="hl_o">/</span><span class="hl_v">.tmp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">helix</span><span class="hl_o">/</span><span class="hl_v">config.toml</span>
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">foot</span><span class="hl_o">/</span><span class="hl_v">gruvbox.ini</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">foot</span><span class="hl_o">/</span><span class="hl_v">foot.ini</span>
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">mako</span><span class="hl_o">/</span><span class="hl_v">gruvbox</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">mako</span><span class="hl_o">/</span><span class="hl_v">config</span>
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">wallpapers</span><span class="hl_o">/</span><span class="hl_v">gruvbox.png</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">wp</span>
+
+	<span class="hl_v">rm</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+	<span class="hl_v">rm</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">rofi</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+	<span class="hl_v">rm</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">helix</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+
+	<span class="hl_v">pkill</span> <span class="hl_v">mako</span>
+	<span class="hl_v">mako</span> <span class="hl_o">&amp;</span>
+
+	<span class="hl_v">swaymsg</span> <span class="hl_v">reload</span>
+}
+
+<span class="hl_f">dracula</span>() {
+	<span class="hl_v">cat</span> <span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">config</span> <span class="hl_o">|</span> <span class="hl_v">sed</span> <span class="hl_s">&quot;s/temas\/\S*/temas\/dracula/g&quot;</span> <span class="hl_o">&gt;</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+	<span class="hl_v">cat</span> <span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">rofi</span><span class="hl_o">/</span><span class="hl_v">config.rasi</span> <span class="hl_o">|</span> <span class="hl_v">sed</span> <span class="hl_s">&quot;s/themes\/\S*/themes\/dracula\&quot;/g&quot;</span> <span class="hl_o">&gt;</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">rofi</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+	<span class="hl_v">cat</span> <span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">helix</span><span class="hl_o">/</span><span class="hl_v">config.toml</span> <span class="hl_o">|</span> <span class="hl_v">sed</span> <span class="hl_s">&quot;s/theme\s*=\s\&quot;\S*/theme = \&quot;dracula\&quot;/g&quot;</span> <span class="hl_o">&gt;</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">helix</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+	
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">.tmp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">config</span>
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">rofi</span><span class="hl_o">/</span><span class="hl_v">.tmp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">rofi</span><span class="hl_o">/</span><span class="hl_v">config.rasi</span>
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">helix</span><span class="hl_o">/</span><span class="hl_v">.tmp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">helix</span><span class="hl_o">/</span><span class="hl_v">config.toml</span>
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">foot</span><span class="hl_o">/</span><span class="hl_v">dracula.ini</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">foot</span><span class="hl_o">/</span><span class="hl_v">foot.ini</span>
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">mako</span><span class="hl_o">/</span><span class="hl_v">dracula</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">mako</span><span class="hl_o">/</span><span class="hl_v">config</span>
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">wallpapers</span><span class="hl_o">/</span><span class="hl_v">dracula.png</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">wp</span>
+	
+	<span class="hl_v">rm</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+	<span class="hl_v">rm</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">rofi</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+	<span class="hl_v">rm</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">helix</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+
+	<span class="hl_v">pkill</span> <span class="hl_v">mako</span>
+	<span class="hl_v">mako</span> <span class="hl_o">&amp;</span>
+
+	<span class="hl_v">swaymsg</span> <span class="hl_v">reload</span>
+}
+
+<span class="hl_f">nord</span>() {
+	<span class="hl_v">cat</span> <span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">config</span> <span class="hl_o">|</span> <span class="hl_v">sed</span> <span class="hl_s">&quot;s/temas\/\S*/temas\/nord/g&quot;</span> <span class="hl_o">&gt;</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+	<span class="hl_v">cat</span> <span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">rofi</span><span class="hl_o">/</span><span class="hl_v">config.rasi</span> <span class="hl_o">|</span> <span class="hl_v">sed</span> <span class="hl_s">&quot;s/themes\/\S*/themes\/nord\&quot;/g&quot;</span> <span class="hl_o">&gt;</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">rofi</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+	<span class="hl_v">cat</span> <span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">helix</span><span class="hl_o">/</span><span class="hl_v">config.toml</span> <span class="hl_o">|</span> <span class="hl_v">sed</span> <span class="hl_s">&quot;s/theme\s*=\s\&quot;\S*/theme = \&quot;nord\&quot;/g&quot;</span> <span class="hl_o">&gt;</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">helix</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">.tmp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">config</span>
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">rofi</span><span class="hl_o">/</span><span class="hl_v">.tmp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">rofi</span><span class="hl_o">/</span><span class="hl_v">config.rasi</span>
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">helix</span><span class="hl_o">/</span><span class="hl_v">.tmp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">helix</span><span class="hl_o">/</span><span class="hl_v">config.toml</span>
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">foot</span><span class="hl_o">/</span><span class="hl_v">nord.ini</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">foot</span><span class="hl_o">/</span><span class="hl_v">foot.ini</span>
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">mako</span><span class="hl_o">/</span><span class="hl_v">nord</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">mako</span><span class="hl_o">/</span><span class="hl_v">config</span>
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">wallpapers</span><span class="hl_o">/</span><span class="hl_v">nord.png</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">wp</span>
+	
+	<span class="hl_v">rm</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+	<span class="hl_v">rm</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">rofi</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+	<span class="hl_v">rm</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">helix</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+
+	<span class="hl_v">pkill</span> <span class="hl_v">mako</span>
+	<span class="hl_v">mako</span> <span class="hl_o">&amp;</span>
+
+	<span class="hl_v">swaymsg</span> <span class="hl_v">reload</span>
+}
+
+<span class="hl_f">everforest</span>() {
+	<span class="hl_v">cat</span> <span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">config</span> <span class="hl_o">|</span> <span class="hl_v">sed</span> <span class="hl_s">&quot;s/temas\/\S*/temas\/everforest/g&quot;</span> <span class="hl_o">&gt;</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+	<span class="hl_v">cat</span> <span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">rofi</span><span class="hl_o">/</span><span class="hl_v">config.rasi</span> <span class="hl_o">|</span> <span class="hl_v">sed</span> <span class="hl_s">&quot;s/themes\/\S*/themes\/everforest\&quot;/g&quot;</span> <span class="hl_o">&gt;</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">rofi</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+	<span class="hl_v">cat</span> <span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">helix</span><span class="hl_o">/</span><span class="hl_v">config.toml</span> <span class="hl_o">|</span> <span class="hl_v">sed</span> <span class="hl_s">&quot;s/theme\s*=\s\&quot;\S*/theme = \&quot;everforest_dark\&quot;/g&quot;</span> <span class="hl_o">&gt;</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">helix</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">.tmp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">config</span>
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">rofi</span><span class="hl_o">/</span><span class="hl_v">.tmp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">rofi</span><span class="hl_o">/</span><span class="hl_v">config.rasi</span>
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">helix</span><span class="hl_o">/</span><span class="hl_v">.tmp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">helix</span><span class="hl_o">/</span><span class="hl_v">config.toml</span>
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">foot</span><span class="hl_o">/</span><span class="hl_v">everforest.ini</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">foot</span><span class="hl_o">/</span><span class="hl_v">foot.ini</span>
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">mako</span><span class="hl_o">/</span><span class="hl_v">everforest</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">mako</span><span class="hl_o">/</span><span class="hl_v">config</span>
+	<span class="hl_v">cp</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">wallpapers</span><span class="hl_o">/</span><span class="hl_v">everforest.png</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">wp</span>
+
+	<span class="hl_v">rm</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">sway</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+	<span class="hl_v">rm</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">rofi</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+	<span class="hl_v">rm</span> <span class="hl_v">~</span><span class="hl_o">/</span><span class="hl_v">.config</span><span class="hl_o">/</span><span class="hl_v">helix</span><span class="hl_o">/</span><span class="hl_v">.tmp</span>
+
+	<span class="hl_v">pkill</span> <span class="hl_v">mako</span>
+	<span class="hl_v">mako</span> <span class="hl_o">&amp;</span>
+
+	<span class="hl_v">swaymsg</span> <span class="hl_v">reload</span>
+}
+
+<span class="hl_v">ESCOLHA</span><span class="hl_o">=</span><span class="hl_f">$</span>(<span class="hl_v">printf</span> <span class="hl_s">&quot;Gruvbox\nEverforest\nDracula\nNord&quot;</span> <span class="hl_o">|</span> <span class="hl_v">rofi</span> <span class="hl_o">-</span><span class="hl_v">dmenu</span> <span class="hl_o">-</span><span class="hl_v">i</span> <span class="hl_o">-</span><span class="hl_v">p</span> <span class="hl_s">&quot;Escolha o tema:&quot;</span>)
+
+<span class="hl_k">case</span> <span class="hl_s">&quot;$ESCOLHA&quot;</span> <span class="hl_k">in</span>
+	<span class="hl_v">Gruvbox</span>) <span class="hl_v">gruvbox</span>;;
+	<span class="hl_v">Everforest</span>) <span class="hl_v">everforest</span>;;
+	<span class="hl_v">Dracula</span>) <span class="hl_v">dracula</span>;;
+	<span class="hl_v">Nord</span>) <span class="hl_v">nord</span>;;
+	<span class="hl_o">*</span>) <span class="hl_v">exit</span>;;
+<span class="hl_v">esac</span></code></div><br style="clear:both;"><label class="btn prev" accesskey="p" for="_nag" title="nag">Anterior</label></div>
+      <footer><hr><p>© Copyright 2024 Sea (https://github.com/0x736561)<br><small>Generated by <a href="https://gitlab.com/bztsrc/gendoc">gendoc</a> v1.0.0</small></p></footer>
+    </div>
+  </div>
+<script>function m(){document.getElementById("menuchk").checked=false;}function c(s){var r=document.getElementById(s);if(r!=undefined){if(r.tagName=="INPUT")r.checked=true;else document.getElementById("_"+r.parentNode.getAttribute("rel")).checked=true;}m();}function s(s){var r=document.getElementById("_s"),p=document.getElementById("_m").getElementsByClassName("page"),n,i,j,a,b,c,d;if(s){s=s.toLowerCase();document.getElementById("_t").style.display="none";r.style.display="block";while(r.firstChild)r.removeChild(r.firstChild);n=document.createElement("p");n.appendChild(document.createTextNode("Resultados da busca"));r.appendChild(n);for(i=1;i<p.length;i++){a=p[i].getAttribute("rel");b="";c=p[i].childNodes;d=p[i].getElementsByTagName("H1")[0].innerText;for(j=1;j<c.length && c[j].className!="btn prev";j++){if(c[j].id!=undefined&&c[j].id!=""){a=c[j].id;d=c[j].innerText;}else if(a!=b&&c[j].innerText!=undefined&&c[j].innerText.toLowerCase().indexOf(s)!=-1){b=a;n=document.createElement("a");n.appendChild(document.createTextNode(d));n.setAttribute("href","#"+a);n.setAttribute("onclick","c('"+a+"');");r.appendChild(n);}}}}else{document.getElementById("_t").style.display="block";r.style.display="none";}}document.addEventListener("DOMContentLoaded",function(e){var i,r,n;document.getElementById("_q").style.display="inline-block";if(document.location.href.indexOf("?")!=-1)document.location.href=document.location.href.replace("?","#");else{r=document.querySelectorAll("LABEL:not(.menu)");while(r.length){l=r[0].getAttribute("for").substr(1);n=document.createElement("a");n.appendChild(document.createTextNode(r[0].innerText));n.setAttribute("href","#"+l);n.setAttribute("onclick","c('"+(l!=""?l:"_")+"');");if(r[0].getAttribute("class")!=undefined)n.setAttribute("class",r[0].getAttribute("class"));if(r[0].getAttribute("title")!=undefined&&l!="")n.setAttribute("title",r[0].getAttribute("title"));if(r[0].getAttribute("accesskey")!=undefined)n.setAttribute("accesskey",r[0].getAttribute("accesskey"));r[0].parentNode.replaceChild(n,r[0]);r=document.querySelectorAll("LABEL:not(.menu)");}try{c(document.location.href.split("#")[1]);}catch(e){}}});</script>
+</body>
+</html>
