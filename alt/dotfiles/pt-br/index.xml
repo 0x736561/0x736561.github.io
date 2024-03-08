@@ -1,7 +1,7 @@
 <doc>
     <title>Sea - Dotfiles</title>
     <url>sway.html</url>
-    <theme>../temas/everforest.css</theme>
+    <theme>../../../temas/everforest.css</theme>
     <version>Keep it simple, stupid.</version>
     <lang>pt-br</lang>
     <rslt>Resultados da busca</rslt>
@@ -156,7 +156,7 @@ $mod+m         = Abrir neomutt
     <p>Um explorador de arquivos simples.</p>
     <p>Serve basicamente para abrir arquivos de forma ágil.</p>
     <note><p>Criado originalmente por <a https://gitlab.com/Oglo12>Oglo12</a></p></note>
-    <code bash>
+    <code>
 open_fs () {
 	item=$(ls -ap | rofi -dmenu -i -p "File Browser:")
 
@@ -177,7 +177,7 @@ open_fs
       <p><a https://tools.suckless.org/dmenu/scripts/passmenu2>Código-fonte original</a></p>
     </note>
     <p>Um explorador de senhas que utiliza o passwordstore.</p>
-    <code bash>
+    <code>
 #!/usr/bin/env bash
 
 shopt -s nullglob globstar
@@ -240,7 +240,7 @@ done
     </code>
   <h1>wifi_menu</h1>
     <p>Um wrapper para o NetworkManager feito por <a https://github.com/ericmurphyxyz/rofi-wifi-menu>Eric Murphy</a></p>
-    <code bash>
+    <code>
 #!/usr/bin/env bash
 
 notify-send "Getting list of available Wi-Fi networks..."
@@ -282,7 +282,7 @@ fi
     </code>
   <h1>power_menu</h1>
     <p>Um menu de energia extremamente simples que fiz.</p>
-    <code bash>
+    <code>
 #!/bin/env bash
 
 ESCOLHA="$(printf "Sair\nReiniciar\nDesligar" | rofi -dmenu -i -p "Escolha uma opção:")"
@@ -300,7 +300,7 @@ esac
       <p><a https://tools.suckless.org/dmenu/scripts/todo>Código-fonte original</a></p>
     </note>
     <p>Um gerenciador de afazeres simples.</p>
-    <code bash>
+    <code>
 #!/bin/sh
 #
 # Write/remove a task to do later.
@@ -335,7 +335,7 @@ exit 0
     <p>Eu irei trocar o nome desse script eventualmente porque não quero causar confusão por 
     conta do nome, ele não é um script uso geral, ele serve apenas como uma janela de confirmação 
     de saída para o Sway.</p>
-    <code bash>
+    <code>
 #!/bin/env bash
 
 ESCOLHA="$(printf "Sim\nNão" | rofi -dmenu -i -p "Você realmente quer sair do Sway?")"
@@ -348,7 +348,7 @@ esac
     <p>Um script feito por mim que troca o tema do setup.</p>
     <p>Ainda está em estágios iniciais e está ineficiente, porém, funciona perfeitamente e sem erro algum.</p>
     <p>Toda e qualquer modificação para melhorar esse script é bem-vinda.</p>
-    <code bash>
+    <code>
 #!/bin/env bash
 
 gruvbox() {
