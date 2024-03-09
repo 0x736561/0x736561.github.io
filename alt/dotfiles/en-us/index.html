@@ -304,14 +304,38 @@ $mod+m         = Open neomutt
 <div class="page" rel="power_menu"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Home"></label>&nbsp;»</li><li>&nbsp;power_menu</li></ul><hr></div>
 <h1 id="power_menu">power_menu<a href="#power_menu"></a></h1>
 <p>A simple power menu made by me.</p>
-<div class="pre"><pre class="lineno">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br></pre><code><span class="hl_c">#!/bin/env bash</span>
+<div class="pre"><pre class="lineno">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br></pre><code>  <span class="hl_c">#!/bin/env bash</span>
 
-<span class="hl_v">ESCOLHA</span><span class="hl_o">=</span><span class="hl_s">&quot;$(printf &quot;</span><span class="hl_v">Sair\nReiniciar\nDesligar</span><span class="hl_s">&quot; | rofi -dmenu -i -p &quot;</span><span class="hl_v">Escolha</span> <span class="hl_v">uma</span> <span class="hl_v">opção</span>:<span class="hl_s">&quot;)&quot;</span>
+<span class="hl_f">sair</span>(){
+	<span class="hl_k">if</span> [ <span class="hl_f">$</span>(<span class="hl_v">nag</span>) ]; <span class="hl_k">then</span> 
+		<span class="hl_v">swaymsg</span> <span class="hl_v">exit</span> 
+	<span class="hl_v">fi</span>
+}
+
+<span class="hl_f">suspender</span>(){
+	<span class="hl_k">if</span> [ <span class="hl_f">$</span>(<span class="hl_v">nag</span>) ]; <span class="hl_k">then</span>
+		<span class="hl_v">systemctl</span> <span class="hl_v">suspend</span>
+	<span class="hl_v">fi</span>
+}
+
+<span class="hl_f">reiniciar</span>(){
+	<span class="hl_k">if</span> [ <span class="hl_f">$</span>(<span class="hl_v">nag</span>) ]; <span class="hl_k">then</span>
+		<span class="hl_v">systemctl</span> <span class="hl_v">reboot</span>
+	<span class="hl_v">fi</span>
+}
+
+<span class="hl_f">desligar</span>(){
+	<span class="hl_k">if</span> [ <span class="hl_f">$</span>(<span class="hl_v">nag</span>) ]; <span class="hl_k">then</span>
+		<span class="hl_v">systemctl</span> <span class="hl_v">poweroff</span>
+	<span class="hl_v">fi</span>
+}
+<span class="hl_v">ESCOLHA</span><span class="hl_o">=</span><span class="hl_s">&quot;$(printf &quot;</span><span class="hl_v">Sair\nSuspender\nReiniciar\nDesligar</span><span class="hl_s">&quot; | rofi -dmenu -i -p &quot;</span><span class="hl_v">Escolha</span> <span class="hl_v">uma</span> <span class="hl_v">opção</span>:<span class="hl_s">&quot;)&quot;</span>
 
 <span class="hl_k">case</span> <span class="hl_s">&quot;$ESCOLHA&quot;</span> <span class="hl_k">in</span>
-	<span class="hl_v">Sair</span>) <span class="hl_v">pkill</span> <span class="hl_o">-</span><span class="hl_v">KILL</span> <span class="hl_o">-</span><span class="hl_v">u</span> <span class="hl_v">$USER</span>;;
-  <span class="hl_v">Reiniciar</span>) <span class="hl_v">systemctl</span> <span class="hl_v">reboot</span>;;
-  <span class="hl_v">Desligar</span>) <span class="hl_v">systemctl</span> <span class="hl_v">poweroff</span>;;
+	<span class="hl_v">Sair</span>) <span class="hl_v">sair</span>;;
+	<span class="hl_v">Suspender</span>) <span class="hl_v">suspender</span>;;
+  <span class="hl_v">Reiniciar</span>) <span class="hl_v">reiniciar</span>;;
+  <span class="hl_v">Desligar</span>) <span class="hl_v">desligar</span>;;
 	<span class="hl_o">*</span>) <span class="hl_v">exit</span>;;
 <span class="hl_v">esac</span></code></div><br style="clear:both;"><label class="btn prev" accesskey="p" for="_wifi_menu" title="wifi_menu">Previous</label><label class="btn next" accesskey="n" for="_todo" title="todo">Next</label></div>
 <div class="page" rel="todo"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Home"></label>&nbsp;»</li><li>&nbsp;todo</li></ul><hr></div>
@@ -351,13 +375,13 @@ $mod+m         = Open neomutt
 <span class="hl_v">exit</span> <span class="hl_v">0</span></code></div><br style="clear:both;"><label class="btn prev" accesskey="p" for="_power_menu" title="power_menu">Previous</label><label class="btn next" accesskey="n" for="_nag" title="nag">Next</label></div>
 <div class="page" rel="nag"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Home"></label>&nbsp;»</li><li>&nbsp;nag</li></ul><hr></div>
 <h1 id="nag">nag<a href="#nag"></a></h1>
-<p>A script that asks if you really want to exit Sway.</p>
-<p>I'll change the name of this script at some point so it doesn't create confusion with "swaynag".</p>
-<div class="pre"><pre class="lineno">1<br>2<br>3<br>4<br>5<br>6<br>7<br></pre><code><span class="hl_c">#!/bin/env bash</span>
+<p>A script that asks if you really want to something.</p>
+<p>It's meant to be used with other scripts, like for example, the power_menu script.</p>
+<div class="pre"><pre class="lineno">1<br>2<br>3<br>4<br>5<br>6<br>7<br></pre><code>  <span class="hl_c">#!/bin/env bash</span>
 
-<span class="hl_v">ESCOLHA</span><span class="hl_o">=</span><span class="hl_s">&quot;$(printf &quot;</span><span class="hl_v">Sim\nNão</span><span class="hl_s">&quot; | rofi -dmenu -i -p &quot;</span><span class="hl_v">Você</span> <span class="hl_v">realmente</span> <span class="hl_v">quer</span> <span class="hl_v">sair</span> <span class="hl_k">do</span> <span class="hl_v">Sway?</span><span class="hl_s">&quot;)&quot;</span>
-<span class="hl_k">case</span> <span class="hl_s">&quot;$ESCOLHA&quot;</span> <span class="hl_k">in</span>
-	<span class="hl_v">Sim</span>) <span class="hl_v">swaymsg</span> <span class="hl_v">exit</span>;;
+<span class="hl_v">CONFIRMACAO</span><span class="hl_o">=</span><span class="hl_s">&quot;$(printf &quot;</span><span class="hl_v">Sim\nNão</span><span class="hl_s">&quot; | rofi -dmenu -i -p &quot;</span><span class="hl_v">Você</span> <span class="hl_v">tem</span> <span class="hl_v">certeza?</span><span class="hl_s">&quot;)&quot;</span>
+<span class="hl_k">case</span> <span class="hl_s">&quot;$CONFIRMACAO&quot;</span> <span class="hl_k">in</span>
+	<span class="hl_v">Sim</span>) <span class="hl_v">echo</span> <span class="hl_n">0</span>;;
 	<span class="hl_o">*</span>) <span class="hl_v">exit</span>;;
 <span class="hl_v">esac</span></code></div><br style="clear:both;"><label class="btn prev" accesskey="p" for="_todo" title="todo">Previous</label><label class="btn next" accesskey="n" for="_tema" title="tema">Next</label></div>
 <div class="page" rel="tema"><div><ul class="breadcrumbs"><li><label class="home" for="_" title="Home"></label>&nbsp;»</li><li>&nbsp;tema</li></ul><hr></div>

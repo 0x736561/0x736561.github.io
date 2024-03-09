@@ -282,16 +282,41 @@ fi
   <h1>power_menu</h1>
     <p>A simple power menu made by me.</p>
     <code>
-#!/bin/env bash
+  #!/bin/env bash
 
-ESCOLHA="$(printf "Sair\nReiniciar\nDesligar" | rofi -dmenu -i -p "Escolha uma opção:")"
+sair(){
+	if [ $(nag) ]; then 
+		swaymsg exit 
+	fi
+}
+
+suspender(){
+	if [ $(nag) ]; then
+		systemctl suspend
+	fi
+}
+
+reiniciar(){
+	if [ $(nag) ]; then
+		systemctl reboot
+	fi
+}
+
+desligar(){
+	if [ $(nag) ]; then
+		systemctl poweroff
+	fi
+}
+ESCOLHA="$(printf "Sair\nSuspender\nReiniciar\nDesligar" | rofi -dmenu -i -p "Escolha uma opção:")"
 
 case "$ESCOLHA" in
-	Sair) pkill -KILL -u $USER;;
-  Reiniciar) systemctl reboot;;
-  Desligar) systemctl poweroff;;
+	Sair) sair;;
+	Suspender) suspender;;
+  Reiniciar) reiniciar;;
+  Desligar) desligar;;
 	*) exit;;
 esac
+
     </code>
   <h1>todo</h1>
     <note>
@@ -330,14 +355,14 @@ done
 exit 0
     </code>
   <h1>nag</h1>
-    <p>A script that asks if you really want to exit Sway.</p>
-    <p>I'll change the name of this script at some point so it doesn't create confusion with "swaynag".</p>
+    <p>A script that asks if you really want to something.</p>
+    <p>It's meant to be used with other scripts, like for example, the power_menu script.</p>
     <code>
-#!/bin/env bash
+  #!/bin/env bash
 
-ESCOLHA="$(printf "Sim\nNão" | rofi -dmenu -i -p "Você realmente quer sair do Sway?")"
-case "$ESCOLHA" in
-	Sim) swaymsg exit;;
+CONFIRMACAO="$(printf "Sim\nNão" | rofi -dmenu -i -p "Você tem certeza?")"
+case "$CONFIRMACAO" in
+	Sim) echo 0;;
 	*) exit;;
 esac
     </code>

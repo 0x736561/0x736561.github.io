@@ -286,12 +286,36 @@ fi
     <code>
 #!/bin/env bash
 
-ESCOLHA="$(printf "Sair\nReiniciar\nDesligar" | rofi -dmenu -i -p "Escolha uma opção:")"
+sair(){
+	if [ $(nag) ]; then 
+		swaymsg exit 
+	fi
+}
+
+suspender(){
+	if [ $(nag) ]; then
+		systemctl suspend
+	fi
+}
+
+reiniciar(){
+	if [ $(nag) ]; then
+		systemctl reboot
+	fi
+}
+
+desligar(){
+	if [ $(nag) ]; then
+		systemctl poweroff
+	fi
+}
+ESCOLHA="$(printf "Sair\nSuspender\nReiniciar\nDesligar" | rofi -dmenu -i -p "Escolha uma opção:")"
 
 case "$ESCOLHA" in
-	Sair) pkill -KILL -u $USER;;
-  Reiniciar) systemctl reboot;;
-  Desligar) systemctl poweroff;;
+	Sair) sair;;
+	Suspender) suspender;;
+  Reiniciar) reiniciar;;
+  Desligar) desligar;;
 	*) exit;;
 esac
     </code>
@@ -332,18 +356,17 @@ done
 exit 0
     </code>
   <h1>nag</h1>
-    <p>Um script que substitui o swaynag na única coisa em que ele era usado no meu setup.</p>
-    <p>Eu irei trocar o nome desse script eventualmente porque não quero causar confusão por 
-    conta do nome, ele não é um script uso geral, ele serve apenas como uma janela de confirmação 
-    de saída para o Sway.</p>
+    <p>Um script que substitui o swaynag.</p>
+    <p>Não chega a ser nada extremamente avançado, ele é apenas uma janela de confirmação.</p>
     <code>
 #!/bin/env bash
 
-ESCOLHA="$(printf "Sim\nNão" | rofi -dmenu -i -p "Você realmente quer sair do Sway?")"
-case "$ESCOLHA" in
-	Sim) swaymsg exit;;
+CONFIRMACAO="$(printf "Sim\nNão" | rofi -dmenu -i -p "Você tem certeza?")"
+case "$CONFIRMACAO" in
+	Sim) echo 0;;
 	*) exit;;
 esac
+
     </code>
   <h1>tema</h1>
     <p>Um script feito por mim que troca o tema do setup.</p>
