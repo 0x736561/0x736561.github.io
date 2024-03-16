@@ -1,7 +1,7 @@
 <doc>
     <title>Sea - Blog</title>
     <url>index.html</url>
-    <theme>temas/everforest.css</theme>
+    <theme>temas/gruvbox.css</theme>
     <version>Keep it simple, stupid.</version>
     <lang>pt-br</lang>
     <rslt>Resultados da busca</rslt>
