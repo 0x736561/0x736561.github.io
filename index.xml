@@ -80,6 +80,38 @@
 
 <cap>Blog</cap>
 
+<h1>Lite XL</h1>
+    <h2>Um editor de código no estilo do VSCode</h2>
+    <p>Quem diria? Eu tô fazendo mais um post sobre editor de texto. 
+    Porém, dessa vez o editor é um que é familiar ao VSCode e ainda assim 
+    é uma opção 1000 vezes melhor e que também consegue ser algo melhor que 
+    o Neovim (na minha humilde opinião).</p>
+
+    <h2>O editor em questão é o Lite XL</h2>
+    <p>Esse editor é um programa bem simplista e muito bonito, feito usando 
+    a linguagem de programação <tt>Lua</tt>, e também é configurado com ela.
+    </p>
+    <p>Ele também tem um ecossistema de plugins muito competente, tendo até 
+    mesmo um lsp para C. Por ser feito e configurado em Lua, é possível 
+    modificar praticamente tudo no editor, no estilo do Emacs, a diferença 
+    fica na velocidade do programa e também na facilidade de ser configurado.
+    </p>
+    <p>Eu acabei de terminar a minha configuração, instalei diversos plugins, 
+    a facilidade veio do gerenciador de plugins com interface gráfica, que por
+    si só é um plugin, e foi o único que tive que instalar por linha de comando.</p>
+    
+    <h2>Muito parecido com o VSCode, porém, simples</h2>
+    <p>A aparência do Lite XL lembra muito a aparência do VSCode, porém 
+    ele é <b>muito</b> mais simples. Ele não tem todas aquelas parafernálias 
+    que o VSCode tem por padrão, e também é extremamente rápido, quase tão 
+    rápido quanto o Neovim, o que pra um programa de interface gráfica é 
+    impressionante, levando em conta que eu uso um laptop com 4Gb de Ram e 
+    um Intel Celeron N4020 de 1.10Ghz.</p>
+
+    <h2><i>Fin</i></h2>
+    <p>Enfim, vou encerrar por aqui, não estou com muita criatividade hoje.</p>
+    <p>Até o próximo post!</p>
+
 <h1>Golang</h1>
     <h2>Uma linguagem simples</h2>
     <p>Nos últimos dias eu estive estudando linguagens de programação 
@@ -674,7 +706,7 @@
     minha perspectiva antes de usar o serviço, era só um recurso pra encher 
     linguiça e que não tinha uma situação onde eu usaria essa função, 
     até que eu, sem nem ter a intenção, acabei utilizando o recurso e vi o 
-    potencial dele. É algo quase como o ecossitema Apple de fazer as coisas, 
+    potencial dele. É algo quase como o ecossistema Apple de fazer as coisas, 
     você só usa o seus dispositivos de forma natural, e sem você nem perceber, 
     tudo fica interligado, e com isso você para de dinstinguir o seu celular 
     da sua TV ou do seu computador. Tudo funciona como 1 aparelho que possui 
