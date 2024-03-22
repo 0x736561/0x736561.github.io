@@ -8,12 +8,13 @@
 }
 
 .old {
-  border: solid 2px var(--pico-background-color)
+  border: solid 2px var(--pico-color-slate-800);
 }
+
 
 @keyframes pulse {
   0% {
-    border: solid 2px var(--pico-background-color);
+    border: solid 2px var(--pico-color-slate-800);
   }
 
   50% {
@@ -21,7 +22,7 @@
   }
 
   100% {
-    border: solid 2px var(--pico-background-color);
+    border: solid 2px var(--pico-color-slate-800);
   }
 
 }
