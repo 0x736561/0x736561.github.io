@@ -73,6 +73,10 @@ a {
   transition: all 0.3s;
 }
 
+.aviso {
+  border: solid 2px var(--pico-color-orange-500);
+}
+
 @keyframes pulse {
   0% {
     border: solid 2px var(--pico-color-slate-700);
