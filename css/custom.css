@@ -5,24 +5,85 @@
 
 .new {
   animation: pulse 2s infinite;
+  transition: all 0.8s;
+}
+
+.new:hover {
+  border: solid 2px var(--pico-color-jade-600);
+  background-color: var(--pico-color-jade-900);
+  transition: all 0.3s;
+  animation: none;
 }
 
 .old {
-  border: solid 2px var(--pico-color-slate-800);
+  border: solid 2px var(--pico-color-slate-700);
+  transition: all 0.8s;
 }
 
+.old:hover {
+  border: solid 2px var(--pico-color-slate-700);
+  background-color: var(--pico-color-slate-800);
+  transition: all 0.3s;
+}
+
+a {
+  text-decoration: none;
+}
+
+.github {
+  border: solid 2px var(--pico-color-indigo-500);
+  transition: all 0.8s;
+}
+
+.github:hover {
+  border: solid 2px var(--pico-color-indigo-500);
+  background-color: var(--pico-color-indigo-900);
+  transition: all 0.3s;
+}
+
+.linkedin {
+  border: solid 2px var(--pico-color-azure-500);
+  transition: all 0.8s;
+}
+
+.linkedin:hover {
+  background-color: var(--pico-color-azure-900);
+  transition: all 0.3s;
+}
+
+.youtube {
+  border: solid 2px var(--pico-color-red-500);
+  transition: all 0.8s;
+}
+
+.youtube:hover {
+  border: solid 2px var(--pico-color-red-500);
+  background-color: var(--pico-color-red-900);
+  transition: all 0.3s;
+}
+
+.instagram {
+  border: solid 2px var(--pico-color-pink-500);
+  transition: all 0.8s;
+}
+
+.instagram:hover {
+  border: solid 2px var(--pico-color-pink-500);
+  background-color: var(--pico-color-pink-900);
+  transition: all 0.3s;
+}
 
 @keyframes pulse {
   0% {
-    border: solid 2px var(--pico-color-slate-800);
+    border: solid 2px var(--pico-color-slate-700);
   }
 
   50% {
-    border: solid 2px var(--pico-color-jade-500);
+    border: solid 2px var(--pico-color-jade-600);
   }
 
   100% {
-    border: solid 2px var(--pico-color-slate-800);
+    border: solid 2px var(--pico-color-slate-700);
   }
 
 }
