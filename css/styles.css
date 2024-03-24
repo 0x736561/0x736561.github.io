@@ -1,0 +1,136 @@
+@charset "UTF-8";
+@import "pico.color.min.css";
+
+/* Classes utilitárias */
+article.aviso:hover>hgroup>h1,
+article.aviso:hover>hgroup>h2,
+article.aviso:hover>hgroup>h3,
+article.aviso:hover>hgroup>h4,
+article.aviso:hover>hgroup>h5,
+article.aviso:hover>hgroup>h6,
+article.aviso,
+article.cartão,
+article.new {
+  transition: all 0.8s;
+}
+
+article.aviso>hgroup>h1,
+article.aviso>hgroup>h2,
+article.aviso>hgroup>h3,
+article.aviso>hgroup>h4,
+article.aviso>hgroup>h5,
+article.aviso>hgroup>h6,
+article.aviso:hover,
+article.cartão:hover,
+article.new:hover {
+  transition: all 0.3s;
+}
+
+article.aviso>hgroup>h1,
+article.aviso>hgroup>h2,
+article.aviso>hgroup>h3,
+article.aviso>hgroup>h4,
+article.aviso>hgroup>h5,
+article.aviso>hgroup>h6 {
+  color: var(--pico-color-orange-500);
+}
+
+article.aviso:hover>hgroup>h1,
+article.aviso:hover>hgroup>h2,
+article.aviso:hover>hgroup>h3,
+article.aviso:hover>hgroup>h4,
+article.aviso:hover>hgroup>h5,
+article.aviso:hover>hgroup>h6 {
+  color: var(--pico-color-h1);
+}
+
+article.aviso:hover {
+  border: solid 2px var(--pico-color-orange-600);
+  background-color: var(--pico-color-orange-900);
+  animation: none;
+}
+
+article.new:hover {
+  border: solid 2px var(--pico-color-jade-600);
+  background-color: var(--pico-color-jade-800);
+  animation: none;
+}
+
+article.cartão {
+  border: solid 2px var(--pico-color-slate-700);
+}
+
+article.cartão:hover {
+  border: solid 2px var(--pico-color-slate-700);
+  background-color: var(--pico-color-slate-800);
+  animation: none;
+}
+
+/* Classes utilitárias de animação */
+.animar {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animar.repetir-infinitamente {
+  animation-iteration-count: infinite;
+}
+
+.animar.duração-rápida {
+  animation-duration: 0.3s;
+}
+
+.animar.duração-média {
+  animation-duration: 1.6s;
+}
+
+.animar.duração-longa {
+  animation-duration: 3.2s;
+}
+
+.animar.pulsar-borda-jade {
+  animation-name: pulsar-borda-jade;
+}
+
+.animar.pulsar-borda-laranja {
+  animation-name: pulsar-borda-laranja;
+}
+
+/* Animações */
+@keyframes pulsar-borda-jade {
+  0% {
+    border: solid 2px var(--pico-color-slate-700);
+  }
+
+  50% {
+    border: solid 2px var(--pico-color-jade-600);
+  }
+
+  100% {
+    border: solid 2px var(--pico-color-slate-700);
+  }
+}
+
+@keyframes pulsar-borda-laranja {
+  0% {
+    border: solid 2px var(--pico-color-slate-700);
+  }
+
+  50% {
+    border: solid 2px var(--pico-color-orange-600);
+  }
+
+  100% {
+    border: solid 2px var(--pico-color-slate-700);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}

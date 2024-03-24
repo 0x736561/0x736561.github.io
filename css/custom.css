@@ -1,103 +1,52 @@
-.post {
-  animation-name: fade-in;
-  animation-duration: 1s;
-}
+@import "styles.css";
 
-.new {
-  animation: pulse 2s infinite;
-  transition: all 0.8s;
-}
-
-.new:hover {
-  border: solid 2px var(--pico-color-jade-600);
-  background-color: var(--pico-color-jade-900);
-  transition: all 0.3s;
-  animation: none;
-}
-
-.old {
-  border: solid 2px var(--pico-color-slate-700);
-  transition: all 0.8s;
-}
-
-.old:hover {
-  border: solid 2px var(--pico-color-slate-700);
-  background-color: var(--pico-color-slate-800);
-  transition: all 0.3s;
+main.post {
+  animation: fade-in 1s;
 }
 
 a {
   text-decoration: none;
 }
 
-.github {
+article.github {
   border: solid 2px var(--pico-color-indigo-500);
   transition: all 0.8s;
 }
 
-.github:hover {
+article.github:hover {
   border: solid 2px var(--pico-color-indigo-500);
   background-color: var(--pico-color-indigo-900);
   transition: all 0.3s;
 }
 
-.linkedin {
+article.linkedin {
   border: solid 2px var(--pico-color-azure-500);
   transition: all 0.8s;
 }
 
-.linkedin:hover {
+article.linkedin:hover {
   background-color: var(--pico-color-azure-900);
   transition: all 0.3s;
 }
 
-.youtube {
+article.youtube {
   border: solid 2px var(--pico-color-red-500);
   transition: all 0.8s;
 }
 
-.youtube:hover {
+article.youtube:hover {
   border: solid 2px var(--pico-color-red-500);
   background-color: var(--pico-color-red-900);
   transition: all 0.3s;
 }
 
-.instagram {
+article.instagram {
   border: solid 2px var(--pico-color-pink-500);
   transition: all 0.8s;
 }
 
-.instagram:hover {
+article.instagram:hover {
   border: solid 2px var(--pico-color-pink-500);
   background-color: var(--pico-color-pink-900);
   transition: all 0.3s;
-}
-
-.aviso {
-  border: solid 2px var(--pico-color-orange-500);
-}
-
-@keyframes pulse {
-  0% {
-    border: solid 2px var(--pico-color-slate-700);
-  }
-
-  50% {
-    border: solid 2px var(--pico-color-jade-600);
-  }
-
-  100% {
-    border: solid 2px var(--pico-color-slate-700);
-  }
-
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0%;
-  }
-
-  to {
-    opacity: 100%;
-  }
 }
