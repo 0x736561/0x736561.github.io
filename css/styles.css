@@ -46,13 +46,13 @@ article.aviso:hover>hgroup>h6 {
 
 article.aviso:hover {
   border: solid 2px var(--pico-color-orange-600);
-  background-color: var(--pico-color-orange-900);
+  background-color: var(--pico-color-orange-850);
   animation: none;
 }
 
 article.new:hover {
   border: solid 2px var(--pico-color-jade-600);
-  background-color: var(--pico-color-jade-800);
+  background-color: var(--pico-color-jade-850);
   animation: none;
 }
 
@@ -62,8 +62,14 @@ article.cartão {
 
 article.cartão:hover {
   border: solid 2px var(--pico-color-slate-700);
-  background-color: var(--pico-color-slate-800);
+  background-color: var(--pico-color-slate-850);
   animation: none;
+}
+
+.desabilitado {
+  background-color: rgba(0, 0, 0, 0) !important;
+  border-style: dashed !important;
+  opacity: 70%;
 }
 
 /* Classes utilitárias de animação */
