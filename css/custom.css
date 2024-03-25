@@ -20,6 +20,7 @@ a {
 [type=button] {
   border: solid 2px var(--pico-color-blue-500);
   background-color: var(--pico-color-slate-800);
+  opacity: 50%;
   padding: 6px;
   transition: 0.3s;
 }
@@ -27,6 +28,7 @@ a {
 [type=button]:hover {
   border: solid 2px var(--pico-color-blue-500);
   background-color: var(--pico-color-blue-500);
+  opacity: 100%;
   padding: 10px;
   transition: 0.3s;
 }
